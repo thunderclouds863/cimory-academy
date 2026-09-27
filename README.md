@@ -22,7 +22,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 
 ---
 
-## Fitur Utama
+## ✨ Fitur Utama
 
 ### Untuk User (Sales)
 | Fitur | Deskripsi |
@@ -60,7 +60,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 ### Backend
 | Komponen | Teknologi |
@@ -95,7 +95,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 
 ---
 
-## Struktur Project
+## 📁 Struktur Project
 
 ```
 Sales-Academy/
@@ -159,7 +159,7 @@ Sales-Academy/
 
 ---
 
-## Requirements Sistem
+## 💻 Persyaratan Sistem
 
 ### Development
 - **Node.js** v18+ ([download](https://nodejs.org))
@@ -177,7 +177,7 @@ Sales-Academy/
 
 ---
 
-## Instalasi & Setup
+## 🚀 Instalasi & Setup
 
 ### 1. Clone Repository
 
@@ -250,7 +250,7 @@ Frontend biasanya diakses di `http://localhost:3000` (atau port yang diserve).
 
 ---
 
-## Konfigurasi Environment
+## ⚙ Konfigurasi Environment
 
 File `.env` di folder `backend/`:
 
@@ -296,7 +296,7 @@ Copy hasilnya ke `JWT_SECRET`.
 
 ---
 
-## Run Aplikasi
+## 🏃 Menjalankan Aplikasi
 
 ### Development
 
@@ -334,11 +334,11 @@ NODE_ENV=production npm start
 | Admin | `admin@cimory.com` | `admin123!` (atau sesuai `.env`) |
 | User | `demo@cimory.com` | `demo123` |
 
-**PENTING:** Ganti password admin setelah deploy ke production!
+**⚠️ PENTING:** Ganti password admin setelah deploy ke production!
 
 ---
 
-## Database Schema
+## 🗄 Database Schema
 
 ### Tabel Utama
 
@@ -376,11 +376,11 @@ npm run seed       # Insert initial data
 npm run reset      # migrate + seed (fresh start)
 ```
 
-**`npm run reset` akan DROP semua data!** Gunakan hanya di development.
+**⚠️ `npm run reset` akan DROP semua data!** Gunakan hanya di development.
 
 ---
 
-## API Endpoints
+## 🔌 API Endpoints
 
 ### Base URL
 ```
@@ -515,7 +515,7 @@ http://localhost:4000/api
 
 ---
 
-## Deployment
+## 🚢 Deployment
 
 ### Rekomendasi Infrastruktur
 
@@ -608,7 +608,7 @@ sudo certbot --nginx -d your-domain.com
 
 ---
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
 ### Error: `Cannot connect to database`
 - Cek PostgreSQL udah jalan: `sudo systemctl status postgresql`
@@ -639,9 +639,9 @@ sudo certbot --nginx -d your-domain.com
 
 ---
 
-## Roadmap
+## 🗺 Roadmap
 
-### Done
+### ✅ Done
 - [x] Auth & JWT
 - [x] Modul belajar dengan video
 - [x] Kuis chapter & bulanan
@@ -652,13 +652,13 @@ sudo certbot --nginx -d your-domain.com
 - [x] Admin panel lengkap
 - [x] Screenshot guard
 
-### In Progress
+### 🚧 In Progress
 - [ ] Migrasi ke NestJS + Prisma (incremental refactor)
 - [ ] Migrasi video ke Cloudflare R2 + CDN
 - [ ] Setup CI/CD GitLab
 - [ ] Unit & integration testing
 
-### Planned
+### 📅 Planned
 - [ ] HLS streaming (video adaptive bitrate)
 - [ ] Signed URLs (proteksi video)
 - [ ] Mobile app (React Native / PWA)
@@ -668,7 +668,7 @@ sudo certbot --nginx -d your-domain.com
 
 ---
 
-## Kontribusi
+## 🤝 Kontribusi
 
 ### Setup Development
 
@@ -710,15 +710,17 @@ chore: update dependencies
 
 ---
 
-## Kontak & Support
+## 📞 Kontak & Support
 
 | Role | Kontak |
 |------|--------|
-| **Developer** | [Desi Armanda Sari] — [desi.armanda@cimory.com] |
+| **Developer** | [Nama lo] — [email lo] |
+| **IT Support** | [Nama IT] — [email IT] |
+| **Product Owner** | [Nama PO] — [email PO] |
 
 ---
 
-## Lisensi
+## 📄 Lisensi
 
 **Internal use only** — © 2026 Cimory Group. All rights reserved.
 
@@ -726,7 +728,7 @@ Konten, video, dan materi pembelajaran adalah properti Cimory Group & Kanzler. D
 
 ---
 
-## Credits
+## 🙏 Credits
 
 - **Design System:** Custom Cimory branding
 - **Fonts:** [Fredoka](https://fonts.google.com/specimen/Fredoka) & [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
