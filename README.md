@@ -9,6 +9,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 - [Fitur Utama](#-fitur-utama)
 - [Tech Stack](#-tech-stack)
 - [Struktur Project](#-struktur-project)
+- [Dokumentasi Lengkap](#-dokumentasi-lengkap)
 - [Persyaratan Sistem](#-persyaratan-sistem)
 - [Instalasi & Setup](#-instalasi--setup)
 - [Konfigurasi Environment](#-konfigurasi-environment)
@@ -25,6 +26,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 ## ✨ Fitur Utama
 
 ### Untuk User (Sales)
+
 | Fitur | Deskripsi |
 |-------|-----------|
 | **Autentikasi** | Login/register dengan email kantor, JWT, forgot/reset password via email |
@@ -39,6 +41,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 | **Popups** | Notifikasi pemenang, papan pemenang, announcement dengan jadwal & gambar |
 
 ### Untuk Admin
+
 | Fitur | Deskripsi |
 |-------|-----------|
 | **Dashboard** | Statistik user, top 5 trainee, banner quiz aktif |
@@ -52,6 +55,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 | **Reports** | CRUD, access control, analytics, import Excel |
 
 ### Fitur Keamanan
+
 - **Screenshot Guard** — deteksi PrintScreen, Ctrl+P/S, Cmd+Shift+3/4/5, blur, visibility change
 - **Video Guard** — pause otomatis saat blur/tab switch, anti-skip seeking
 - **Anti-debug** — blokir contextmenu, selectstart, dragstart
@@ -63,10 +67,13 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 ## 🛠 Tech Stack
 
 ### Backend
+
 | Komponen | Teknologi |
 |----------|-----------|
-| Runtime | Node.js 18+ |
-| Framework | Express.js 4.x |
+| Runtime | Node.js 20+ |
+| Framework (baru) | **NestJS 10** |
+| Framework (legacy) | Express.js 4.x |
+| ORM (baru) | **Prisma 6** |
 | Database | PostgreSQL 14+ |
 | Auth | JWT (jsonwebtoken) |
 | Password | bcryptjs |
@@ -74,8 +81,10 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 | Excel | ExcelJS |
 | Email | Nodemailer |
 | Security | helmet, express-rate-limit |
+| Object Storage | **Cloudflare R2** (S3-compatible) |
 
 ### Frontend
+
 | Komponen | Teknologi |
 |----------|-----------|
 | Markup | HTML5 |
@@ -85,6 +94,7 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**. Be
 | Icons | Inline SVG |
 
 ### Infrastruktur (Rekomendasi)
+
 | Komponen | Provider |
 |----------|----------|
 | App Server | VPS (DigitalOcean/Vultr/Hetzner) |
@@ -102,11 +112,31 @@ Sales-Academy/
 ├── .gitignore                    # Git ignore rules
 ├── .gitattributes                # Line ending normalization
 ├── README.md                     # Dokumentasi ini
+├── docs/                         # 📚 Dokumentasi IT
+│   ├── 01-IT-REQUIREMENTS.md
+│   ├── 02-ARCHITECTURE.md
+│   ├── 03-DEPLOYMENT.md
+│   └── 04-ROADMAP.md
 │
-├── backend/                      # API server
+├── backend/                      # API server (hybrid)
 │   ├── .env.example              # Template environment
 │   ├── package.json
-│   ├── server.js                 # Entry point
+│   ├── legacy-app.js             # Express app (di-mount ke NestJS)
+│   ├── server.js                 # Entry point legacy (opsional)
+│   │
+│   ├── nestjs/                   # 🆕 NestJS v2 (fitur baru)
+│   │   ├── src/
+│   │   │   ├── modules/
+│   │   │   │   ├── auth/         # Login, JWT, guard
+│   │   │   │   ├── chapters/     # Chapter & modul
+│   │   │   │   └── storage/      # Cloudflare R2 upload
+│   │   │   ├── prisma/           # Prisma service
+│   │   │   ├── app.module.ts
+│   │   │   └── main.ts
+│   │   ├── prisma/
+│   │   │   └── schema.prisma
+│   │   └── package.json
+│   │
 │   ├── db/
 │   │   ├── pool.js               # PostgreSQL connection pool
 │   │   ├── schema.sql            # Database schema
@@ -115,7 +145,7 @@ Sales-Academy/
 │   ├── middleware/
 │   │   ├── auth.js               # JWT verification
 │   │   └── upload.js             # Multer config
-│   ├── routes/
+│   ├── routes/                   # Express routes
 │   │   ├── auth.routes.js
 │   │   ├── chapters.routes.js
 │   │   ├── quizzes.routes.js
@@ -133,9 +163,6 @@ Sales-Academy/
 │   │   ├── excel.js              # Excel parser & template builder
 │   │   └── reward.js             # Monthly ranking & winners
 │   └── uploads/                  # Uploaded files (gitignored)
-│       ├── videos/
-│       ├── images/
-│       └── imports/
 │
 └── frontend/                     # Web app
     ├── index.html
@@ -159,16 +186,29 @@ Sales-Academy/
 
 ---
 
+## 📚 Dokumentasi Lengkap
+
+Untuk dokumen lengkap yang bisa dibawa ke IT:
+
+- 📋 **[IT Requirements](docs/01-IT-REQUIREMENTS.md)** — kebutuhan server, database, storage, checklist IT
+- 🏗️ **[Architecture](docs/02-ARCHITECTURE.md)** — struktur aplikasi, alur data, database schema
+- 🚀 **[Deployment Guide](docs/03-DEPLOYMENT.md)** — cara deploy ke production (Nginx, PM2, CI/CD)
+- 🗺️ **[Roadmap](docs/04-ROADMAP.md)** — timeline migrasi & fitur jangka panjang
+
+---
+
 ## 💻 Persyaratan Sistem
 
 ### Development
-- **Node.js** v18+ ([download](https://nodejs.org))
-- **npm** v9+ (biasanya bundled dengan Node.js)
+
+- **Node.js** v20+ ([download](https://nodejs.org))
+- **npm** v9+ (bundled dengan Node.js)
 - **PostgreSQL** v14+ ([download](https://www.postgresql.org/download))
 - **Git** v2.30+ ([download](https://git-scm.com))
-- **Laragon** (opsional, untuk Windows) — [download](https://laragon.org)
+- **Laragon** (opsional, Windows) — [download](https://laragon.org)
 
 ### Production (Rekomendasi)
+
 - **OS:** Ubuntu 22.04 LTS atau Debian 12
 - **CPU:** 2 vCPU minimum
 - **RAM:** 4 GB minimum
@@ -186,58 +226,57 @@ git clone https://gitlab.com/username-lo/sales-academy.git
 cd sales-academy
 ```
 
-### 2. Setup Backend
+### 2. Setup Database
+
+Buat database PostgreSQL:
+
+```bash
+psql -U postgres -c "CREATE USER cimory_user WITH PASSWORD 'REDACTED_DB_PASSWORD';"
+psql -U postgres -c "CREATE DATABASE cimory_academy OWNER cimory_user;"
+```
+
+### 3. Setup Backend Legacy (Express)
 
 ```bash
 cd backend
 npm install
-```
-
-### 3. Setup Database
-
-Buat database PostgreSQL baru:
-
-```bash
-# Via psql
-psql -U postgres -c "CREATE DATABASE cimory_academy;"
-```
-
-Atau via pgAdmin / Laragon.
-
-### 4. Konfigurasi Environment
-
-```bash
 cp .env.example .env
+# Edit .env — lihat bagian Konfigurasi Environment
+npm run migrate
+npm run seed
 ```
 
-Edit `.env` sesuai environment lo (lihat [Konfigurasi Environment](#-konfigurasi-environment)).
-
-### 5. Migrasi & Seed Database
+### 4. Setup Backend Baru (NestJS)
 
 ```bash
-npm run migrate    # Bikin tabel-tabel
-npm run seed       # Isi data awal (admin, chapters, quizzes, badges)
+cd backend/nestjs
+npm install
+cp .env.example .env
+# Edit .env — JWT_SECRET HARUS SAMA dengan backend/.env
+npx prisma generate
+npx prisma db pull
 ```
 
-Atau sekaligus:
+### 5. Jalankan Backend
+
+**NestJS (recommended, menjalankan keduanya sekaligus):**
 
 ```bash
-npm run reset      # migrate + seed
+cd backend/nestjs
+npm run start:dev
 ```
 
-### 6. Jalankan Backend
+Server jalan di `http://localhost:4000`:
+- Express legacy: `http://localhost:4000/api/*`
+- NestJS v2: `http://localhost:4000/api/v2/*`
+
+**Cek health:**
 
 ```bash
-# Development (auto-reload)
-npm run dev
-
-# Production
-npm start
+curl http://localhost:4000/api/v2/health
 ```
 
-Backend jalan di `http://localhost:4000`.
-
-### 7. Jalankan Frontend
+### 6. Jalankan Frontend
 
 Buka `frontend/index.html` di browser, atau serve via static server:
 
@@ -246,28 +285,27 @@ cd frontend
 npx serve .
 ```
 
-Frontend biasanya diakses di `http://localhost:3000` (atau port yang diserve).
-
 ---
 
-## ⚙ Konfigurasi Environment
+## ⚙️ Konfigurasi Environment
 
-File `.env` di folder `backend/`:
+### `backend/.env` (Express Legacy)
 
 ```env
 # Server
 PORT=4000
 APP_URL=http://localhost:4000
+NODE_ENV=development
 
 # Database
 PGHOST=localhost
 PGPORT=5432
-PGUSER=postgres
-PGPASSWORD=your_password
+PGUSER=cimory_user
+PGPASSWORD=REDACTED_DB_PASSWORD
 PGDATABASE=cimory_academy
 
-# JWT
-JWT_SECRET=change-this-to-random-string
+# JWT (HARUS SAMA dengan backend/nestjs/.env)
+JWT_SECRET=dev_secret_ganti_di_production_minimal_32_char
 JWT_EXPIRES=8h
 
 # Admin Default (untuk seed)
@@ -286,13 +324,32 @@ UPLOAD_DIR=uploads
 MAX_VIDEO_MB=500
 ```
 
+### `backend/nestjs/.env` (NestJS)
+
+```env
+# Database (connection string untuk Prisma)
+DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/cimory_academy?schema=public
+
+# JWT (HARUS SAMA dengan backend/.env)
+JWT_SECRET=dev_secret_ganti_di_production_minimal_32_char
+JWT_EXPIRES=8h
+
+# Cloudflare R2
+R2_ACCOUNT_ID=your-account-id
+R2_ACCESS_KEY_ID=your-access-key
+R2_SECRET_ACCESS_KEY=your-secret-key
+R2_BUCKET=cimory-media
+R2_ENDPOINT=https://your-account-id.r2.cloudflarestorage.com
+R2_PUBLIC_URL=https://pub-xxxxx.r2.dev
+```
+
 ### Generate JWT Secret
 
 ```bash
 node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 ```
 
-Copy hasilnya ke `JWT_SECRET`.
+Copy hasilnya ke `JWT_SECRET` di **kedua** `.env` (backend & backend/nestjs).
 
 ---
 
@@ -300,13 +357,15 @@ Copy hasilnya ke `JWT_SECRET`.
 
 ### Development
 
-**Terminal 1 — Backend:**
+**Terminal 1 — Backend (Express + NestJS hybrid):**
+
 ```bash
-cd backend
-npm run dev
+cd backend/nestjs
+npm run start:dev
 ```
 
-**Terminal 2 — Frontend (opsional, kalau pakai static server):**
+**Terminal 2 — Frontend (opsional):**
+
 ```bash
 cd frontend
 npx serve .
@@ -315,8 +374,9 @@ npx serve .
 ### Production
 
 ```bash
-cd backend
-NODE_ENV=production npm start
+cd backend/nestjs
+npm run build
+NODE_ENV=production npm run start:prod
 ```
 
 ### Akses Aplikasi
@@ -324,7 +384,8 @@ NODE_ENV=production npm start
 | URL | Deskripsi |
 |-----|-----------|
 | `http://localhost:4000` | Backend API + frontend static |
-| `http://localhost:4000/api/*` | API endpoints |
+| `http://localhost:4000/api/*` | Express legacy endpoints |
+| `http://localhost:4000/api/v2/*` | NestJS v2 endpoints |
 | `http://localhost:4000/uploads/*` | File statis (video, gambar) |
 
 ### Akun Default (Setelah Seed)
@@ -340,7 +401,7 @@ NODE_ENV=production npm start
 
 ## 🗄 Database Schema
 
-### Tabel Utama
+23 tabel utama:
 
 | Tabel | Deskripsi |
 |-------|-----------|
@@ -368,242 +429,66 @@ NODE_ENV=production npm start
 | `report_views` | Log views reports |
 | `password_resets` | Token reset password |
 
-### Migration & Seed
-
-```bash
-npm run migrate    # Apply schema.sql
-npm run seed       # Insert initial data
-npm run reset      # migrate + seed (fresh start)
-```
-
-**⚠️ `npm run reset` akan DROP semua data!** Gunakan hanya di development.
-
 ---
 
 ## 🔌 API Endpoints
 
 ### Base URL
+
 ```
-http://localhost:4000/api
+http://localhost:4000/api       # Express legacy
+http://localhost:4000/api/v2    # NestJS (fitur baru)
 ```
 
-### Authentication
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| POST | `/auth/register` | Registrasi user baru |
-| POST | `/auth/login` | Login (returns JWT) |
-| POST | `/auth/change-password` | Ganti password (butuh auth) |
-| GET | `/auth/me` | Info user saat ini |
-| POST | `/auth/forgot-password` | Request reset password |
-| GET | `/auth/verify-reset-token/:token` | Verify token reset |
-| POST | `/auth/reset-password` | Reset password dengan token |
+### Fitur yang Sudah Migrasi ke NestJS v2
 
-### Chapters & Modules
 | Method | Endpoint | Deskripsi |
 |--------|----------|-----------|
-| GET | `/chapters` | List semua chapter + modul |
-| POST | `/chapters` | Bikin chapter (admin) |
-| PUT | `/chapters/:id` | Update chapter (admin) |
-| DELETE | `/chapters/:id` | Hapus chapter (admin) |
-| POST | `/chapters/:chapterId/modules` | Bikin modul (admin) |
-| PUT | `/chapters/modules/:id` | Update modul (admin) |
-| DELETE | `/chapters/modules/:id` | Hapus modul (admin) |
-| POST | `/chapters/modules/:id/duration` | Set durasi video |
+| GET | `/api/v2/health` | Health check |
+| POST | `/api/v2/auth/login` | Login |
+| GET | `/api/v2/auth/me` | Info user |
+| GET | `/api/v2/chapters` | List chapter + modul |
+| POST | `/api/v2/storage/presign` | Get presigned URL untuk upload |
 
-### Quizzes
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/quizzes` | List semua kuis |
-| GET | `/quizzes/:chapterId` | Detail kuis per chapter |
-| POST | `/quizzes/:chapterId/submit` | Submit jawaban |
-| POST | `/quizzes` | Bikin kuis (admin) |
-| POST | `/quizzes/:quizId/questions` | Tambah soal (admin) |
-| DELETE | `/quizzes/questions/:id` | Hapus soal (admin) |
-| DELETE | `/quizzes/:id` | Hapus kuis (admin) |
+### Fitur yang Masih di Express (Legacy)
 
-### Monthly Quiz
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/monthly-quiz/current` | Quiz bulan ini |
-| GET | `/monthly-quiz/archive` | Arsip quiz bulan lalu |
-| GET | `/monthly-quiz/:id` | Detail quiz |
-| POST | `/monthly-quiz/:id/submit` | Submit jawaban (1× only) |
-| GET | `/monthly-quiz/admin/list` | List semua quiz (admin) |
-| POST | `/monthly-quiz/admin` | Bikin quiz (admin) |
-| PUT | `/monthly-quiz/admin/:id` | Update quiz (admin) |
-| POST | `/monthly-quiz/admin/:id/toggle-active` | Toggle aktif (admin) |
-| DELETE | `/monthly-quiz/admin/:id` | Hapus quiz (admin) |
-| POST | `/monthly-quiz/admin/:id/questions` | Tambah soal (admin) |
-| DELETE | `/monthly-quiz/admin/questions/:qid` | Hapus soal (admin) |
-| GET | `/monthly-quiz/admin/:id/attempts` | Lihat peserta (admin) |
-
-### Flashcards
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/flashcards` | List semua flashcard |
-| POST | `/flashcards/:id/view` | Catat view |
-| POST | `/flashcards` | Bikin flashcard (admin) |
-| PUT | `/flashcards/:id` | Update flashcard (admin) |
-| DELETE | `/flashcards/:id` | Hapus flashcard (admin) |
-
-### Badges
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/badges` | List semua badge + status owned |
-| GET | `/badges/admin/list` | List badge + statistics (admin) |
-| POST | `/badges/admin` | Bikin badge (admin) |
-| PUT | `/badges/admin/:id` | Update badge (admin) |
-| DELETE | `/badges/admin/:id` | Hapus badge (admin) |
-| GET | `/badges/admin/:id/owners` | Lihat pemilik badge (admin) |
-
-### Progress
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/progress/me` | Progress user saat ini |
-| POST | `/progress/modules/:id/complete` | Tandai modul selesai |
-| GET | `/progress/admin/all` | List semua user + progress (admin) |
-| GET | `/progress/admin/users/:id` | Detail user (admin) |
-| POST | `/progress/admin/users` | Bikin user (admin) |
-| PUT | `/progress/admin/users/:id` | Update user (admin) |
-| POST | `/progress/admin/users/:id/reset-password` | Reset password (admin) |
-| DELETE | `/progress/admin/users/:id` | Hapus user (admin) |
-
-### Leaderboard
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/leaderboard/progress` | Ranking Top Trainee |
-| GET | `/leaderboard/winners` | Pemenang bulan |
-| GET | `/leaderboard/prizes` | Hadiah per rank |
-| POST | `/leaderboard/prizes` | Set hadiah (admin) |
-| POST | `/leaderboard/generate-winners` | Generate pemenang (admin) |
-| GET | `/leaderboard/announcement` | Ambil announcement |
-| POST | `/leaderboard/announcement` | Set announcement (admin) |
-| GET | `/leaderboard/config` | Config leaderboard |
-| POST | `/leaderboard/config` | Update config (admin) |
-| GET | `/leaderboard/my-popup` | Popup untuk user |
-| POST | `/leaderboard/mark-seen` | Tandai popup udah dilihat |
-| GET | `/leaderboard/quiz-monthly` | Leaderboard quiz bulanan |
-| GET | `/leaderboard/quiz-chapter` | Leaderboard per chapter |
-| GET | `/leaderboard/popup-analytics` | Analytics popup (admin) |
-| GET | `/leaderboard/winners-popup-setting` | Setting popup winners |
-| POST | `/leaderboard/winners-popup-setting` | Update setting (admin) |
-
-### Reports
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/reports` | List reports user punya akses |
-| GET | `/reports/:slug` | Detail report |
-| GET | `/reports/admin/all` | List semua reports (admin) |
-| POST | `/reports/admin` | Bikin report (admin) |
-| PUT | `/reports/admin/:id` | Update report (admin) |
-| DELETE | `/reports/admin/:id` | Hapus report (admin) |
-| GET | `/reports/admin/:id/access` | List akses (admin) |
-| POST | `/reports/admin/:id/access` | Set akses (admin) |
-| GET | `/reports/admin/:id/analytics` | Analytics (admin) |
-
-### Upload
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| POST | `/upload/video` | Upload video (admin) |
-| POST | `/upload/image` | Upload gambar (admin) |
-| POST | `/upload/excel/quiz/import` | Import kuis dari Excel (admin) |
-| POST | `/upload/excel/monthly-quiz/import` | Import quiz bulanan (admin) |
-| POST | `/upload/excel/flashcards/import` | Import flashcards (admin) |
-| POST | `/upload/excel/users/import` | Import users (admin) |
-| POST | `/upload/excel/reports/import` | Import reports (admin) |
-| GET | `/upload/excel/template/:type` | Download template Excel (admin) |
+Semua endpoint lain tetap di `/api/*` (lihat [Dokumentasi API lengkap](docs/02-ARCHITECTURE.md)).
 
 ---
 
 ## 🚢 Deployment
 
-### Rekomendasi Infrastruktur
+Lihat **[Deployment Guide](docs/03-DEPLOYMENT.md)** untuk panduan lengkap.
 
-```
-┌─────────────────────────────────────────┐
-│         CLOUDFLARE (CDN + WAF)          │
-│   Free tier: DDoS, SSL, CDN global      │
-└────────────────┬────────────────────────┘
-                 │
-    ┌────────────┴────────────┐
-    ▼                         ▼
-┌─────────────┐      ┌─────────────────┐
-│ APP SERVER  │      │ OBJECT STORAGE  │
-│ Node.js     │      │ Cloudflare R2   │
-│ Express     │      │ - Video         │
-│             │      │ - Gambar        │
-│ 2-4 vCPU    │      │ - Backup        │
-│ 4-8 GB RAM  │      │                 │
-└──────┬──────┘      └─────────────────┘
-       │
-       ▼
-┌─────────────────┐
-│   DATABASE      │
-│   PostgreSQL    │
-│   (Supabase)    │
-│   8-10 GB       │
-│   Daily Backup  │
-└─────────────────┘
-```
-
-### Estimasi Biaya (1.000 user aktif)
-
-| Komponen | Provider | Biaya/bulan |
-|----------|----------|-------------|
-| App Server (2 vCPU, 4 GB) | DigitalOcean/Vultr | $24-48 |
-| Database (Supabase Pro) | Supabase | $25 |
-| Object Storage (100 GB) | Cloudflare R2 | $1.50 |
-| CDN | Cloudflare Free | $0 |
-| Email (10k/bulan) | Resend/SendGrid | $0-20 |
-| Domain + SSL | Cloudflare | $0 |
-| **TOTAL** | | **~$50-95/bulan** |
-
-### Scaling Roadmap
-
-| Jumlah User | App Server | Database | Storage |
-|-------------|------------|----------|---------|
-| < 100 | 1 vCPU, 2 GB | Supabase Free | R2 10 GB (free) |
-| 100-500 | 2 vCPU, 4 GB | Supabase Pro | R2 50 GB |
-| 500-2.000 | 4 vCPU, 8 GB | Supabase Medium | R2 200 GB |
-| 2.000-10.000 | 2× App + LB | Supabase Large | R2 500 GB + CDN |
-| > 10.000 | Kubernetes | Supabase XL+ | R2 1 TB+ |
-
-### Deploy ke VPS (Manual)
+### Quick Deploy (VPS)
 
 ```bash
 # 1. SSH ke VPS
 ssh user@your-vps-ip
 
-# 2. Install Node.js, PostgreSQL, Nginx
+# 2. Install dependencies
 sudo apt update
 sudo apt install -y nodejs npm postgresql nginx
 
 # 3. Clone repo
 git clone https://gitlab.com/username/sales-academy.git
-cd sales-academy/backend
+cd sales-academy/backend/nestjs
 
 # 4. Setup
 npm install
 cp .env.example .env
 nano .env  # isi config production
 
-# 5. Migrate & seed
-npm run migrate
-npm run seed
+# 5. Prisma
+npx prisma generate
 
-# 6. Setup PM2 (process manager)
+# 6. PM2
 sudo npm install -g pm2
-pm2 start server.js --name cimory-academy
-pm2 startup
-pm2 save
+pm2 start npm --name "cimory-academy" -- run start:prod
+pm2 startup && pm2 save
 
-# 7. Setup Nginx reverse proxy
-sudo nano /etc/nginx/sites-available/cimory-academy
-# (config Nginx — proxy ke localhost:4000)
-
-# 8. SSL via Let's Encrypt
-sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d your-domain.com
+# 7. Nginx + SSL
+# (lihat docs/03-DEPLOYMENT.md)
 ```
 
 ---
@@ -611,37 +496,49 @@ sudo certbot --nginx -d your-domain.com
 ## 🔧 Troubleshooting
 
 ### Error: `Cannot connect to database`
+
 - Cek PostgreSQL udah jalan: `sudo systemctl status postgresql`
 - Cek kredensial di `.env` (PGHOST, PGUSER, PGPASSWORD, PGDATABASE)
 - Cek database udah dibuat: `psql -U postgres -l`
 
 ### Error: `Port 4000 already in use`
-- Cari proses: `lsof -i :4000` (Linux/Mac) atau `netstat -ano | findstr :4000` (Windows)
-- Kill proses atau ganti `PORT` di `.env`
+
+- Cari proses: `netstat -ano | findstr :4000` (Windows) atau `lsof -i :4000` (Linux/Mac)
+- Kill proses: `taskkill /F /PID <PID>` (Windows) atau `kill -9 <PID>` (Linux/Mac)
 
 ### Error: `JWT malformed / invalid`
-- Cek `JWT_SECRET` di `.env` sama antara server & token
+
+- Cek `JWT_SECRET` di `backend/.env` dan `backend/nestjs/.env` **HARUS SAMA PERSIS**
 - Clear localStorage di browser, login ulang
 
-### Error: `CORS error` di browser
-- Cek config CORS di `server.js`
+### Error: `Property 'user' does not exist on PrismaService`
+
+- Berarti schema Prisma udah di-rename ke singular, tapi kode masih pakai plural
+- Ganti `prisma.users` → `prisma.user` di kode
+
+### Error: `EPERM: operation not permitted, rename ...`
+
+- Matiin semua Node: `taskkill /F /IM node.exe` (Windows)
+- Tutup editor (VS Code, dll)
+- Hapus cache: `Remove-Item -Recurse -Force node_modules\.prisma`
+- Generate ulang: `npx prisma generate`
+
+### CORS error di browser
+
+- Cek config CORS di `legacy-app.js` dan `main.ts`
 - Pastikan origin frontend di-allow
 
 ### Video tidak muncul / buffering
-- Cek file ada di `backend/uploads/videos/`
-- Cek `video_path` di database sesuai
-- Untuk production, migrasi ke Cloudflare R2 + CDN
 
-### Email reset password tidak terkirim
-- Cek config SMTP di `.env`
-- Untuk Gmail, pakai **App Password** (bukan password biasa)
-- Cek log: `console.log` di `services/email.js`
+- Untuk development: cek file di `backend/uploads/videos/`
+- Untuk production: migrasi ke Cloudflare R2 + CDN
 
 ---
 
 ## 🗺 Roadmap
 
 ### ✅ Done
+
 - [x] Auth & JWT
 - [x] Modul belajar dengan video
 - [x] Kuis chapter & bulanan
@@ -651,20 +548,30 @@ sudo certbot --nginx -d your-domain.com
 - [x] Reports Power BI
 - [x] Admin panel lengkap
 - [x] Screenshot guard
+- [x] Hybrid server NestJS + Express
+- [x] Migrasi auth ke NestJS v2
+- [x] Setup Cloudflare R2 + presigned upload
+- [x] Rename Prisma models ke singular
+- [x] Dokumentasi IT
 
 ### 🚧 In Progress
-- [ ] Migrasi ke NestJS + Prisma (incremental refactor)
-- [ ] Migrasi video ke Cloudflare R2 + CDN
+
+- [ ] Migrasi chapters ke NestJS v2
+- [ ] Migrasi quizzes ke NestJS v2
+- [ ] Migrasi progress ke NestJS v2
+- [ ] Migrasi leaderboard ke NestJS v2
 - [ ] Setup CI/CD GitLab
-- [ ] Unit & integration testing
 
 ### 📅 Planned
+
 - [ ] HLS streaming (video adaptive bitrate)
 - [ ] Signed URLs (proteksi video)
 - [ ] Mobile app (React Native / PWA)
 - [ ] Analytics dashboard (Metabase / Grafana)
 - [ ] Multi-language support
 - [ ] SSO integration (Azure AD / Google Workspace)
+
+Lihat **[Roadmap lengkap](docs/04-ROADMAP.md)** untuk detail.
 
 ---
 
@@ -676,7 +583,7 @@ sudo certbot --nginx -d your-domain.com
 2. Install dependencies (`npm install`)
 3. Setup `.env` (copy dari `.env.example`)
 4. Jalankan migrasi & seed
-5. Jalankan `npm run dev`
+5. Jalankan `npm run start:dev`
 
 ### Branching Strategy
 
@@ -714,7 +621,7 @@ chore: update dependencies
 
 | Role | Kontak |
 |------|--------|
-| **Developer** | [Desi Armanda Sari] — [desi.armanda@cimory.com] |
+| **Developer** | Desi Armanda Sari — desi.armanda@cimory.com |
 
 ---
 
@@ -731,7 +638,7 @@ Konten, video, dan materi pembelajaran adalah properti Cimory Group & Kanzler. D
 - **Design System:** Custom Cimory branding
 - **Fonts:** [Fredoka](https://fonts.google.com/specimen/Fredoka) & [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
 - **Icons:** Custom SVG
-- **Framework:** Express.js, PostgreSQL
+- **Framework:** NestJS, Express.js, Prisma, PostgreSQL
 
 ---
 
