@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("postgresql://USER:PASSWORD@localhost:5432/cimory_academy?schema=public")
+  url      = env("DATABASE_URL")
 }
 
 model badges {
