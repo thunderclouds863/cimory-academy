@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
+import { ValidationPipe } from '@nestjs/common';
 import express from 'express';
 import { AppModule } from './app.module';
 
@@ -17,13 +18,11 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v2');
   app.enableCors({ origin: true, credentials: true });
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
-  // Body parser di level top — SEKALI AJA
   expressApp.use(express.json({ limit: '5mb' }));
   expressApp.use(express.urlencoded({ extended: true }));
 
-  // Mount legacy di root (TANPA prefix)
-  // Karena route legacy udah include /api/auth, /api/chapters, dll
   const legacyApp = createLegacyApp();
   expressApp.use(legacyApp);
 
