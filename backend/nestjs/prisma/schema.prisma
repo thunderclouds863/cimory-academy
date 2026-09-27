@@ -7,37 +7,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model badges {
+model Badge {
   id          String        @id @db.VarChar(40)
   emoji       String?       @db.VarChar(10)
   title       String
   descr       String?
   type        String        @db.VarChar(30)
   threshold   Int           @default(1)
-  user_badges user_badges[]
+  user_badges UserBadge[]
+
+  @@map("badges")
 }
 
-model chapters {
+model Chapter {
   id          String    @id @db.VarChar(30)
   no          Int
   title       String
   description String?
   sort_order  Int       @default(0)
   created_at  DateTime  @default(now()) @db.Timestamptz(6)
-  modules     modules[]
-  quizzes     quizzes[]
+  modules     Module[]
+  quizzes     Quiz[]
+
+  @@map("chapters")
 }
 
-model flashcards {
+model Flashcard {
   id                   String                 @id @db.VarChar(30)
   emoji                String?                @db.VarChar(10)
   front                String
   back_json            Json
   sort_order           Int                    @default(0)
-  user_flashcard_views user_flashcard_views[]
+  user_flashcard_views UserFlashcardView[]
+
+  @@map("flashcards")
 }
 
-model leaderboard_config {
+model LeaderboardConfig {
   period               String    @id @db.VarChar(7)
   ranking_type         String    @default("posttest") @db.VarChar(20)
   top_n                Int       @default(3)
@@ -55,9 +61,11 @@ model leaderboard_config {
   winners_popup_end    DateTime? @db.Timestamptz(6)
 
   @@index([period, announcement_active], map: "idx_config_announcement_active")
+
+  @@map("leaderboard_config")
 }
 
-model leaderboard_prizes {
+model LeaderboardPrize {
   id         Int      @id @default(autoincrement())
   period     String   @db.VarChar(7)
   rank       Int
@@ -68,9 +76,11 @@ model leaderboard_prizes {
 
   @@unique([period, rank])
   @@index([period], map: "idx_prizes_period")
+
+  @@map("leaderboard_prizes")
 }
 
-model leaderboard_winners {
+model LeaderboardWinner {
   id             Int      @id @default(autoincrement())
   period         String   @db.VarChar(7)
   rank           Int
@@ -82,15 +92,17 @@ model leaderboard_winners {
   badge          String?  @db.VarChar(10)
   prize_emoji    String?  @default("🏆") @db.VarChar(10)
   prize_desc     String?
-  users          users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users          User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([period, rank])
   @@index([period], map: "idx_winners_period")
   @@index([period, rank], map: "idx_winners_period_rank")
   @@index([user_id], map: "idx_winners_user")
+
+  @@map("leaderboard_winners")
 }
 
-model modules {
+model Module {
   id                   String                 @id @db.VarChar(40)
   chapter_id           String                 @db.VarChar(30)
   no                   Int
@@ -100,13 +112,15 @@ model modules {
   summary              String?
   sort_order           Int                    @default(0)
   duration_sec         Int?
-  chapters             chapters               @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  user_module_progress user_module_progress[]
+  chapters             Chapter               @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user_module_progress UserModuleProgress[]
 
   @@index([chapter_id], map: "idx_modules_chapter")
+
+  @@map("modules")
 }
 
-model monthly_quiz_attempts {
+model MonthlyQuizAttempt {
   id              Int             @id @default(autoincrement())
   monthly_id      Int
   user_id         Int
@@ -116,14 +130,16 @@ model monthly_quiz_attempts {
   passed          Boolean         @default(false)
   created_at      DateTime        @default(now()) @db.Timestamptz(6)
   answers_json    Json?
-  monthly_quizzes monthly_quizzes @relation(fields: [monthly_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users           users           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  monthly_quizzes MonthlyQuiz @relation(fields: [monthly_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users           User           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([monthly_id, user_id])
   @@index([monthly_id], map: "idx_monthly_attempts")
+
+  @@map("monthly_quiz_attempts")
 }
 
-model monthly_quiz_questions {
+model MonthlyQuizQuestion {
   id              Int             @id @default(autoincrement())
   monthly_id      Int
   q               String
@@ -131,12 +147,14 @@ model monthly_quiz_questions {
   answer_idx      Int
   explain         String?
   sort_order      Int             @default(0)
-  monthly_quizzes monthly_quizzes @relation(fields: [monthly_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  monthly_quizzes MonthlyQuiz @relation(fields: [monthly_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([monthly_id], map: "idx_monthly_q_monthly")
+
+  @@map("monthly_quiz_questions")
 }
 
-model monthly_quizzes {
+model MonthlyQuiz {
   id                     Int                      @id @default(autoincrement())
   month_key              String                   @unique @db.VarChar(7)
   title                  String
@@ -145,23 +163,27 @@ model monthly_quizzes {
   time_limit_sec         Int                      @default(600)
   is_active              Boolean                  @default(true)
   created_at             DateTime                 @default(now()) @db.Timestamptz(6)
-  monthly_quiz_attempts  monthly_quiz_attempts[]
-  monthly_quiz_questions monthly_quiz_questions[]
+  monthly_quiz_attempts  MonthlyQuizAttempt[]
+  monthly_quiz_questions MonthlyQuizQuestion[]
+
+  @@map("monthly_quizzes")
 }
 
-model password_resets {
+model PasswordReset {
   id         Int       @id @default(autoincrement())
   user_id    Int
   token      String    @unique @db.VarChar(120)
   expires_at DateTime  @db.Timestamptz(6)
   used_at    DateTime? @db.Timestamptz(6)
   created_at DateTime  @default(now()) @db.Timestamptz(6)
-  users      users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users      User     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([token], map: "idx_pwreset_token")
+
+  @@map("password_resets")
 }
 
-model quiz_attempts {
+model QuizAttempt {
   id           Int      @id @default(autoincrement())
   user_id      Int
   quiz_id      Int
@@ -170,15 +192,17 @@ model quiz_attempts {
   duration_sec Int
   passed       Boolean  @default(false)
   created_at   DateTime @default(now()) @db.Timestamptz(6)
-  quizzes      quizzes  @relation(fields: [quiz_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users        users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  quizzes      Quiz  @relation(fields: [quiz_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users        User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([created_at], map: "idx_attempts_month")
   @@index([user_id], map: "idx_attempts_user")
   @@index([user_id, created_at(sort: Desc)], map: "idx_quiz_attempts_user_date")
+
+  @@map("quiz_attempts")
 }
 
-model quiz_questions {
+model QuizQuestion {
   id                     Int                      @id @default(autoincrement())
   quiz_id                Int
   q                      String
@@ -186,50 +210,58 @@ model quiz_questions {
   answer_idx             Int
   explain                String?
   sort_order             Int                      @default(0)
-  quizzes                quizzes                  @relation(fields: [quiz_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  user_question_answered user_question_answered[]
+  quizzes                Quiz                  @relation(fields: [quiz_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user_question_answered UserQuestionAnswered[]
 
   @@index([quiz_id], map: "idx_questions_quiz")
+
+  @@map("quiz_questions")
 }
 
-model quizzes {
+model Quiz {
   id             Int              @id @default(autoincrement())
   chapter_id     String           @db.VarChar(30)
   title          String
   min_score_pct  Int              @default(60)
   time_limit_sec Int              @default(300)
-  quiz_attempts  quiz_attempts[]
-  quiz_questions quiz_questions[]
-  chapters       chapters         @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  quiz_attempts  QuizAttempt[]
+  quiz_questions QuizQuestion[]
+  chapters       Chapter         @relation(fields: [chapter_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("quizzes")
 }
 
-model report_access {
+model ReportAccess {
   report_id                             Int
   user_id                               Int
   granted_at                            DateTime @default(now()) @db.Timestamptz(6)
   granted_by                            Int?
-  users_report_access_granted_byTousers users?   @relation("report_access_granted_byTousers", fields: [granted_by], references: [id], onUpdate: NoAction)
-  reports                               reports  @relation(fields: [report_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users_report_access_user_idTousers    users    @relation("report_access_user_idTousers", fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users_report_access_granted_byTousers User?   @relation("report_access_granted_byTousers", fields: [granted_by], references: [id], onUpdate: NoAction)
+  reports                               Report  @relation(fields: [report_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users_report_access_user_idTousers    User    @relation("report_access_user_idTousers", fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([report_id, user_id])
   @@index([user_id], map: "idx_report_access_user")
+
+  @@map("report_access")
 }
 
-model report_views {
+model ReportView {
   id        Int      @id @default(autoincrement())
   report_id Int
   user_id   Int
   viewed_at DateTime @default(now()) @db.Timestamptz(6)
-  reports   reports  @relation(fields: [report_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users     users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  reports   Report  @relation(fields: [report_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users     User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([report_id], map: "idx_report_views_report")
   @@index([viewed_at(sort: Desc)], map: "idx_report_views_time")
   @@index([user_id], map: "idx_report_views_user")
+
+  @@map("report_views")
 }
 
-model reports {
+model Report {
   id            Int             @id @default(autoincrement())
   slug          String          @unique @db.VarChar(80)
   title         String
@@ -241,66 +273,78 @@ model reports {
   created_by    Int?
   created_at    DateTime        @default(now()) @db.Timestamptz(6)
   updated_at    DateTime        @default(now()) @db.Timestamptz(6)
-  report_access report_access[]
-  report_views  report_views[]
-  users         users?          @relation(fields: [created_by], references: [id], onUpdate: NoAction)
+  report_access ReportAccess[]
+  report_views  ReportView[]
+  users         User?          @relation(fields: [created_by], references: [id], onUpdate: NoAction)
 
   @@index([is_active], map: "idx_reports_active")
   @@index([slug], map: "idx_reports_slug")
+
+  @@map("reports")
 }
 
-model user_badges {
+model UserBadge {
   user_id   Int
   badge_id  String   @db.VarChar(40)
   earned_at DateTime @default(now()) @db.Timestamptz(6)
-  badges    badges   @relation(fields: [badge_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users     users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  badges    Badge   @relation(fields: [badge_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users     User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_id, badge_id])
+
+  @@map("user_badges")
 }
 
-model user_flashcard_views {
+model UserFlashcardView {
   user_id      Int
   flashcard_id String     @db.VarChar(30)
   seen_at      DateTime   @default(now()) @db.Timestamptz(6)
-  flashcards   flashcards @relation(fields: [flashcard_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  flashcards   Flashcard @relation(fields: [flashcard_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users        User      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_id, flashcard_id])
+
+  @@map("user_flashcard_views")
 }
 
-model user_module_progress {
+model UserModuleProgress {
   user_id      Int
   module_id    String   @db.VarChar(40)
   completed_at DateTime @default(now()) @db.Timestamptz(6)
-  modules      modules  @relation(fields: [module_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users        users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  modules      Module  @relation(fields: [module_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users        User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_id, module_id])
+
+  @@map("user_module_progress")
 }
 
-model user_popup_seen {
+model UserPopupSeen {
   user_id   Int
   popup_key String   @db.VarChar(120)
   seen_at   DateTime @default(now()) @db.Timestamptz(6)
-  users     users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users     User    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_id, popup_key])
   @@index([user_id], map: "idx_popup_seen_user")
+
+  @@map("user_popup_seen")
 }
 
-model user_question_answered {
+model UserQuestionAnswered {
   user_id          Int
   question_id      Int
   first_correct_at DateTime       @default(now()) @db.Timestamptz(6)
-  quiz_questions   quiz_questions @relation(fields: [question_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users            users          @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  quiz_questions   QuizQuestion @relation(fields: [question_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users            User          @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_id, question_id])
+
+  @@map("user_question_answered")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model users {
+model User {
   id                                            Int                      @id @default(autoincrement())
   email                                         String                   @unique @db.VarChar(255)
   password_hash                                 String                   @db.VarChar(255)
@@ -310,17 +354,19 @@ model users {
   streak                                        Int                      @default(0)
   last_active                                   DateTime?                @db.Date
   created_at                                    DateTime                 @default(now()) @db.Timestamptz(6)
-  leaderboard_winners                           leaderboard_winners[]
-  monthly_quiz_attempts                         monthly_quiz_attempts[]
-  password_resets                               password_resets[]
-  quiz_attempts                                 quiz_attempts[]
-  report_access_report_access_granted_byTousers report_access[]          @relation("report_access_granted_byTousers")
-  report_access_report_access_user_idTousers    report_access[]          @relation("report_access_user_idTousers")
-  report_views                                  report_views[]
-  reports                                       reports[]
-  user_badges                                   user_badges[]
-  user_flashcard_views                          user_flashcard_views[]
-  user_module_progress                          user_module_progress[]
-  user_popup_seen                               user_popup_seen[]
-  user_question_answered                        user_question_answered[]
+  leaderboard_winners                           LeaderboardWinner[]
+  monthly_quiz_attempts                         MonthlyQuizAttempt[]
+  password_resets                               PasswordReset[]
+  quiz_attempts                                 QuizAttempt[]
+  report_access_report_access_granted_byTousers ReportAccess[]          @relation("report_access_granted_byTousers")
+  report_access_report_access_user_idTousers    ReportAccess[]          @relation("report_access_user_idTousers")
+  report_views                                  ReportView[]
+  reports                                       Report[]
+  user_badges                                   UserBadge[]
+  user_flashcard_views                          UserFlashcardView[]
+  user_module_progress                          UserModuleProgress[]
+  user_popup_seen                               UserPopupSeen[]
+  user_question_answered                        UserQuestionAnswered[]
+
+  @@map("users")
 }

@@ -16,7 +16,7 @@ export class AppController {
 
   @Get('health')
   async health() {
-    const userCount = await this.prisma.users.count();
+    const userCount = await this.prisma.user.count();  
     return {
       status: 'ok',
       service: 'nestjs',
