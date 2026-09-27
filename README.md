@@ -714,9 +714,7 @@ chore: update dependencies
 
 | Role | Kontak |
 |------|--------|
-| **Developer** | [Nama lo] — [email lo] |
-| **IT Support** | [Nama IT] — [email IT] |
-| **Product Owner** | [Nama PO] — [email PO] |
+| **Developer** | [Desi Armanda Sari] — [desi.armanda@cimory.com] |
 
 ---
 
