@@ -30,7 +30,7 @@ const Store = (() => {
 
   async function bootstrap() {
     const [chapters, flashcards, badges, quizzes, progress] = await Promise.all([
-      API.call("/chapters"),
+      API.call("/v2/chapters"),
       API.call("/flashcards"),
       API.call("/badges"),
       API.call("/quizzes"),
