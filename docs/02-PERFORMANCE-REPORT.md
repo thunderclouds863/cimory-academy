@@ -1,4 +1,4 @@
-# Performance Report â€” Cimory Sales Academy
+# Performance Report Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -46,7 +46,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.1 Smoke Test âœ…
+### 2.1 Smoke Test Ã¢Å“â€¦
 
 
 
@@ -58,17 +58,17 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| Concurrent VU | 1 | 1 | âœ… |
+| Concurrent VU | 1 | 1 | Ã¢Å“â€¦ |
 
-| Duration | 30 detik | 30 detik | âœ… |
+| Duration | 30 detik | 30 detik | Ã¢Å“â€¦ |
 
-| Error rate | 0.00% | < 1% | âœ… |
+| Error rate | 0.00% | < 1% | Ã¢Å“â€¦ |
 
-| p(50) | 10.98 ms | â€” | âœ… |
+| p(50) | 10.98 ms | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| p(95) | 33.75 ms | < 500 ms | âœ… |
+| p(95) | 33.75 ms | < 500 ms | Ã¢Å“â€¦ |
 
-| Throughput | 0.97 req/s | â€” | âœ… |
+| Throughput | 0.97 req/s | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
 
 
@@ -80,7 +80,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.2 Load Test âœ…
+### 2.2 Load Test Ã¢Å“â€¦
 
 
 
@@ -92,21 +92,21 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| Concurrent VU | 50 | 50 | âœ… |
+| Concurrent VU | 50 | 50 | Ã¢Å“â€¦ |
 
-| Duration | 2 menit | 2 menit | âœ… |
+| Duration | 2 menit | 2 menit | Ã¢Å“â€¦ |
 
-| Error rate | 0.00% | < 1% | âœ… |
+| Error rate | 0.00% | < 1% | Ã¢Å“â€¦ |
 
-| p(50) | 2.78 ms | â€” | âœ… |
+| p(50) | 2.78 ms | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| p(95) | 5.67 ms | < 500 ms | âœ… |
+| p(95) | 5.67 ms | < 500 ms | Ã¢Å“â€¦ |
 
-| p(99) | 7.56 ms | < 1500 ms | âœ… |
+| p(99) | 7.56 ms | < 1500 ms | Ã¢Å“â€¦ |
 
-| Throughput | 18.7 req/s | â€” | âœ… |
+| Throughput | 18.7 req/s | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Iterations | 475 | â€” | âœ… |
+| Iterations | 475 | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
 
 
@@ -118,7 +118,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.3 Stress Test âœ…
+### 2.3 Stress Test Ã¢Å“â€¦
 
 
 
@@ -208,7 +208,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.4 Spike Test âœ…
+### 2.4 Spike Test Ã¢Å“â€¦
 
 
 
@@ -220,25 +220,25 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| Spike | 10 â†’ 500 VU dalam 30 detik | â€” | âœ… |
+| Spike | 10 Ã¢â€ â€™ 500 VU dalam 30 detik | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Duration | 3 menit 10 detik | â€” | âœ… |
+| Duration | 3 menit 10 detik | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Error rate | 0.00% | < 5% | âœ… |
+| Error rate | 0.00% | < 5% | Ã¢Å“â€¦ |
 
-| p(50) | 791.38 ms | â€” | âœ… |
+| p(50) | 791.38 ms | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| p(95) | 1.56 s | < 3000 ms | âœ… |
+| p(95) | 1.56 s | < 3000 ms | Ã¢Å“â€¦ |
 
-| Max latency | 2.38 s | â€” | âœ… |
+| Max latency | 2.38 s | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Throughput | 236 req/s | â€” | âœ… |
+| Throughput | 236 req/s | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Server crash? | Tidak | â€” | âœ… |
+| Server crash? | Tidak | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
 
 
-**Kesimpulan:** Server **survive lonjakan mendadak** 10 â†’ 500 VU dalam 30 detik. Gak crash, gak error.
+**Kesimpulan:** Server **survive lonjakan mendadak** 10 Ã¢â€ â€™ 500 VU dalam 30 detik. Gak crash, gak error.
 
 
 
@@ -246,7 +246,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.5 Soak Test âœ…
+### 2.5 Soak Test Ã¢Å“â€¦
 
 
 
@@ -258,25 +258,25 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| Concurrent VU | 500 | 500 | âœ… |
+| Concurrent VU | 500 | 500 | Ã¢Å“â€¦ |
 
-| Duration | **1 jam penuh** | 1 jam | âœ… |
+| Duration | **1 jam penuh** | 1 jam | Ã¢Å“â€¦ |
 
-| Total requests | 1.964.724 | â€” | âœ… |
+| Total requests | 1.964.724 | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Error rate | 0.08% | < 1% | âœ… |
+| Error rate | 0.08% | < 1% | Ã¢Å“â€¦ |
 
-| p(50) | 20.85 ms | â€” | âœ… |
+| p(50) | 20.85 ms | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| p(95) | 90.38 ms | < 2000 ms | âœ… |
+| p(95) | 90.38 ms | < 2000 ms | Ã¢Å“â€¦ |
 
-| p(99) | \~200 ms | â€” | âœ… |
+| p(99) | \~200 ms | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Throughput | **545 req/s** | â€” | âœ… |
+| Throughput | **545 req/s** | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Memory leak? | Tidak | â€” | âœ… |
+| Memory leak? | Tidak | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Latency stabil? | Ya | â€” | âœ… |
+| Latency stabil? | Ya | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
 
 
@@ -308,7 +308,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.6 R2 Benchmark âœ…
+### 2.6 R2 Benchmark Ã¢Å“â€¦
 
 
 
@@ -368,7 +368,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-### 2.7 Database Benchmark âœ…
+### 2.7 Database Benchmark Ã¢Å“â€¦
 
 
 
@@ -380,21 +380,21 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| Concurrent clients | 50 | 50 | âœ… |
+| Concurrent clients | 50 | 50 | Ã¢Å“â€¦ |
 
-| Threads | 4 | 4 | âœ… |
+| Threads | 4 | 4 | Ã¢Å“â€¦ |
 
-| Total transactions | 374.030 | â€” | âœ… |
+| Total transactions | 374.030 | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Failed transactions | **0 (0.000%)** | 0% | âœ… |
+| Failed transactions | **0 (0.000%)** | 0% | Ã¢Å“â€¦ |
 
-| TPS | **3.149** | > 500 | âœ… |
+| TPS | **3.149** | > 500 | Ã¢Å“â€¦ |
 
-| Latency avg | 15.88 ms | < 50 ms | âœ… |
+| Latency avg | 15.88 ms | < 50 ms | Ã¢Å“â€¦ |
 
-| Initial connection | 1.26 s | â€” | âœ… |
+| Initial connection | 1.26 s | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
-| Duration | 120 detik | â€” | âœ… |
+| Duration | 120 detik | Ã¢â‚¬â€ | Ã¢Å“â€¦ |
 
 
 
@@ -410,13 +410,13 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|
 
-| 500 | 2.500 | âœ… Cukup |
+| 500 | 2.500 | Ã¢Å“â€¦ Cukup |
 
-| 800 | 4.000 | âœ… Cukup |
+| 800 | 4.000 | Ã¢Å“â€¦ Cukup |
 
-| 1.000 | 5.000 | âš ï¸ Perlu tuning |
+| 1.000 | 5.000 | Ã¢Å¡Â Ã¯Â¸Â Perlu tuning |
 
-| 2.000 | 10.000 | âŒ Butuh upgrade |
+| 2.000 | 10.000 | Ã¢ÂÅ’ Butuh upgrade |
 
 
 
@@ -432,21 +432,21 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|---|---|---|---|
 
-| 1 | Smoke | 30 s | 1 | 0.00% | 33.75 ms | 1 req/s | âœ… |
+| 1 | Smoke | 30 s | 1 | 0.00% | 33.75 ms | 1 req/s | Ã¢Å“â€¦ |
 
-| 2 | Load | 2 m | 50 | 0.00% | 5.67 ms | 19 req/s | âœ… |
+| 2 | Load | 2 m | 50 | 0.00% | 5.67 ms | 19 req/s | Ã¢Å“â€¦ |
 
-| 3 | Stress | 8 m | 1.000 | 0.38% | 1.43 s | 501 req/s | âœ… |
+| 3 | Stress | 8 m | 1.000 | 0.38% | 1.43 s | 501 req/s | Ã¢Å“â€¦ |
 
-| 4 | Stress (optimized) | 8 m | 1.000 | 0.00% | 4.00 s | 405 req/s | âœ… |
+| 4 | Stress (optimized) | 8 m | 1.000 | 0.00% | 4.00 s | 405 req/s | Ã¢Å“â€¦ |
 
-| 5 | Spike | 3 m | 500 | 0.00% | 1.56 s | 236 req/s | âœ… |
+| 5 | Spike | 3 m | 500 | 0.00% | 1.56 s | 236 req/s | Ã¢Å“â€¦ |
 
-| 6 | Soak | 1 h | 500 | 0.08% | 90.38 ms | 545 req/s | âœ… |
+| 6 | Soak | 1 h | 500 | 0.08% | 90.38 ms | 545 req/s | Ã¢Å“â€¦ |
 
-| 7 | R2 Benchmark | 10 m | â€” | â€” | â€” | 11 MB/s | âœ… |
+| 7 | R2 Benchmark | 10 m | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ | 11 MB/s | Ã¢Å“â€¦ |
 
-| 8 | Database | 2 m | 50 | 0.00% | 15.88 ms | 3.149 TPS | âœ… |
+| 8 | Database | 2 m | 50 | 0.00% | 15.88 ms | 3.149 TPS | Ã¢Å“â€¦ |
 
 
 
@@ -466,7 +466,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|---|
 
-| 1 | Prisma connection pool | 5 | 20 | Error turun 0.76% â†’ 0.00% |
+| 1 | Prisma connection pool | 5 | 20 | Error turun 0.76% Ã¢â€ â€™ 0.00% |
 
 | 2 | UV_THREADPOOL_SIZE | 4 | 8 | Throughput naik 41% |
 
@@ -486,19 +486,19 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 |---|---|---|---|
 
-| 50 | 5.67 ms | 0% | âœ… Sangat sehat |
+| 50 | 5.67 ms | 0% | Ã¢Å“â€¦ Sangat sehat |
 
-| 100 | \~10 ms | 0% | âœ… Sehat |
+| 100 | \~10 ms | 0% | Ã¢Å“â€¦ Sehat |
 
-| 200 | \~20 ms | 0% | âœ… Sehat |
+| 200 | \~20 ms | 0% | Ã¢Å“â€¦ Sehat |
 
-| 500 | 90 ms | 0.08% | âœ… Sehat |
+| 500 | 90 ms | 0.08% | Ã¢Å“â€¦ Sehat |
 
-| 800 | \~1 s | \~0.2% | âš ï¸ Mulai degrade |
+| 800 | \~1 s | \~0.2% | Ã¢Å¡Â Ã¯Â¸Â Mulai degrade |
 
-| **1.000** | **1.43-4 s** | **0.00-0.38%** | âš ï¸ **Mentok** |
+| **1.000** | **1.43-4 s** | **0.00-0.38%** | Ã¢Å¡Â Ã¯Â¸Â **Mentok** |
 
-| 1.500+ | â€” | > 1% | âŒ Jebol |
+| 1.500+ | Ã¢â‚¬â€ | > 1% | Ã¢ÂÅ’ Jebol |
 
 
 
@@ -506,7 +506,7 @@ Aplikasi Cimory Sales Academy telah melalui **8 jenis performance test**. **Semu
 
 
 
-**Bottleneck:** CPU (2 vCPU) â€” Node.js single-threaded.
+**Bottleneck:** CPU (2 vCPU) Ã¢â‚¬â€ Node.js single-threaded.
 
 
 

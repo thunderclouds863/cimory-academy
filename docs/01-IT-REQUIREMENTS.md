@@ -1,4 +1,4 @@
-# IT Requirements â€” Cimory Sales Academy
+# IT Requirements Ã¢â‚¬â€ Cimory Sales Academy
 
 
 

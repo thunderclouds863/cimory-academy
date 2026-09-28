@@ -1,4 +1,4 @@
-# Capacity Model â€” Cimory Sales Academy
+# Capacity Model Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -22,7 +22,7 @@
 
 |---|---|---|
 
-| 2019 | 142 | â€” |
+| 2019 | 142 | Ã¢â‚¬â€ |
 
 | 2020 | 90 | -52 |
 
@@ -76,7 +76,7 @@
 
 
 
-## 3. Rasio Concurrent User â€” Referensi
+## 3. Rasio Concurrent User Ã¢â‚¬â€ Referensi
 
 
 
@@ -102,7 +102,7 @@
 
 
 
-**Rekomendasi:** **15%** â€” konservatif-modern, di tengah range standar industri.
+**Rekomendasi:** **15%** Ã¢â‚¬â€ konservatif-modern, di tengah range standar industri.
 
 
 
@@ -124,7 +124,7 @@
 
 ```
 
-Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
+Concurrent = (Total user Ãƒâ€” % aktif harian Ãƒâ€” Durasi sesi) / Jam kerja
 
 ```
 
@@ -140,7 +140,7 @@ Contoh untuk 4.449 user (2026):
 
 - Jam kerja 8 jam
 
-- **Concurrent = (1.334 Ã— 0.33) / 8 = 55 user**
+- **Concurrent = (1.334 Ãƒâ€” 0.33) / 8 = 55 user**
 
 
 
@@ -196,7 +196,7 @@ Contoh untuk 4.449 user (2026):
 
 
 
-**Rekomendasi:** Pakai **Skenario A** sebagai **upper bound** â€” biar server cukup untuk worst case.
+**Rekomendasi:** Pakai **Skenario A** sebagai **upper bound** Ã¢â‚¬â€ biar server cukup untuk worst case.
 
 
 
@@ -212,15 +212,15 @@ Contoh untuk 4.449 user (2026):
 
 |---|---|---|---|
 
-| **2026** | 770 | Kuat sampai 1.000 | âœ… **Cukup** |
+| **2026** | 770 | Kuat sampai 1.000 | Ã¢Å“â€¦ **Cukup** |
 
-| **2027** | 940 | Kuat sampai 1.000 | âš ï¸ **Pas-pasan** |
+| **2027** | 940 | Kuat sampai 1.000 | Ã¢Å¡Â Ã¯Â¸Â **Pas-pasan** |
 
-| **2028** | 1.100 | Kuat sampai 1.000 | âŒ **Kurang** |
+| **2028** | 1.100 | Kuat sampai 1.000 | Ã¢ÂÅ’ **Kurang** |
 
-| **2029** | 1.260 | Kuat sampai 1.000 | âŒ **Kurang** |
+| **2029** | 1.260 | Kuat sampai 1.000 | Ã¢ÂÅ’ **Kurang** |
 
-| **2030** | 1.560 | Kuat sampai 1.000 | âŒ **Kurang** |
+| **2030** | 1.560 | Kuat sampai 1.000 | Ã¢ÂÅ’ **Kurang** |
 
 
 
@@ -228,7 +228,7 @@ Contoh untuk 4.449 user (2026):
 
 
 
-- **2026:** Server sekarang cukup âœ…
+- **2026:** Server sekarang cukup Ã¢Å“â€¦
 
 - **2027:** Mulai butuh upgrade
 
@@ -326,9 +326,9 @@ Contoh untuk 4.449 user (2026):
 
 2\. Unit4. "Concurrent User Definition."
 
-3\. TTAK.KO-10.0292. "ì†Œí”„íŠ¸ì›¨ì–´ ì‚¬ì—… ê·œëª¨ ì‚°ì • ì§€ì¹¨."
+3\. TTAK.KO-10.0292. "Ã¬â€ Å’Ã­â€â€žÃ­Å Â¸Ã¬â€ºÂ¨Ã¬â€“Â´ Ã¬â€šÂ¬Ã¬â€”â€¦ ÃªÂ·Å“Ã«ÂªÂ¨ Ã¬â€šÂ°Ã¬Â â€¢ Ã¬Â§â‚¬Ã¬Â¹Â¨."
 
-4\. TOTVS. "Dimensionamento de UsuÃ¡rios Concorrentes."
+4\. TOTVS. "Dimensionamento de UsuÃƒÂ¡rios Concorrentes."
 
 5\. Cimory Group HR Data (internal).
 

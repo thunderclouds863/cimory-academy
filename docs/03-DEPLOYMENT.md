@@ -1,4 +1,4 @@
-# Deployment Guide â€” Cimory Sales Academy
+# Deployment Guide Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -448,15 +448,15 @@ deploy:
 
 
 
-GitLab â†’ **Settings** â†’ **CI/CD** â†’ **Variables**:
+GitLab Ã¢â€ â€™ **Settings** Ã¢â€ â€™ **CI/CD** Ã¢â€ â€™ **Variables**:
 
 
 
-- `SSH_PRIVATE_KEY` â€” private key SSH server
+- `SSH_PRIVATE_KEY` Ã¢â‚¬â€ private key SSH server
 
-- `SERVER_HOST` â€” IP/hostname server
+- `SERVER_HOST` Ã¢â‚¬â€ IP/hostname server
 
-- `SERVER_USER` â€” username SSH
+- `SERVER_USER` Ã¢â‚¬â€ username SSH
 
 
 
@@ -504,7 +504,7 @@ pm2 set pm2-logrotate:retain 7
 
 1\. Daftar di [uptimerobot.com](https://uptimerobot.com)
 
-2\. Add Monitor â†’ HTTP(s)
+2\. Add Monitor Ã¢â€ â€™ HTTP(s)
 
 3\. URL: `https://academy.cimory.com/api/v2/health`
 

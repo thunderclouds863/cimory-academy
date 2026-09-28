@@ -1,4 +1,4 @@
-# Technical Decisions â€” Cimory Sales Academy
+# Technical Decisions Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-**Status:** âœ… Berjalan (Fase 1-4 selesai)
+**Status:** Ã¢Å“â€¦ Berjalan (Fase 1-4 selesai)
 
 
 
@@ -92,7 +92,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -184,7 +184,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -226,7 +226,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -266,7 +266,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -290,7 +290,7 @@
 
 - **Beban tinggi:** 500-1.000 user butuh lebih banyak koneksi
 
-- **Error turun:** Dari 0.76% â†’ 0.00% (hasil test)
+- **Error turun:** Dari 0.76% Ã¢â€ â€™ 0.00% (hasil test)
 
 - **Throughput naik:** 41%
 
@@ -306,7 +306,7 @@
 
 
 
-**Status:** âœ… Berjalan
+**Status:** Ã¢Å“â€¦ Berjalan
 
 
 
@@ -326,7 +326,7 @@
 
 
 
-- Perlu rewrite total frontend (vanilla JS â†’ React)
+- Perlu rewrite total frontend (vanilla JS Ã¢â€ â€™ React)
 
 - Waktu 2-4 minggu
 
@@ -334,7 +334,7 @@
 
 
 
-**Status:** â³ Ditunda
+**Status:** Ã¢ÂÂ³ Ditunda
 
 
 
@@ -354,7 +354,7 @@
 
 
 
-**Status:** â³ Ditunda
+**Status:** Ã¢ÂÂ³ Ditunda
 
 
 
@@ -374,7 +374,7 @@
 
 
 
-**Status:** â³ Ditunda
+**Status:** Ã¢ÂÂ³ Ditunda
 
 
 
@@ -394,7 +394,7 @@
 
 
 
-**Status:** â³ Ditunda
+**Status:** Ã¢ÂÂ³ Ditunda
 
 
 

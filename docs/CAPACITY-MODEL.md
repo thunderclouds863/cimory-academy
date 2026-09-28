@@ -1,4 +1,4 @@
-# Capacity Model â€” Cimory Sales Academy
+# Capacity Model Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -26,7 +26,7 @@
 
 |---|---|---|
 
-| 2019 | 142 | â€” |
+| 2019 | 142 | Ã¢â‚¬â€ |
 
 | 2020 | 90 | -52 |
 
@@ -68,7 +68,7 @@
 
 
 
-**Kesimpulan:** Total HC Cimory Group diproyeksi tumbuh dari **\~5.100 (2026)** menjadi **\~10.400 (2030)** â€” pertumbuhan **\~15-20% per tahun**.
+**Kesimpulan:** Total HC Cimory Group diproyeksi tumbuh dari **\~5.100 (2026)** menjadi **\~10.400 (2030)** Ã¢â‚¬â€ pertumbuhan **\~15-20% per tahun**.
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-### 2.1 Rasio Concurrent User â€” Sumber Referensi
+### 2.1 Rasio Concurrent User Ã¢â‚¬â€ Sumber Referensi
 
 
 
@@ -100,13 +100,13 @@
 
 | **Unit4** (ERP SaaS) | \~10% | "Maximum level of concurrency" |
 
-| **TTAK.KO-10.0292** (standar Korea) | 1-10% | "ì „ì²´ ì‚¬ìš©ìžì˜ 1%\~10%" |
+| **TTAK.KO-10.0292** (standar Korea) | 1-10% | "Ã¬Â â€žÃ¬Â²Â´ Ã¬â€šÂ¬Ã¬Å¡Â©Ã¬Å¾ÂÃ¬ÂËœ 1%\~10%" |
 
 | **TOTVS** (software Brazil) | 10-30% | "entre 10% e 30%" |
 
 
 
-**Rekomendasi kami:** **15%** â€” konservatif-modern, di tengah range standar industri.
+**Rekomendasi kami:** **15%** Ã¢â‚¬â€ konservatif-modern, di tengah range standar industri.
 
 
 
@@ -126,7 +126,7 @@
 
 ```
 
-Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
+Concurrent = (Total user Ãƒâ€” % aktif harian Ãƒâ€” Durasi sesi) / Jam kerja
 
 ```
 
@@ -140,7 +140,7 @@ Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 - Jam kerja 8 jam
 
-- **Concurrent = (1.334 Ã— 0.33) / 8 = 55 user**
+- **Concurrent = (1.334 Ãƒâ€” 0.33) / 8 = 55 user**
 
 
 
@@ -192,7 +192,7 @@ Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 
 
-**Rekomendasi untuk capacity planning:** Pakai **Skenario A** (semua HC) sebagai **upper bound** â€” biar server cukup untuk worst case.
+**Rekomendasi untuk capacity planning:** Pakai **Skenario A** (semua HC) sebagai **upper bound** Ã¢â‚¬â€ biar server cukup untuk worst case.
 
 
 
@@ -216,7 +216,7 @@ Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 
 
-**Hasil test:** Soak 500 VU = 0.08% error, p95 = 90ms âœ…
+**Hasil test:** Soak 500 VU = 0.08% error, p95 = 90ms Ã¢Å“â€¦
 
 
 
@@ -266,7 +266,7 @@ Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 **Tambahan:**
 
-- Load balancer (2Ã— app server)
+- Load balancer (2Ãƒâ€” app server)
 
 - Read replica database
 
@@ -328,9 +328,9 @@ Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 2\. Unit4. "Concurrent User Definition." Unit4 Documentation.
 
-3\. TTAK.KO-10.0292. "ì†Œí”„íŠ¸ì›¨ì–´ ì‚¬ì—… ê·œëª¨ ì‚°ì • ì§€ì¹¨." Korean Standards Association.
+3\. TTAK.KO-10.0292. "Ã¬â€ Å’Ã­â€â€žÃ­Å Â¸Ã¬â€ºÂ¨Ã¬â€“Â´ Ã¬â€šÂ¬Ã¬â€”â€¦ ÃªÂ·Å“Ã«ÂªÂ¨ Ã¬â€šÂ°Ã¬Â â€¢ Ã¬Â§â‚¬Ã¬Â¹Â¨." Korean Standards Association.
 
-4\. TOTVS. "Dimensionamento de UsuÃ¡rios Concorrentes." TOTVS Documentation.
+4\. TOTVS. "Dimensionamento de UsuÃƒÂ¡rios Concorrentes." TOTVS Documentation.
 
 
 

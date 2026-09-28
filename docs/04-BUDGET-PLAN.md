@@ -1,4 +1,4 @@
-# Budget Plan â€” Cimory Sales Academy
+# Budget Plan Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -70,7 +70,7 @@
 
 | **Monitoring** | UptimeRobot + Sentry | Free tier | $0 |
 
-| **SSL** | Let's Encrypt / Cloudflare | â€” | $0 |
+| **SSL** | Let's Encrypt / Cloudflare | Ã¢â‚¬â€ | $0 |
 
 | **TOTAL** | | | **$51.50 - $95.50** |
 
@@ -94,7 +94,7 @@
 
 | Vultr | $24 | $48 |
 
-| Hetzner | â‚¬5 (\~$6) | â‚¬12 (\~$14) |
+| Hetzner | Ã¢â€šÂ¬5 (\~$6) | Ã¢â€šÂ¬12 (\~$14) |
 
 | Linode | $24 | $48 |
 
@@ -174,7 +174,7 @@
 
 |---|---|---|---|
 
-| **App Server** | 2Ã— DigitalOcean | 4 vCPU, 8 GB RAM each | $96 |
+| **App Server** | 2Ãƒâ€” DigitalOcean | 4 vCPU, 8 GB RAM each | $96 |
 
 | **Load Balancer** | DigitalOcean | Managed LB | $12 |
 
@@ -222,7 +222,7 @@
 
 |---|---|---|---|
 
-| **Kubernetes** | DigitalOcean DOKS | 3Ã— node (4 vCPU, 8 GB) | $144 |
+| **Kubernetes** | DigitalOcean DOKS | 3Ãƒâ€” node (4 vCPU, 8 GB) | $144 |
 
 | **Database** | Supabase Large | 200 GB PostgreSQL | $110 |
 
@@ -260,13 +260,13 @@
 
 | 2026 | $612-1.140 | Rp 66.5 juta | \~Rp 76 juta |
 
-| 2027 | $912-1.728 | â€” | \~Rp 14-27 juta |
+| 2027 | $912-1.728 | Ã¢â‚¬â€ | \~Rp 14-27 juta |
 
-| 2028 | $3.012-4.404 | â€” | \~Rp 47-68 juta |
+| 2028 | $3.012-4.404 | Ã¢â‚¬â€ | \~Rp 47-68 juta |
 
-| 2029 | $3.012-4.404 | â€” | \~Rp 47-68 juta |
+| 2029 | $3.012-4.404 | Ã¢â‚¬â€ | \~Rp 47-68 juta |
 
-| 2030 | $5.268-5.868 | â€” | \~Rp 82-91 juta |
+| 2030 | $5.268-5.868 | Ã¢â‚¬â€ | \~Rp 82-91 juta |
 
 | **TOTAL** | **$12.816-17.544** | **Rp 66.5 juta** | **\~Rp 266-330 juta** |
 
@@ -372,7 +372,7 @@
 
 
 
-- App Server: Hetzner CX22 (â‚¬5/bln)
+- App Server: Hetzner CX22 (Ã¢â€šÂ¬5/bln)
 
 - Database: Supabase Free
 
@@ -406,7 +406,7 @@
 
 
 
-- App Server: 2Ã— DigitalOcean 4 vCPU ($96/bln)
+- App Server: 2Ãƒâ€” DigitalOcean 4 vCPU ($96/bln)
 
 - Database: Supabase Medium ($60/bln)
 

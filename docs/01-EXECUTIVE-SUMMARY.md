@@ -1,4 +1,4 @@
-# Executive Summary â€” Cimory Sales Academy
+# Executive Summary Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -38,21 +38,21 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 |---|---|---|---|---|---|
 
-| 1 | Smoke | 1 | 0.00% | 33.75 ms | âœ… PASS |
+| 1 | Smoke | 1 | 0.00% | 33.75 ms | Ã¢Å“â€¦ PASS |
 
-| 2 | Load | 50 | 0.00% | 5.67 ms | âœ… PASS |
+| 2 | Load | 50 | 0.00% | 5.67 ms | Ã¢Å“â€¦ PASS |
 
-| 3 | Stress | 1.000 | 0.38% | 1.43 s | âœ… PASS |
+| 3 | Stress | 1.000 | 0.38% | 1.43 s | Ã¢Å“â€¦ PASS |
 
-| 4 | Stress (optimized) | 1.000 | 0.00% | 4.00 s | âœ… PASS |
+| 4 | Stress (optimized) | 1.000 | 0.00% | 4.00 s | Ã¢Å“â€¦ PASS |
 
-| 5 | Spike | 500 | 0.00% | 1.56 s | âœ… PASS |
+| 5 | Spike | 500 | 0.00% | 1.56 s | Ã¢Å“â€¦ PASS |
 
-| 6 | Soak (1 jam) | 500 | 0.08% | 90.38 ms | âœ… PASS |
+| 6 | Soak (1 jam) | 500 | 0.08% | 90.38 ms | Ã¢Å“â€¦ PASS |
 
-| 7 | R2 Benchmark | â€” | â€” | â€” | âœ… PASS |
+| 7 | R2 Benchmark | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢â‚¬â€ | Ã¢Å“â€¦ PASS |
 
-| 8 | Database Benchmark | 50 | 0.00% | 15.88 ms | âœ… PASS |
+| 8 | Database Benchmark | 50 | 0.00% | 15.88 ms | Ã¢Å“â€¦ PASS |
 
 
 
@@ -202,15 +202,15 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 
 
-- **[Performance Report](02-PERFORMANCE-REPORT.md)** â€” hasil test lengkap
+- **[Performance Report](02-PERFORMANCE-REPORT.md)** Ã¢â‚¬â€ hasil test lengkap
 
-- **[Capacity Model](03-CAPACITY-MODEL.md)** â€” forecast \& kalkulasi
+- **[Capacity Model](03-CAPACITY-MODEL.md)** Ã¢â‚¬â€ forecast \& kalkulasi
 
-- **[Budget Plan](04-BUDGET-PLAN.md)** â€” rincian biaya
+- **[Budget Plan](04-BUDGET-PLAN.md)** Ã¢â‚¬â€ rincian biaya
 
-- **[Architecture](05-ARCHITECTURE.md)** â€” arsitektur sistem
+- **[Architecture](05-ARCHITECTURE.md)** Ã¢â‚¬â€ arsitektur sistem
 
-- **[Deployment Requirements](06-DEPLOYMENT-REQUIREMENTS.md)** â€” requirement deployment
+- **[Deployment Requirements](06-DEPLOYMENT-REQUIREMENTS.md)** Ã¢â‚¬â€ requirement deployment
 
-- **[Technical Decisions](07-TECHNICAL-DECISIONS.md)** â€” keputusan teknis
+- **[Technical Decisions](07-TECHNICAL-DECISIONS.md)** Ã¢â‚¬â€ keputusan teknis
 

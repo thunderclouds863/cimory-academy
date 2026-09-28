@@ -1,4 +1,4 @@
-# Test Methodology â€” Cimory Sales Academy
+# Test Methodology Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -62,7 +62,7 @@
 
 
 
-**Beban:** Ramp up 100 â†’ 1.000+ user
+**Beban:** Ramp up 100 Ã¢â€ â€™ 1.000+ user
 
 
 
@@ -82,7 +82,7 @@
 
 
 
-**Beban:** 10 â†’ 500 user dalam 30 detik â†’ 10 user
+**Beban:** 10 Ã¢â€ â€™ 500 user dalam 30 detik Ã¢â€ â€™ 10 user
 
 
 
@@ -190,17 +190,17 @@
 
 | **Error Rate** | % request yang gagal (4xx/5xx) | < 1% |
 
-| **p(50)** | Median latency | â€” |
+| **p(50)** | Median latency | Ã¢â‚¬â€ |
 
 | **p(95)** | 95% request < X ms | < 500ms |
 
 | **p(99)** | 99% request < X ms | < 1500ms |
 
-| **Throughput** | Request/detik | â€” |
+| **Throughput** | Request/detik | Ã¢â‚¬â€ |
 
-| **Iterations** | Berapa kali skenario selesai | â€” |
+| **Iterations** | Berapa kali skenario selesai | Ã¢â‚¬â€ |
 
-| **VU** | Virtual User (concurrent) | â€” |
+| **VU** | Virtual User (concurrent) | Ã¢â‚¬â€ |
 
 
 
@@ -232,7 +232,7 @@ Setiap test punya threshold yang harus dipenuhi:
 
 
 
-**Kalau threshold dilanggar** â†’ test dianggap **fail**, tapi **tetap dicatat** sebagai temuan.
+**Kalau threshold dilanggar** Ã¢â€ â€™ test dianggap **fail**, tapi **tetap dicatat** sebagai temuan.
 
 
 

@@ -1,4 +1,4 @@
-# Deployment Requirements â€” Cimory Sales Academy
+# Deployment Requirements Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -134,11 +134,11 @@
 
 |---|---|---|
 
-| Waktu load halaman | < 3 detik | âœ… |
+| Waktu load halaman | < 3 detik | Ã¢Å“â€¦ |
 
-| API response time (p95) | < 500 ms | âœ… 5.67 ms |
+| API response time (p95) | < 500 ms | Ã¢Å“â€¦ 5.67 ms |
 
-| Video streaming | Tanpa buffering | âœ… via CDN |
+| Video streaming | Tanpa buffering | Ã¢Å“â€¦ via CDN |
 
 
 

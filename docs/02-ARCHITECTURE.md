@@ -1,4 +1,4 @@
-# Architecture â€” Cimory Sales Academy
+# Architecture Ã¢â‚¬â€ Cimory Sales Academy
 
 
 
@@ -12,53 +12,53 @@
 
 ```
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â
 
-â”‚                    CLOUDFLARE (CDN + WAF)                â”‚
+Ã¢â€â€š                    CLOUDFLARE (CDN + WAF)                Ã¢â€â€š
 
-â”‚              Free tier: DDoS, SSL, CDN global            â”‚
+Ã¢â€â€š              Free tier: DDoS, SSL, CDN global            Ã¢â€â€š
 
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ
 
-&#x20;                    â”‚
+&#x20;                    Ã¢â€â€š
 
-&#x20;        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+&#x20;        Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â´Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â
 
-&#x20;        â–¼                       â–¼
+&#x20;        Ã¢â€“Â¼                       Ã¢â€“Â¼
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â    Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â
 
-â”‚  APP SERVER     â”‚    â”‚  OBJECT STORAGE â”‚
+Ã¢â€â€š  APP SERVER     Ã¢â€â€š    Ã¢â€â€š  OBJECT STORAGE Ã¢â€â€š
 
-â”‚  Node.js        â”‚    â”‚  Cloudflare R2  â”‚
+Ã¢â€â€š  Node.js        Ã¢â€â€š    Ã¢â€â€š  Cloudflare R2  Ã¢â€â€š
 
-â”‚  NestJS + Expressâ”‚    â”‚                 â”‚
+Ã¢â€â€š  NestJS + ExpressÃ¢â€â€š    Ã¢â€â€š                 Ã¢â€â€š
 
-â”‚                 â”‚    â”‚  - Video modul  â”‚
+Ã¢â€â€š                 Ã¢â€â€š    Ã¢â€â€š  - Video modul  Ã¢â€â€š
 
-â”‚  2-4 vCPU       â”‚    â”‚  - Gambar       â”‚
+Ã¢â€â€š  2-4 vCPU       Ã¢â€â€š    Ã¢â€â€š  - Gambar       Ã¢â€â€š
 
-â”‚  4-8 GB RAM     â”‚    â”‚  - Upload user  â”‚
+Ã¢â€â€š  4-8 GB RAM     Ã¢â€â€š    Ã¢â€â€š  - Upload user  Ã¢â€â€š
 
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ    Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ
 
-&#x20;        â”‚
+&#x20;        Ã¢â€â€š
 
-&#x20;        â–¼
+&#x20;        Ã¢â€“Â¼
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â
 
-â”‚  DATABASE       â”‚
+Ã¢â€â€š  DATABASE       Ã¢â€â€š
 
-â”‚  PostgreSQL     â”‚
+Ã¢â€â€š  PostgreSQL     Ã¢â€â€š
 
-â”‚  (Supabase Pro) â”‚
+Ã¢â€â€š  (Supabase Pro) Ã¢â€â€š
 
-â”‚  8-10 GB        â”‚
+Ã¢â€â€š  8-10 GB        Ã¢â€â€š
 
-â”‚  Daily Backup   â”‚
+Ã¢â€â€š  Daily Backup   Ã¢â€â€š
 
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ
 
 ```
 
@@ -80,45 +80,45 @@
 
 backend/
 
-â”œâ”€â”€ nestjs/                 # NestJS v2 (fitur baru)
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ nestjs/                 # NestJS v2 (fitur baru)
 
-â”‚   â”œâ”€â”€ src/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ src/
 
-â”‚   â”‚   â”œâ”€â”€ modules/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ modules/
 
-â”‚   â”‚   â”‚   â”œâ”€â”€ auth/       # Login, register, JWT
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ auth/       # Login, register, JWT
 
-â”‚   â”‚   â”‚   â”œâ”€â”€ chapters/   # Chapter \& modul
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ chapters/   # Chapter \& modul
 
-â”‚   â”‚   â”‚   â”œâ”€â”€ storage/    # Upload ke R2
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ storage/    # Upload ke R2
 
-â”‚   â”‚   â”‚   â””â”€â”€ ...         # Modul lain (bertahap)
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ ...         # Modul lain (bertahap)
 
-â”‚   â”‚   â”œâ”€â”€ prisma/         # Prisma service
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ prisma/         # Prisma service
 
-â”‚   â”‚   â”œâ”€â”€ app.module.ts
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ app.module.ts
 
-â”‚   â”‚   â””â”€â”€ main.ts
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ main.ts
 
-â”‚   â”œâ”€â”€ prisma/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ prisma/
 
-â”‚   â”‚   â””â”€â”€ schema.prisma   # Schema database
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ schema.prisma   # Schema database
 
-â”‚   â””â”€â”€ .env                # Config (JANGAN commit)
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ .env                # Config (JANGAN commit)
 
-â”œâ”€â”€ legacy-app.js           # Express lama (di-mount)
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ legacy-app.js           # Express lama (di-mount)
 
-â”œâ”€â”€ routes/                 # Express routes
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ routes/                 # Express routes
 
-â”œâ”€â”€ middleware/             # Auth, upload
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ middleware/             # Auth, upload
 
-â”œâ”€â”€ services/               # Badge, email, excel
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ services/               # Badge, email, excel
 
-â”œâ”€â”€ db/
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ db/
 
-â”‚   â””â”€â”€ pool.js             # PostgreSQL pool
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ pool.js             # PostgreSQL pool
 
-â””â”€â”€ .env                    # Config (JANGAN commit)
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ .env                    # Config (JANGAN commit)
 
 ```
 
@@ -132,35 +132,35 @@ backend/
 
 frontend/
 
-â”œâ”€â”€ index.html
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ index.html
 
-â”œâ”€â”€ js/
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ js/
 
-â”‚   â”œâ”€â”€ config.js           # Config API base
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ config.js           # Config API base
 
-â”‚   â”œâ”€â”€ api.js              # Fetch wrapper
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ api.js              # Fetch wrapper
 
-â”‚   â”œâ”€â”€ auth.js             # Login/logout
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ auth.js             # Login/logout
 
-â”‚   â”œâ”€â”€ ui.js               # UI helpers
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ ui.js               # UI helpers
 
-â”‚   â”œâ”€â”€ store.js            # State management
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ store.js            # State management
 
-â”‚   â”œâ”€â”€ guard.js            # Screenshot guard
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ guard.js            # Screenshot guard
 
-â”‚   â”œâ”€â”€ admin.js            # Admin panel
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ admin.js            # Admin panel
 
-â”‚   â””â”€â”€ app.js              # Main SPA
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ app.js              # Main SPA
 
-â”œâ”€â”€ css/
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ css/
 
-â”‚   â”œâ”€â”€ style.css           # User-facing CSS
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ style.css           # User-facing CSS
 
-â”‚   â””â”€â”€ admin.css           # Admin CSS
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ admin.css           # Admin CSS
 
-â””â”€â”€ assets/
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ assets/
 
-&#x20;   â””â”€â”€ *.png               # Logo, mascot
+&#x20;   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ *.png               # Logo, mascot
 
 ```
 
@@ -180,17 +180,17 @@ frontend/
 
 ```
 
-User â†’ Cloudflare â†’ App Server
+User Ã¢â€ â€™ Cloudflare Ã¢â€ â€™ App Server
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
 &#x20;                  Express (legacy-app.js)
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
 &#x20;                  /api/* routes
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
 &#x20;                  PostgreSQL (via pg.Pool)
 
@@ -208,19 +208,19 @@ User â†’ Cloudflare â†’ App Server
 
 ```
 
-User â†’ Cloudflare â†’ App Server
+User Ã¢â€ â€™ Cloudflare Ã¢â€ â€™ App Server
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
 &#x20;                  NestJS (main.ts)
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
 &#x20;                  /api/v2/* routes
 
-&#x20;                      â†“
+&#x20;                      Ã¢â€ â€œ
 
-&#x20;                  Module â†’ Service â†’ Prisma â†’ PostgreSQL
+&#x20;                  Module Ã¢â€ â€™ Service Ã¢â€ â€™ Prisma Ã¢â€ â€™ PostgreSQL
 
 ```
 
@@ -236,21 +236,21 @@ User â†’ Cloudflare â†’ App Server
 
 ```
 
-1\. Frontend â†’ POST /api/v2/storage/presign (dengan JWT)
+1\. Frontend Ã¢â€ â€™ POST /api/v2/storage/presign (dengan JWT)
 
-2\. Backend â†’ Generate presigned URL (R2 SDK)
+2\. Backend Ã¢â€ â€™ Generate presigned URL (R2 SDK)
 
-3\. Backend â†’ Return { uploadUrl, publicUrl }
+3\. Backend Ã¢â€ â€™ Return { uploadUrl, publicUrl }
 
-4\. Frontend â†’ PUT file ke R2 langsung (bypass server)
+4\. Frontend Ã¢â€ â€™ PUT file ke R2 langsung (bypass server)
 
-5\. Frontend â†’ Simpan publicUrl ke database
+5\. Frontend Ã¢â€ â€™ Simpan publicUrl ke database
 
 ```
 
 
 
-**Keuntungan:** Video besar gak lewat app server â†’ hemat bandwidth server.
+**Keuntungan:** Video besar gak lewat app server Ã¢â€ â€™ hemat bandwidth server.
 
 
 
@@ -332,25 +332,25 @@ Project ini pakai **strangler pattern**: Express lama \& NestJS baru jalan berda
 
 |---|---|---|
 
-| Fase 0 | âœ… Selesai | Setup hybrid server |
+| Fase 0 | Ã¢Å“â€¦ Selesai | Setup hybrid server |
 
-| Fase 1 | âœ… Selesai | Auth (login, me) |
+| Fase 1 | Ã¢Å“â€¦ Selesai | Auth (login, me) |
 
-| Fase 2 | âœ… Selesai | Storage (presigned upload) |
+| Fase 2 | Ã¢Å“â€¦ Selesai | Storage (presigned upload) |
 
-| Fase 3 | âœ… Selesai | Rename Prisma ke singular |
+| Fase 3 | Ã¢Å“â€¦ Selesai | Rename Prisma ke singular |
 
-| Fase 4 | â³ Berjalan | Chapters (list) |
+| Fase 4 | Ã¢ÂÂ³ Berjalan | Chapters (list) |
 
-| Fase 5 | â³ Pending | Quizzes |
+| Fase 5 | Ã¢ÂÂ³ Pending | Quizzes |
 
-| Fase 6 | â³ Pending | Progress |
+| Fase 6 | Ã¢ÂÂ³ Pending | Progress |
 
-| Fase 7 | â³ Pending | Leaderboard |
+| Fase 7 | Ã¢ÂÂ³ Pending | Leaderboard |
 
-| Fase 8 | â³ Pending | Reports |
+| Fase 8 | Ã¢ÂÂ³ Pending | Reports |
 
-| Fase 9 | â³ Pending | Upload Excel |
+| Fase 9 | Ã¢ÂÂ³ Pending | Upload Excel |
 
 
 
@@ -370,9 +370,9 @@ Project ini pakai **strangler pattern**: Express lama \& NestJS baru jalan berda
 
 
 
-1\. User login â†’ POST `/api/v2/auth/login`
+1\. User login Ã¢â€ â€™ POST `/api/v2/auth/login`
 
-2\. Server verify password (bcrypt) â†’ Generate JWT
+2\. Server verify password (bcrypt) Ã¢â€ â€™ Generate JWT
 
 3\. JWT payload: `{ id, email, role, name }`
 
@@ -380,7 +380,7 @@ Project ini pakai **strangler pattern**: Express lama \& NestJS baru jalan berda
 
 5\. Client simpan token di `localStorage`
 
-6\. Setiap request â†’ Header `Authorization: Bearer <token>`
+6\. Setiap request Ã¢â€ â€™ Header `Authorization: Bearer <token>`
 
 
 
@@ -500,5 +500,5 @@ APP_URL=https://academy.cimory.com
 
 
 
-**âš ï¸ JANGAN commit `.env` ke GitLab.**
+**Ã¢Å¡Â Ã¯Â¸Â JANGAN commit `.env` ke GitLab.**
 
