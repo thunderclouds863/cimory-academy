@@ -1,84 +1,84 @@
-\# Architecture — Cimory Sales Academy
+# Architecture â€” Cimory Sales Academy
 
 
 
-\*\*Versi:\*\* 1.0
+**Versi:** 1.0
 
-\*\*Tanggal:\*\* 28 September 2026
-
-
-
-\---
+**Tanggal:** 28 September 2026
 
 
 
-\## 1. Diagram Arsitektur
+---
+
+
+
+## 1. Diagram Arsitektur
 
 
 
 ```
 
-┌─────────────────────────────────────────────────────────┐
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
 
-│                    CLOUDFLARE (CDN + WAF)                │
+â”‚                    CLOUDFLARE (CDN + WAF)                â”‚
 
-│              Free tier: DDoS, SSL, CDN global            │
+â”‚              Free tier: DDoS, SSL, CDN global            â”‚
 
-└────────────────────┬────────────────────────────────────┘
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
-&#x20;                    │
+&#x20;                    â”‚
 
-&#x20;        ┌───────────┴───────────┐
+&#x20;        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
 
-&#x20;        ▼                       ▼
+&#x20;        â–¼                       â–¼
 
-┌─────────────────┐    ┌─────────────────┐
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
 
-│  APP SERVER     │    │  OBJECT STORAGE │
+â”‚  APP SERVER     â”‚    â”‚  OBJECT STORAGE â”‚
 
-│  Node.js        │    │  Cloudflare R2  │
+â”‚  Node.js        â”‚    â”‚  Cloudflare R2  â”‚
 
-│  NestJS + Express│    │                 │
+â”‚  NestJS + Expressâ”‚    â”‚                 â”‚
 
-│                 │    │  - Video modul  │
+â”‚                 â”‚    â”‚  - Video modul  â”‚
 
-│  2-4 vCPU       │    │  - Gambar       │
+â”‚  2-4 vCPU       â”‚    â”‚  - Gambar       â”‚
 
-│  4-8 GB RAM     │    │  - Upload user  │
+â”‚  4-8 GB RAM     â”‚    â”‚  - Upload user  â”‚
 
-└────────┬────────┘    └─────────────────┘
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
-&#x20;        │
+&#x20;        â”‚
 
-&#x20;        ▼
+&#x20;        â–¼
 
-┌─────────────────┐
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
 
-│  DATABASE       │
+â”‚  DATABASE       â”‚
 
-│  PostgreSQL     │
+â”‚  PostgreSQL     â”‚
 
-│  (Supabase Pro) │
+â”‚  (Supabase Pro) â”‚
 
-│  8-10 GB        │
+â”‚  8-10 GB        â”‚
 
-│  Daily Backup   │
+â”‚  Daily Backup   â”‚
 
-└─────────────────┘
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 2. Struktur Aplikasi
+## 2. Struktur Aplikasi
 
 
 
-\### Backend (Hybrid)
+### Backend (Hybrid)
 
 
 
@@ -86,51 +86,51 @@
 
 backend/
 
-├── nestjs/                 # NestJS v2 (fitur baru)
+â”œâ”€â”€ nestjs/                 # NestJS v2 (fitur baru)
 
-│   ├── src/
+â”‚   â”œâ”€â”€ src/
 
-│   │   ├── modules/
+â”‚   â”‚   â”œâ”€â”€ modules/
 
-│   │   │   ├── auth/       # Login, register, JWT
+â”‚   â”‚   â”‚   â”œâ”€â”€ auth/       # Login, register, JWT
 
-│   │   │   ├── chapters/   # Chapter \& modul
+â”‚   â”‚   â”‚   â”œâ”€â”€ chapters/   # Chapter \& modul
 
-│   │   │   ├── storage/    # Upload ke R2
+â”‚   â”‚   â”‚   â”œâ”€â”€ storage/    # Upload ke R2
 
-│   │   │   └── ...         # Modul lain (bertahap)
+â”‚   â”‚   â”‚   â””â”€â”€ ...         # Modul lain (bertahap)
 
-│   │   ├── prisma/         # Prisma service
+â”‚   â”‚   â”œâ”€â”€ prisma/         # Prisma service
 
-│   │   ├── app.module.ts
+â”‚   â”‚   â”œâ”€â”€ app.module.ts
 
-│   │   └── main.ts
+â”‚   â”‚   â””â”€â”€ main.ts
 
-│   ├── prisma/
+â”‚   â”œâ”€â”€ prisma/
 
-│   │   └── schema.prisma   # Schema database
+â”‚   â”‚   â””â”€â”€ schema.prisma   # Schema database
 
-│   └── .env                # Config (JANGAN commit)
+â”‚   â””â”€â”€ .env                # Config (JANGAN commit)
 
-├── legacy-app.js           # Express lama (di-mount)
+â”œâ”€â”€ legacy-app.js           # Express lama (di-mount)
 
-├── routes/                 # Express routes
+â”œâ”€â”€ routes/                 # Express routes
 
-├── middleware/             # Auth, upload
+â”œâ”€â”€ middleware/             # Auth, upload
 
-├── services/               # Badge, email, excel
+â”œâ”€â”€ services/               # Badge, email, excel
 
-├── db/
+â”œâ”€â”€ db/
 
-│   └── pool.js             # PostgreSQL pool
+â”‚   â””â”€â”€ pool.js             # PostgreSQL pool
 
-└── .env                    # Config (JANGAN commit)
+â””â”€â”€ .env                    # Config (JANGAN commit)
 
 ```
 
 
 
-\### Frontend
+### Frontend
 
 
 
@@ -138,65 +138,65 @@ backend/
 
 frontend/
 
-├── index.html
+â”œâ”€â”€ index.html
 
-├── js/
+â”œâ”€â”€ js/
 
-│   ├── config.js           # Config API base
+â”‚   â”œâ”€â”€ config.js           # Config API base
 
-│   ├── api.js              # Fetch wrapper
+â”‚   â”œâ”€â”€ api.js              # Fetch wrapper
 
-│   ├── auth.js             # Login/logout
+â”‚   â”œâ”€â”€ auth.js             # Login/logout
 
-│   ├── ui.js               # UI helpers
+â”‚   â”œâ”€â”€ ui.js               # UI helpers
 
-│   ├── store.js            # State management
+â”‚   â”œâ”€â”€ store.js            # State management
 
-│   ├── guard.js            # Screenshot guard
+â”‚   â”œâ”€â”€ guard.js            # Screenshot guard
 
-│   ├── admin.js            # Admin panel
+â”‚   â”œâ”€â”€ admin.js            # Admin panel
 
-│   └── app.js              # Main SPA
+â”‚   â””â”€â”€ app.js              # Main SPA
 
-├── css/
+â”œâ”€â”€ css/
 
-│   ├── style.css           # User-facing CSS
+â”‚   â”œâ”€â”€ style.css           # User-facing CSS
 
-│   └── admin.css           # Admin CSS
+â”‚   â””â”€â”€ admin.css           # Admin CSS
 
-└── assets/
+â””â”€â”€ assets/
 
-&#x20;   └── \*.png               # Logo, mascot
-
-```
-
-
-
-\---
-
-
-
-\## 3. Alur Request
-
-
-
-\### 3.1 Fitur Lama (Express)
-
-
+&#x20;   â””â”€â”€ *.png               # Logo, mascot
 
 ```
 
-User → Cloudflare → App Server
 
-&#x20;                      ↓
+
+---
+
+
+
+## 3. Alur Request
+
+
+
+### 3.1 Fitur Lama (Express)
+
+
+
+```
+
+User â†’ Cloudflare â†’ App Server
+
+&#x20;                      â†“
 
 &#x20;                  Express (legacy-app.js)
 
-&#x20;                      ↓
+&#x20;                      â†“
 
-&#x20;                  /api/\* routes
+&#x20;                  /api/* routes
 
-&#x20;                      ↓
+&#x20;                      â†“
 
 &#x20;                  PostgreSQL (via pg.Pool)
 
@@ -204,67 +204,67 @@ User → Cloudflare → App Server
 
 
 
-\*\*Endpoint:\*\* `/api/auth/\*`, `/api/chapters/\*`, `/api/quizzes/\*`, dll.
+**Endpoint:** `/api/auth/*`, `/api/chapters/*`, `/api/quizzes/*`, dll.
 
 
 
-\### 3.2 Fitur Baru (NestJS)
+### 3.2 Fitur Baru (NestJS)
 
 
 
 ```
 
-User → Cloudflare → App Server
+User â†’ Cloudflare â†’ App Server
 
-&#x20;                      ↓
+&#x20;                      â†“
 
 &#x20;                  NestJS (main.ts)
 
-&#x20;                      ↓
+&#x20;                      â†“
 
-&#x20;                  /api/v2/\* routes
+&#x20;                  /api/v2/* routes
 
-&#x20;                      ↓
+&#x20;                      â†“
 
-&#x20;                  Module → Service → Prisma → PostgreSQL
-
-```
-
-
-
-\*\*Endpoint:\*\* `/api/v2/auth/\*`, `/api/v2/chapters/\*`, `/api/v2/storage/\*`, dll.
-
-
-
-\### 3.3 Upload Video (Presigned URL)
-
-
-
-```
-
-1\. Frontend → POST /api/v2/storage/presign (dengan JWT)
-
-2\. Backend → Generate presigned URL (R2 SDK)
-
-3\. Backend → Return { uploadUrl, publicUrl }
-
-4\. Frontend → PUT file ke R2 langsung (bypass server)
-
-5\. Frontend → Simpan publicUrl ke database
+&#x20;                  Module â†’ Service â†’ Prisma â†’ PostgreSQL
 
 ```
 
 
 
-\*\*Keuntungan:\*\* Video besar gak lewat app server → hemat bandwidth.
+**Endpoint:** `/api/v2/auth/*`, `/api/v2/chapters/*`, `/api/v2/storage/*`, dll.
 
 
 
-\---
+### 3.3 Upload Video (Presigned URL)
 
 
 
-\## 4. Database Schema (Ringkas)
+```
+
+1\. Frontend â†’ POST /api/v2/storage/presign (dengan JWT)
+
+2\. Backend â†’ Generate presigned URL (R2 SDK)
+
+3\. Backend â†’ Return { uploadUrl, publicUrl }
+
+4\. Frontend â†’ PUT file ke R2 langsung (bypass server)
+
+5\. Frontend â†’ Simpan publicUrl ke database
+
+```
+
+
+
+**Keuntungan:** Video besar gak lewat app server â†’ hemat bandwidth.
+
+
+
+---
+
+
+
+## 4. Database Schema (Ringkas)
 
 
 
@@ -280,57 +280,57 @@ User → Cloudflare → App Server
 
 | `quizzes` | Kuis per chapter |
 
-| `quiz\_questions` | Soal kuis chapter |
+| `quiz_questions` | Soal kuis chapter |
 
-| `quiz\_attempts` | Riwayat pengerjaan kuis |
+| `quiz_attempts` | Riwayat pengerjaan kuis |
 
-| `monthly\_quizzes` | Kuis bulanan |
+| `monthly_quizzes` | Kuis bulanan |
 
-| `monthly\_quiz\_questions` | Soal kuis bulanan |
+| `monthly_quiz_questions` | Soal kuis bulanan |
 
-| `monthly\_quiz\_attempts` | Riwayat kuis bulanan |
+| `monthly_quiz_attempts` | Riwayat kuis bulanan |
 
 | `flashcards` | Fun fact |
 
 | `badges` | Definisi badge |
 
-| `user\_badges` | Badge yang diperoleh user |
+| `user_badges` | Badge yang diperoleh user |
 
-| `user\_module\_progress` | Progress modul per user |
+| `user_module_progress` | Progress modul per user |
 
-| `user\_flashcard\_views` | Flashcard yang dilihat user |
+| `user_flashcard_views` | Flashcard yang dilihat user |
 
-| `leaderboard\_prizes` | Hadiah per rank per bulan |
+| `leaderboard_prizes` | Hadiah per rank per bulan |
 
-| `leaderboard\_winners` | Pemenang bulanan |
+| `leaderboard_winners` | Pemenang bulanan |
 
-| `leaderboard\_config` | Config leaderboard |
+| `leaderboard_config` | Config leaderboard |
 
-| `user\_popup\_seen` | Popup yang sudah dilihat user |
+| `user_popup_seen` | Popup yang sudah dilihat user |
 
-| `password\_resets` | Token reset password |
+| `password_resets` | Token reset password |
 
 | `reports` | Report Power BI |
 
-| `report\_access` | Akses report per user |
+| `report_access` | Akses report per user |
 
-| `report\_views` | Log view report |
-
-
-
-\*\*Total:\*\* 23 tabel.
+| `report_views` | Log view report |
 
 
 
-\---
+**Total:** 23 tabel.
 
 
 
-\## 5. Migrasi Bertahap
+---
 
 
 
-Project ini pakai \*\*strangler pattern\*\*: Express lama \& NestJS baru jalan berdampingan.
+## 5. Migrasi Bertahap
+
+
+
+Project ini pakai **strangler pattern**: Express lama \& NestJS baru jalan berdampingan.
 
 
 
@@ -338,47 +338,47 @@ Project ini pakai \*\*strangler pattern\*\*: Express lama \& NestJS baru jalan b
 
 |---|---|---|
 
-| Fase 0 | ✅ Selesai | Setup hybrid server |
+| Fase 0 | âœ… Selesai | Setup hybrid server |
 
-| Fase 1 | ✅ Selesai | Auth (login, me) |
+| Fase 1 | âœ… Selesai | Auth (login, me) |
 
-| Fase 2 | ✅ Selesai | Storage (presigned upload) |
+| Fase 2 | âœ… Selesai | Storage (presigned upload) |
 
-| Fase 3 | ✅ Selesai | Rename Prisma ke singular |
+| Fase 3 | âœ… Selesai | Rename Prisma ke singular |
 
-| Fase 4 | ✅ Selesai | Chapters (list) |
+| Fase 4 | âœ… Selesai | Chapters (list) |
 
-| Fase 5 | ⏳ Pending | Quizzes |
+| Fase 5 | â³ Pending | Quizzes |
 
-| Fase 6 | ⏳ Pending | Progress |
+| Fase 6 | â³ Pending | Progress |
 
-| Fase 7 | ⏳ Pending | Leaderboard |
+| Fase 7 | â³ Pending | Leaderboard |
 
-| Fase 8 | ⏳ Pending | Reports |
+| Fase 8 | â³ Pending | Reports |
 
-| Fase 9 | ⏳ Pending | Upload Excel |
-
-
-
-\*\*Endpoint baru\*\* selalu di `/api/v2/\*`. \*\*Endpoint lama\*\* tetap di `/api/\*`.
+| Fase 9 | â³ Pending | Upload Excel |
 
 
 
-\---
+**Endpoint baru** selalu di `/api/v2/*`. **Endpoint lama** tetap di `/api/*`.
 
 
 
-\## 6. Keamanan
+---
 
 
 
-\### Auth Flow
+## 6. Keamanan
 
 
 
-1\. User login → POST `/api/v2/auth/login`
+### Auth Flow
 
-2\. Server verify password (bcrypt) → Generate JWT
+
+
+1\. User login â†’ POST `/api/v2/auth/login`
+
+2\. Server verify password (bcrypt) â†’ Generate JWT
 
 3\. JWT payload: `{ id, email, role, name }`
 
@@ -386,127 +386,127 @@ Project ini pakai \*\*strangler pattern\*\*: Express lama \& NestJS baru jalan b
 
 5\. Client simpan token di `localStorage`
 
-6\. Setiap request → Header `Authorization: Bearer <token>`
+6\. Setiap request â†’ Header `Authorization: Bearer <token>`
 
 
 
-\### Screenshot Guard
+### Screenshot Guard
 
 
 
-\- Deteksi: `PrintScreen`, `Ctrl+P/S`, `Cmd+Shift+S/3/4/5`, `blur`, `visibilitychange`
+- Deteksi: `PrintScreen`, `Ctrl+P/S`, `Cmd+Shift+S/3/4/5`, `blur`, `visibilitychange`
 
-\- Overlay dengan identitas user (nama + email)
+- Overlay dengan identitas user (nama + email)
 
-\- Auto-hide 15 detik
+- Auto-hide 15 detik
 
-\- Block: `contextmenu`, `selectstart`, `dragstart`
-
-
-
-\### Video Guard
+- Block: `contextmenu`, `selectstart`, `dragstart`
 
 
 
-\- Pause otomatis saat tab switch / window blur
-
-\- Anti-skip: seeking ke depan di-reset
-
-\- Watch tracking: video harus ditonton sampai habis
+### Video Guard
 
 
 
-\---
+- Pause otomatis saat tab switch / window blur
+
+- Anti-skip: seeking ke depan di-reset
+
+- Watch tracking: video harus ditonton sampai habis
 
 
 
-\## 7. Environment Variables
+---
 
 
 
-\### Backend (`backend/.env` \& `backend/nestjs/.env`)
+## 7. Environment Variables
+
+
+
+### Backend (`backend/.env` \& `backend/nestjs/.env`)
 
 
 
 ```env
 
-\# Server
+# Server
 
 PORT=4000
 
-NODE\_ENV=production
+NODE_ENV=production
 
 
 
-\# Database
+# Database
 
-DATABASE\_URL=postgresql://user:pass@host:5432/db?connection\_limit=20\&pool\_timeout=30
-
-
-
-\# JWT (SAMA di kedua .env)
-
-JWT\_SECRET=<random-32-chars>
-
-JWT\_EXPIRES=8h
+DATABASE_URL=postgresql://user:pass@host:5432/db?connection_limit=20\&pool_timeout=30
 
 
 
-\# Admin seed
+# JWT (SAMA di kedua .env)
 
-ADMIN\_EMAIL=admin@cimory.com
+JWT_SECRET=<random-32-chars>
 
-ADMIN\_PASSWORD=<strong-password>
-
-
-
-\# Upload
-
-UPLOAD\_DIR=uploads
-
-MAX\_VIDEO\_MB=500
+JWT_EXPIRES=8h
 
 
 
-\# Email
+# Admin seed
 
-SMTP\_HOST=smtp.gmail.com
+ADMIN_EMAIL=admin@cimory.com
 
-SMTP\_PORT=587
-
-SMTP\_USER=<email>
-
-SMTP\_PASS=<app-password>
-
-SMTP\_FROM="Cimory Sales Academy <noreply@cimory.com>"
+ADMIN_PASSWORD=<strong-password>
 
 
 
-\# Cloudflare R2
+# Upload
 
-R2\_ACCOUNT\_ID=<account-id>
+UPLOAD_DIR=uploads
 
-R2\_ACCESS\_KEY\_ID=<key>
-
-R2\_SECRET\_ACCESS\_KEY=<secret>
-
-R2\_BUCKET=cimory-media
-
-R2\_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
-
-R2\_PUBLIC\_URL=https://pub-<hash>.r2.dev
+MAX_VIDEO_MB=500
 
 
 
-\# App URL
+# Email
 
-APP\_URL=https://academy.cimory.com
+SMTP_HOST=smtp.gmail.com
+
+SMTP_PORT=587
+
+SMTP_USER=<email>
+
+SMTP_PASS=<app-password>
+
+SMTP_FROM="Cimory Sales Academy <noreply@cimory.com>"
 
 
 
-\# UV Threadpool
+# Cloudflare R2
 
-UV\_THREADPOOL\_SIZE=8
+R2_ACCOUNT_ID=<account-id>
+
+R2_ACCESS_KEY_ID=<key>
+
+R2_SECRET_ACCESS_KEY=<secret>
+
+R2_BUCKET=cimory-media
+
+R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
+
+R2_PUBLIC_URL=https://pub-<hash>.r2.dev
+
+
+
+# App URL
+
+APP_URL=https://academy.cimory.com
+
+
+
+# UV Threadpool
+
+UV_THREADPOOL_SIZE=8
 
 ```
 

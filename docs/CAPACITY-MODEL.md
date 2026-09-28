@@ -1,24 +1,24 @@
-\# Capacity Model — Cimory Sales Academy
+# Capacity Model â€” Cimory Sales Academy
 
 
 
-\*\*Versi:\*\* 1.0
+**Versi:** 1.0
 
-\*\*Tanggal:\*\* 28 September 2026
+**Tanggal:** 28 September 2026
 
-\*\*Tujuan:\*\* Menentukan spesifikasi server yang dibutuhkan berdasarkan proyeksi pertumbuhan user.
-
-
-
-\---
+**Tujuan:** Menentukan spesifikasi server yang dibutuhkan berdasarkan proyeksi pertumbuhan user.
 
 
 
-\## 1. Data Proyeksi User
+---
 
 
 
-\### 1.1 Data Historis Headcount (2019-2026)
+## 1. Data Proyeksi User
+
+
+
+### 1.1 Data Historis Headcount (2019-2026)
 
 
 
@@ -26,7 +26,7 @@
 
 |---|---|---|
 
-| 2019 | 142 | — |
+| 2019 | 142 | â€” |
 
 | 2020 | 90 | -52 |
 
@@ -40,55 +40,55 @@
 
 | 2025 | 865 | +429 |
 
-| \*\*2026\*\* | \*\*1.202\*\* | \*\*+337\*\* |
+| **2026** | **1.202** | **+337** |
 
 
 
-\*Sumber: Data HR Cimory Group\*
+*Sumber: Data HR Cimory Group*
 
 
 
-\### 1.2 Forecast Headcount (2026-2030)
+### 1.2 Forecast Headcount (2026-2030)
 
 
 
-| Tahun | Opening HC | Forecast Addition | Resign | Net Change | \*\*Forecast Next Year\*\* |
+| Tahun | Opening HC | Forecast Addition | Resign | Net Change | **Forecast Next Year** |
 
 |---|---|---|---|---|---|
 
-| 2026 | 5.146 | +1.250 | -124 | +1.126 | \*\*6.272\*\* |
+| 2026 | 5.146 | +1.250 | -124 | +1.126 | **6.272** |
 
-| 2027 | 6.272 | +1.250 | -175 | +1.075 | \*\*7.347\*\* |
+| 2027 | 6.272 | +1.250 | -175 | +1.075 | **7.347** |
 
-| 2028 | 7.347 | +1.250 | -205 | +1.045 | \*\*8.392\*\* |
+| 2028 | 7.347 | +1.250 | -205 | +1.045 | **8.392** |
 
-| 2029 | 8.392 | +1.250 | -234 | +1.016 | \*\*9.408\*\* |
+| 2029 | 8.392 | +1.250 | -234 | +1.016 | **9.408** |
 
-| 2030 | 9.408 | +1.250 | -262 | +988 | \*\*10.396\*\* |
-
-
-
-\*\*Kesimpulan:\*\* Total HC Cimory Group diproyeksi tumbuh dari \*\*\~5.100 (2026)\*\* menjadi \*\*\~10.400 (2030)\*\* — pertumbuhan \*\*\~15-20% per tahun\*\*.
+| 2030 | 9.408 | +1.250 | -262 | +988 | **10.396** |
 
 
 
-\---
+**Kesimpulan:** Total HC Cimory Group diproyeksi tumbuh dari **\~5.100 (2026)** menjadi **\~10.400 (2030)** â€” pertumbuhan **\~15-20% per tahun**.
 
 
 
-\## 2. Konversi ke Concurrent User
+---
 
 
 
-\### 2.1 Rasio Concurrent User — Sumber Referensi
+## 2. Konversi ke Concurrent User
 
 
 
-\*\*Definisi:\*\* Concurrent user = jumlah user yang mengakses sistem \*\*bersamaan\*\* di peak hour.
+### 2.1 Rasio Concurrent User â€” Sumber Referensi
 
 
 
-\*\*Standar industri:\*\*
+**Definisi:** Concurrent user = jumlah user yang mengakses sistem **bersamaan** di peak hour.
+
+
+
+**Standar industri:**
 
 
 
@@ -96,21 +96,21 @@
 
 |---|---|---|
 
-| \*\*Infor\*\* (enterprise software) | \~10% | "of 100 users, 10 users would be concurrent" |
+| **Infor** (enterprise software) | \~10% | "of 100 users, 10 users would be concurrent" |
 
-| \*\*Unit4\*\* (ERP SaaS) | \~10% | "Maximum level of concurrency" |
+| **Unit4** (ERP SaaS) | \~10% | "Maximum level of concurrency" |
 
-| \*\*TTAK.KO-10.0292\*\* (standar Korea) | 1-10% | "전체 사용자의 1%\~10%" |
+| **TTAK.KO-10.0292** (standar Korea) | 1-10% | "ì „ì²´ ì‚¬ìš©ìžì˜ 1%\~10%" |
 
-| \*\*TOTVS\*\* (software Brazil) | 10-30% | "entre 10% e 30%" |
-
-
-
-\*\*Rekomendasi kami:\*\* \*\*15%\*\* — konservatif-modern, di tengah range standar industri.
+| **TOTVS** (software Brazil) | 10-30% | "entre 10% e 30%" |
 
 
 
-\*\*Alasan naik dari 10% ke 15%:\*\*
+**Rekomendasi kami:** **15%** â€” konservatif-modern, di tengah range standar industri.
+
+
+
+**Alasan naik dari 10% ke 15%:**
 
 1\. Platform internal (user lebih terikat, wajib training)
 
@@ -120,39 +120,39 @@
 
 
 
-\### 2.2 Formula Alternatif (Lebih Akurat)
+### 2.2 Formula Alternatif (Lebih Akurat)
 
 
 
 ```
 
-Concurrent = (Total user × % aktif harian × Durasi sesi) / Jam kerja
+Concurrent = (Total user Ã— % aktif harian Ã— Durasi sesi) / Jam kerja
 
 ```
 
 
 
-\*\*Contoh untuk 4.449 user (2026):\*\*
+**Contoh untuk 4.449 user (2026):**
 
-\- 30% aktif harian = 1.334 user
+- 30% aktif harian = 1.334 user
 
-\- Durasi sesi 20 menit = 1/3 jam
+- Durasi sesi 20 menit = 1/3 jam
 
-\- Jam kerja 8 jam
+- Jam kerja 8 jam
 
-\- \*\*Concurrent = (1.334 × 0.33) / 8 = 55 user\*\*
-
-
-
-\*\*Catatan:\*\* Formula ini menghasilkan angka \*\*lebih kecil\*\* dari 15%. Artinya, 15% adalah \*\*safety margin\*\* yang cukup besar.
+- **Concurrent = (1.334 Ã— 0.33) / 8 = 55 user**
 
 
 
-\### 2.3 Proyeksi Concurrent User
+**Catatan:** Formula ini menghasilkan angka **lebih kecil** dari 15%. Artinya, 15% adalah **safety margin** yang cukup besar.
 
 
 
-\*\*Skenario A: Semua HC (semua karyawan bisa akses)\*\*
+### 2.3 Proyeksi Concurrent User
+
+
+
+**Skenario A: Semua HC (semua karyawan bisa akses)**
 
 
 
@@ -160,19 +160,19 @@ Concurrent = (Total user × % aktif harian × Durasi sesi) / Jam kerja
 
 |---|---|---|
 
-| 2026 | 5.146 | \*\*\~770\*\* |
+| 2026 | 5.146 | **\~770** |
 
-| 2027 | 6.272 | \*\*\~940\*\* |
+| 2027 | 6.272 | **\~940** |
 
-| 2028 | 7.347 | \*\*\~1.100\*\* |
+| 2028 | 7.347 | **\~1.100** |
 
-| 2029 | 8.392 | \*\*\~1.260\*\* |
+| 2029 | 8.392 | **\~1.260** |
 
-| 2030 | 10.396 | \*\*\~1.560\*\* |
+| 2030 | 10.396 | **\~1.560** |
 
 
 
-\*\*Skenario B: Sales Only (\~35% dari HC)\*\*
+**Skenario B: Sales Only (\~35% dari HC)**
 
 
 
@@ -180,125 +180,125 @@ Concurrent = (Total user × % aktif harian × Durasi sesi) / Jam kerja
 
 |---|---|---|---|
 
-| 2026 | 5.146 | \~1.800 | \*\*\~270\*\* |
+| 2026 | 5.146 | \~1.800 | **\~270** |
 
-| 2027 | 6.272 | \~2.200 | \*\*\~330\*\* |
+| 2027 | 6.272 | \~2.200 | **\~330** |
 
-| 2028 | 7.347 | \~2.570 | \*\*\~385\*\* |
+| 2028 | 7.347 | \~2.570 | **\~385** |
 
-| 2029 | 8.392 | \~2.940 | \*\*\~440\*\* |
+| 2029 | 8.392 | \~2.940 | **\~440** |
 
-| 2030 | 10.396 | \~3.640 | \*\*\~545\*\* |
+| 2030 | 10.396 | \~3.640 | **\~545** |
 
 
 
-\*\*Rekomendasi untuk capacity planning:\*\* Pakai \*\*Skenario A\*\* (semua HC) sebagai \*\*upper bound\*\* — biar server cukup untuk worst case.
+**Rekomendasi untuk capacity planning:** Pakai **Skenario A** (semua HC) sebagai **upper bound** â€” biar server cukup untuk worst case.
 
 
 
-\---
+---
 
 
 
-\## 3. Kebutuhan Server per Fase
+## 3. Kebutuhan Server per Fase
 
 
 
-\### Fase 1: Launch (2026)
+### Fase 1: Launch (2026)
 
 
 
-\*\*Target:\*\* 5.146 user, peak \~770 concurrent
+**Target:** 5.146 user, peak \~770 concurrent
 
 
 
-\*\*Server:\*\* 2 vCPU, 4 GB RAM
+**Server:** 2 vCPU, 4 GB RAM
 
 
 
-\*\*Hasil test:\*\* Soak 500 VU = 0.08% error, p95 = 90ms ✅
+**Hasil test:** Soak 500 VU = 0.08% error, p95 = 90ms âœ…
 
 
 
-\*\*Buffer:\*\* 1.5-3x dari kebutuhan
+**Buffer:** 1.5-3x dari kebutuhan
 
 
 
-\*\*Biaya:\*\* \~$25-50/bulan
+**Biaya:** \~$25-50/bulan
 
 
 
-\### Fase 2: Growth (2027)
+### Fase 2: Growth (2027)
 
 
 
-\*\*Target:\*\* 6.272 user, peak \~940 concurrent
+**Target:** 6.272 user, peak \~940 concurrent
 
 
 
-\*\*Upgrade ke:\*\* 4 vCPU, 8 GB RAM + Nginx reverse proxy
+**Upgrade ke:** 4 vCPU, 8 GB RAM + Nginx reverse proxy
 
 
 
-\*\*Handle:\*\* \~2.000 concurrent
+**Handle:** \~2.000 concurrent
 
 
 
-\*\*Buffer:\*\* 2x dari kebutuhan
+**Buffer:** 2x dari kebutuhan
 
 
 
-\*\*Biaya:\*\* \~$50-100/bulan
+**Biaya:** \~$50-100/bulan
 
 
 
-\### Fase 3: Scale (2028-2029)
+### Fase 3: Scale (2028-2029)
 
 
 
-\*\*Target:\*\* 7.347-8.392 user, peak \~1.100-1.260 concurrent
+**Target:** 7.347-8.392 user, peak \~1.100-1.260 concurrent
 
 
 
-\*\*Upgrade ke:\*\* 8 vCPU, 16 GB RAM + Load Balancer
+**Upgrade ke:** 8 vCPU, 16 GB RAM + Load Balancer
 
 
 
-\*\*Tambahan:\*\*
+**Tambahan:**
 
-\- Load balancer (2× app server)
+- Load balancer (2Ã— app server)
 
-\- Read replica database
+- Read replica database
 
-\- Redis cache (wajib)
+- Redis cache (wajib)
 
 
 
-\*\*Biaya:\*\* \~$150-300/bulan
+**Biaya:** \~$150-300/bulan
 
 
 
-\### Fase 4: Enterprise (2030+)
+### Fase 4: Enterprise (2030+)
 
 
 
-\*\*Target:\*\* 10.396+ user, peak \~1.560 concurrent
+**Target:** 10.396+ user, peak \~1.560 concurrent
 
 
 
-\*\*Upgrade ke:\*\* Kubernetes + auto-scaling
+**Upgrade ke:** Kubernetes + auto-scaling
 
 
 
-\*\*Biaya:\*\* \~$500-1.000/bulan
+**Biaya:** \~$500-1.000/bulan
 
 
 
-\---
+---
 
 
 
-\## 4. Ringkasan Rekomendasi
+## 4. Ringkasan Rekomendasi
 
 
 
@@ -306,21 +306,21 @@ Concurrent = (Total user × % aktif harian × Durasi sesi) / Jam kerja
 
 |---|---|---|---|---|---|
 
-| 1 | 2026 | 5.146 | \~770 | \*\*2 vCPU, 4 GB\*\* | $25-50 |
+| 1 | 2026 | 5.146 | \~770 | **2 vCPU, 4 GB** | $25-50 |
 
-| 2 | 2027 | 6.272 | \~940 | \*\*4 vCPU, 8 GB\*\* + Nginx | $50-100 |
+| 2 | 2027 | 6.272 | \~940 | **4 vCPU, 8 GB** + Nginx | $50-100 |
 
-| 3 | 2028-2029 | 8.392 | \~1.260 | \*\*8 vCPU, 16 GB\*\* + LB | $150-300 |
+| 3 | 2028-2029 | 8.392 | \~1.260 | **8 vCPU, 16 GB** + LB | $150-300 |
 
-| 4 | 2030+ | 10.396+ | \~1.560 | \*\*Kubernetes\*\* | $500-1.000 |
-
-
-
-\---
+| 4 | 2030+ | 10.396+ | \~1.560 | **Kubernetes** | $500-1.000 |
 
 
 
-\## 5. Referensi
+---
+
+
+
+## 5. Referensi
 
 
 
@@ -328,15 +328,15 @@ Concurrent = (Total user × % aktif harian × Durasi sesi) / Jam kerja
 
 2\. Unit4. "Concurrent User Definition." Unit4 Documentation.
 
-3\. TTAK.KO-10.0292. "소프트웨어 사업 규모 산정 지침." Korean Standards Association.
+3\. TTAK.KO-10.0292. "ì†Œí”„íŠ¸ì›¨ì–´ ì‚¬ì—… ê·œëª¨ ì‚°ì • ì§€ì¹¨." Korean Standards Association.
 
-4\. TOTVS. "Dimensionamento de Usuários Concorrentes." TOTVS Documentation.
-
-
-
-\---
+4\. TOTVS. "Dimensionamento de UsuÃ¡rios Concorrentes." TOTVS Documentation.
 
 
 
-\*\*Dokumen ini disusun untuk keperluan capacity planning dan budgeting infrastruktur Cimory Sales Academy.\*\*
+---
+
+
+
+**Dokumen ini disusun untuk keperluan capacity planning dan budgeting infrastruktur Cimory Sales Academy.**
 

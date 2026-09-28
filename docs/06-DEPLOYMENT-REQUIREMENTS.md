@@ -1,22 +1,22 @@
-\# Deployment Requirements — Cimory Sales Academy
+# Deployment Requirements â€” Cimory Sales Academy
 
 
 
-\*\*Versi:\*\* 1.0
+**Versi:** 1.0
 
-\*\*Tanggal:\*\* 28 September 2026
-
-
-
-\---
+**Tanggal:** 28 September 2026
 
 
 
-\## 1. Kebutuhan Server
+---
 
 
 
-\### 1.1 App Server
+## 1. Kebutuhan Server
+
+
+
+### 1.1 App Server
 
 
 
@@ -36,11 +36,11 @@
 
 
 
-\*\*Fungsi:\*\* Menjalankan Node.js API server + frontend static files.
+**Fungsi:** Menjalankan Node.js API server + frontend static files.
 
 
 
-\### 1.2 Database
+### 1.2 Database
 
 
 
@@ -58,11 +58,11 @@
 
 
 
-\*\*Estimasi pertumbuhan:\*\* 35-40 MB/tahun untuk 1.000 user aktif.
+**Estimasi pertumbuhan:** 35-40 MB/tahun untuk 1.000 user aktif.
 
 
 
-\### 1.3 Object Storage
+### 1.3 Object Storage
 
 
 
@@ -80,11 +80,11 @@
 
 
 
-\*\*Fungsi:\*\* Menyimpan video modul, gambar announcement, file upload.
+**Fungsi:** Menyimpan video modul, gambar announcement, file upload.
 
 
 
-\### 1.4 CDN
+### 1.4 CDN
 
 
 
@@ -102,7 +102,7 @@
 
 
 
-\### 1.5 Email
+### 1.5 Email
 
 
 
@@ -118,15 +118,15 @@
 
 
 
-\---
+---
 
 
 
-\## 2. Kebutuhan Non-Fungsional
+## 2. Kebutuhan Non-Fungsional
 
 
 
-\### 2.1 Performa
+### 2.1 Performa
 
 
 
@@ -134,15 +134,15 @@
 
 |---|---|---|
 
-| Waktu load halaman | < 3 detik | ✅ |
+| Waktu load halaman | < 3 detik | âœ… |
 
-| API response time (p95) | < 500 ms | ✅ 5.67 ms |
+| API response time (p95) | < 500 ms | âœ… 5.67 ms |
 
-| Video streaming | Tanpa buffering | ✅ via CDN |
+| Video streaming | Tanpa buffering | âœ… via CDN |
 
 
 
-\### 2.2 Skalabilitas
+### 2.2 Skalabilitas
 
 
 
@@ -160,27 +160,27 @@
 
 
 
-\### 2.3 Keamanan
+### 2.3 Keamanan
 
 
 
-\- HTTPS wajib (SSL/TLS 1.2+)
+- HTTPS wajib (SSL/TLS 1.2+)
 
-\- Rate limiting di endpoint login (20 req / 15 menit)
+- Rate limiting di endpoint login (20 req / 15 menit)
 
-\- JWT expiration: 8 jam
+- JWT expiration: 8 jam
 
-\- Password hashing: bcrypt (10 rounds)
+- Password hashing: bcrypt (10 rounds)
 
-\- SQL injection protection: Prisma (parameterized queries)
+- SQL injection protection: Prisma (parameterized queries)
 
-\- WAF: Cloudflare (DDoS + bot protection)
+- WAF: Cloudflare (DDoS + bot protection)
 
-\- Screenshot guard di halaman pembelajaran (anti-piracy)
+- Screenshot guard di halaman pembelajaran (anti-piracy)
 
 
 
-\### 2.4 Backup \& Recovery
+### 2.4 Backup \& Recovery
 
 
 
@@ -198,7 +198,7 @@
 
 
 
-\### 2.5 Monitoring
+### 2.5 Monitoring
 
 
 
@@ -216,89 +216,89 @@
 
 
 
-\---
+---
 
 
 
-\## 3. Checklist IT
+## 3. Checklist IT
 
 
 
-\### 3.1 Infrastruktur
+### 3.1 Infrastruktur
 
 
 
-\- \[ ] VPS/Cloud server (2 vCPU, 4 GB RAM minimum)
+- [ ] VPS/Cloud server (2 vCPU, 4 GB RAM minimum)
 
-\- \[ ] PostgreSQL database (Supabase Pro atau self-host)
+- [ ] PostgreSQL database (Supabase Pro atau self-host)
 
-\- \[ ] Cloudflare R2 bucket (`cimory-media`)
+- [ ] Cloudflare R2 bucket (`cimory-media`)
 
-\- \[ ] Cloudflare CDN (domain + SSL)
+- [ ] Cloudflare CDN (domain + SSL)
 
-\- \[ ] SMTP service (Resend/SendGrid)
+- [ ] SMTP service (Resend/SendGrid)
 
-\- \[ ] Domain (subdomain existing atau baru)
+- [ ] Domain (subdomain existing atau baru)
 
-\- \[ ] DNS management
-
-
-
-\### 3.2 Keamanan
+- [ ] DNS management
 
 
 
-\- \[ ] WAF (Cloudflare)
-
-\- \[ ] Rate limiting (Cloudflare + app-level)
-
-\- \[ ] Secrets management (environment variables)
-
-\- \[ ] Backup strategy (daily DB snapshot)
-
-\- \[ ] Monitoring (UptimeRobot, Sentry)
-
-\- \[ ] SSL certificate (Let's Encrypt / Cloudflare)
+### 3.2 Keamanan
 
 
 
-\### 3.3 Deployment
+- [ ] WAF (Cloudflare)
+
+- [ ] Rate limiting (Cloudflare + app-level)
+
+- [ ] Secrets management (environment variables)
+
+- [ ] Backup strategy (daily DB snapshot)
+
+- [ ] Monitoring (UptimeRobot, Sentry)
+
+- [ ] SSL certificate (Let's Encrypt / Cloudflare)
 
 
 
-\- \[ ] CI/CD pipeline (GitLab CI)
-
-\- \[ ] Auto-deploy dari GitLab ke server
-
-\- \[ ] Rollback strategy
-
-\- \[ ] Health check endpoint (`/api/v2/health`)
+### 3.3 Deployment
 
 
 
-\### 3.4 Akses \& Kolaborasi
+- [ ] CI/CD pipeline (GitLab CI)
+
+- [ ] Auto-deploy dari GitLab ke server
+
+- [ ] Rollback strategy
+
+- [ ] Health check endpoint (`/api/v2/health`)
 
 
 
-\- \[ ] GitLab repository (private)
-
-\- \[ ] Akses developer ke GitLab (Developer role)
-
-\- \[ ] Akses server (SSH key-based)
-
-\- \[ ] Akses database (read-only untuk auditor)
+### 3.4 Akses \& Kolaborasi
 
 
 
-\---
+- [ ] GitLab repository (private)
+
+- [ ] Akses developer ke GitLab (Developer role)
+
+- [ ] Akses server (SSH key-based)
+
+- [ ] Akses database (read-only untuk auditor)
 
 
 
-\## 4. Spesifikasi Teknis Detail
+---
 
 
 
-\### 4.1 Node.js
+## 4. Spesifikasi Teknis Detail
+
+
+
+### 4.1 Node.js
 
 
 
@@ -314,7 +314,7 @@
 
 
 
-\### 4.2 PostgreSQL
+### 4.2 PostgreSQL
 
 
 
@@ -324,7 +324,7 @@
 
 | Version | PostgreSQL 15+ |
 
-| max\_connections | 200 (default 100) |
+| max_connections | 200 (default 100) |
 
 | Connection Pool | 20 (Prisma) |
 
@@ -332,7 +332,7 @@
 
 
 
-\### 4.3 Nginx (Reverse Proxy)
+### 4.3 Nginx (Reverse Proxy)
 
 
 
@@ -344,11 +344,11 @@
 
 | Fungsi | Reverse proxy, SSL termination, static files |
 
-| Config | `proxy\_pass http://localhost:4000` |
+| Config | `proxy_pass http://localhost:4000` |
 
 
 
-\### 4.4 Cloudflare
+### 4.4 Cloudflare
 
 
 
@@ -360,99 +360,99 @@
 
 | Fitur | CDN, SSL, DDoS protection, WAF |
 
-| Cache Level | Cache Everything (untuk `/uploads/\*`) |
+| Cache Level | Cache Everything (untuk `/uploads/*`) |
 
 | Edge Cache TTL | 1 bulan (video) |
 
 
 
-\---
+---
 
 
 
-\## 5. Deployment Steps (Ringkas)
+## 5. Deployment Steps (Ringkas)
 
 
 
-1\. \*\*Setup VPS:\*\* Ubuntu 22.04, Node.js 20, PostgreSQL, Nginx
+1\. **Setup VPS:** Ubuntu 22.04, Node.js 20, PostgreSQL, Nginx
 
-2\. \*\*Clone repo:\*\* `git clone <gitlab-url>`
+2\. **Clone repo:** `git clone <gitlab-url>`
 
-3\. \*\*Setup backend:\*\* `cd backend/nestjs \&\& npm install`
+3\. **Setup backend:** `cd backend/nestjs \&\& npm install`
 
-4\. \*\*Setup env:\*\* copy `.env.example` ke `.env`, isi config
+4\. **Setup env:** copy `.env.example` ke `.env`, isi config
 
-5\. \*\*Prisma:\*\* `npx prisma generate`
+5\. **Prisma:** `npx prisma generate`
 
-6\. \*\*Build:\*\* `npm run build`
+6\. **Build:** `npm run build`
 
-7\. \*\*Setup PM2:\*\* `pm2 start npm --name "cimory-academy" -- run start:prod`
+7\. **Setup PM2:** `pm2 start npm --name "cimory-academy" -- run start:prod`
 
-8\. \*\*Setup Nginx:\*\* config reverse proxy ke port 4000
+8\. **Setup Nginx:** config reverse proxy ke port 4000
 
-9\. \*\*Setup SSL:\*\* certbot untuk HTTPS
+9\. **Setup SSL:** certbot untuk HTTPS
 
-10\. \*\*Setup CI/CD:\*\* GitLab CI untuk auto-deploy
-
-
-
-\---
+10\. **Setup CI/CD:** GitLab CI untuk auto-deploy
 
 
 
-\## 6. Monitoring \& Alerting
+---
 
 
 
-\### 6.1 Uptime Monitoring
+## 6. Monitoring \& Alerting
 
 
 
-\- \*\*Tool:\*\* UptimeRobot
-
-\- \*\*URL:\*\* `https://academy.cimory.com/api/v2/health`
-
-\- \*\*Interval:\*\* 5 menit
-
-\- \*\*Alert:\*\* Email + Slack
+### 6.1 Uptime Monitoring
 
 
 
-\### 6.2 Error Tracking
+- **Tool:** UptimeRobot
+
+- **URL:** `https://academy.cimory.com/api/v2/health`
+
+- **Interval:** 5 menit
+
+- **Alert:** Email + Slack
 
 
 
-\- \*\*Tool:\*\* Sentry
-
-\- \*\*Integration:\*\* `@sentry/node` di NestJS
-
-\- \*\*Alert:\*\* Real-time untuk error 5xx
+### 6.2 Error Tracking
 
 
 
-\### 6.3 Log Aggregation
+- **Tool:** Sentry
+
+- **Integration:** `@sentry/node` di NestJS
+
+- **Alert:** Real-time untuk error 5xx
 
 
 
-\- \*\*Tool:\*\* Cloudflare Logs / Papertrail
-
-\- \*\*Format:\*\* JSON
-
-\- \*\*Retention:\*\* 30 hari
+### 6.3 Log Aggregation
 
 
 
-\---
+- **Tool:** Cloudflare Logs / Papertrail
+
+- **Format:** JSON
+
+- **Retention:** 30 hari
 
 
 
-\## 7. Kontak
+---
 
 
 
-\*\*Project Owner:\*\* \[Desi Armanda Sari]
+## 7. Kontak
 
-\*\*Email:\*\* \[desi.armanda@cimory.com]
 
-\*\*Repository:\*\* https://gitlab.com/decision-support-system-group/cimory-academy
+
+**Project Owner:** [Desi Armanda Sari]
+
+**Email:** [desi.armanda@cimory.com]
+
+**Repository:** https://gitlab.com/decision-support-system-group/cimory-academy
 

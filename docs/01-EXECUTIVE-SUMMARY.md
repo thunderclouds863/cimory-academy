@@ -1,20 +1,20 @@
-\# Executive Summary — Cimory Sales Academy
+# Executive Summary â€” Cimory Sales Academy
 
 
 
-\*\*Versi:\*\* 1.0
+**Versi:** 1.0
 
-\*\*Tanggal:\*\* 28 September 2026
+**Tanggal:** 28 September 2026
 
-\*\*Status:\*\* Siap review IT
-
-
-
-\---
+**Status:** Siap review IT
 
 
 
-\## Ringkasan
+---
+
+
+
+## Ringkasan
 
 
 
@@ -22,15 +22,15 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 
 
-\*\*Status teknis:\*\* Aplikasi siap production. Telah melalui 8 jenis performance test dengan hasil \*\*semua PASS\*\*.
+**Status teknis:** Aplikasi siap production. Telah melalui 8 jenis performance test dengan hasil **semua PASS**.
 
 
 
-\---
+---
 
 
 
-\## Hasil Test Performance
+## Hasil Test Performance
 
 
 
@@ -38,33 +38,33 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 |---|---|---|---|---|---|
 
-| 1 | Smoke | 1 | 0.00% | 33.75 ms | ✅ PASS |
+| 1 | Smoke | 1 | 0.00% | 33.75 ms | âœ… PASS |
 
-| 2 | Load | 50 | 0.00% | 5.67 ms | ✅ PASS |
+| 2 | Load | 50 | 0.00% | 5.67 ms | âœ… PASS |
 
-| 3 | Stress | 1.000 | 0.38% | 1.43 s | ✅ PASS |
+| 3 | Stress | 1.000 | 0.38% | 1.43 s | âœ… PASS |
 
-| 4 | Stress (optimized) | 1.000 | 0.00% | 4.00 s | ✅ PASS |
+| 4 | Stress (optimized) | 1.000 | 0.00% | 4.00 s | âœ… PASS |
 
-| 5 | Spike | 500 | 0.00% | 1.56 s | ✅ PASS |
+| 5 | Spike | 500 | 0.00% | 1.56 s | âœ… PASS |
 
-| 6 | Soak (1 jam) | 500 | 0.08% | 90.38 ms | ✅ PASS |
+| 6 | Soak (1 jam) | 500 | 0.08% | 90.38 ms | âœ… PASS |
 
-| 7 | R2 Benchmark | — | — | — | ✅ PASS |
+| 7 | R2 Benchmark | â€” | â€” | â€” | âœ… PASS |
 
-| 8 | Database Benchmark | 50 | 0.00% | 15.88 ms | ✅ PASS |
-
-
-
-\*\*Kesimpulan:\*\* Server 2 vCPU, 4 GB RAM \*\*cukup untuk launch 2026\*\* (target 5.146 user, peak \~770 concurrent).
+| 8 | Database Benchmark | 50 | 0.00% | 15.88 ms | âœ… PASS |
 
 
 
-\---
+**Kesimpulan:** Server 2 vCPU, 4 GB RAM **cukup untuk launch 2026** (target 5.146 user, peak \~770 concurrent).
 
 
 
-\## Forecast Kebutuhan Infrastruktur
+---
+
+
+
+## Forecast Kebutuhan Infrastruktur
 
 
 
@@ -72,31 +72,31 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 |---|---|---|---|---|
 
-| \*\*2026\*\* | \*\*5.146\*\* | \*\*\~770\*\* | \*\*2 vCPU, 4 GB\*\* | \*\*$51-95\*\* |
+| **2026** | **5.146** | **\~770** | **2 vCPU, 4 GB** | **$51-95** |
 
-| \*\*2027\*\* | \*\*6.272\*\* | \*\*\~940\*\* | \*\*4 vCPU, 8 GB\*\* | \*\*$76-144\*\* |
+| **2027** | **6.272** | **\~940** | **4 vCPU, 8 GB** | **$76-144** |
 
-| \*\*2028-2029\*\* | \*\*8.392\*\* | \*\*\~1.260\*\* | \*\*8 vCPU, 16 GB\*\* | \*\*$251-367\*\* |
+| **2028-2029** | **8.392** | **\~1.260** | **8 vCPU, 16 GB** | **$251-367** |
 
-| \*\*2030+\*\* | \*\*10.396\*\* | \*\*\~1.560\*\* | \*\*Kubernetes\*\* | \*\*$439-489\*\* |
-
-
-
-\---
+| **2030+** | **10.396** | **\~1.560** | **Kubernetes** | **$439-489** |
 
 
 
-\## Rekomendasi
+---
 
 
 
-\### Fase 1: Launch 2026 (Immediate)
+## Rekomendasi
 
 
 
-\*\*Server:\*\* 2 vCPU, 4 GB RAM (spesifikasi saat ini)
+### Fase 1: Launch 2026 (Immediate)
 
-\*\*Biaya:\*\* \~$51-95/bulan (\~Rp 800.000 - 1.480.000)
+
+
+**Server:** 2 vCPU, 4 GB RAM (spesifikasi saat ini)
+
+**Biaya:** \~$51-95/bulan (\~Rp 800.000 - 1.480.000)
 
 
 
@@ -116,41 +116,41 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 
 
-\### Fase 2: Growth 2027
+### Fase 2: Growth 2027
 
 
 
-\*\*Upgrade ke:\*\* 4 vCPU, 8 GB RAM + Nginx reverse proxy
+**Upgrade ke:** 4 vCPU, 8 GB RAM + Nginx reverse proxy
 
-\*\*Biaya:\*\* \~$76-144/bulan
-
-
-
-\### Fase 3: Scale 2028-2029
+**Biaya:** \~$76-144/bulan
 
 
 
-\*\*Upgrade ke:\*\* 8 vCPU, 16 GB RAM + Load Balancer + Redis
-
-\*\*Biaya:\*\* \~$251-367/bulan
+### Fase 3: Scale 2028-2029
 
 
 
-\### Fase 4: Enterprise 2030+
+**Upgrade ke:** 8 vCPU, 16 GB RAM + Load Balancer + Redis
+
+**Biaya:** \~$251-367/bulan
 
 
 
-\*\*Upgrade ke:\*\* Kubernetes + auto-scaling
-
-\*\*Biaya:\*\* \~$439-489/bulan
+### Fase 4: Enterprise 2030+
 
 
 
-\---
+**Upgrade ke:** Kubernetes + auto-scaling
+
+**Biaya:** \~$439-489/bulan
 
 
 
-\## Keuntungan Cloudflare R2 vs AWS S3
+---
+
+
+
+## Keuntungan Cloudflare R2 vs AWS S3
 
 
 
@@ -160,57 +160,57 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 | Storage 100 GB | $1.50 | $2.30 |
 
-| Egress 500 GB | \*\*$0\*\* | \*\*$45\*\* |
+| Egress 500 GB | **$0** | **$45** |
 
-| \*\*Total/bulan\*\* | \*\*$1.50\*\* | \*\*$47.30\*\* |
-
-
-
-\*\*Hemat:\*\* $45.80/bulan = \*\*$549.60/tahun\*\*
+| **Total/bulan** | **$1.50** | **$47.30** |
 
 
 
-\---
+**Hemat:** $45.80/bulan = **$549.60/tahun**
 
 
 
-\## Action Items untuk IT
+---
 
 
 
-\- \[ ] Review dokumen ini
-
-\- \[ ] Approve budget Fase 1 (2026): \~$51-95/bulan
-
-\- \[ ] Setup VPS (2 vCPU, 4 GB RAM)
-
-\- \[ ] Setup Supabase Pro account
-
-\- \[ ] Setup Cloudflare R2 bucket
-
-\- \[ ] Setup domain \& DNS
-
-\- \[ ] Schedule deployment meeting
+## Action Items untuk IT
 
 
 
-\---
+- [ ] Review dokumen ini
+
+- [ ] Approve budget Fase 1 (2026): \~$51-95/bulan
+
+- [ ] Setup VPS (2 vCPU, 4 GB RAM)
+
+- [ ] Setup Supabase Pro account
+
+- [ ] Setup Cloudflare R2 bucket
+
+- [ ] Setup domain \& DNS
+
+- [ ] Schedule deployment meeting
 
 
 
-\## Dokumen Terkait
+---
 
 
 
-\- \*\*\[Performance Report](02-PERFORMANCE-REPORT.md)\*\* — hasil test lengkap
+## Dokumen Terkait
 
-\- \*\*\[Capacity Model](03-CAPACITY-MODEL.md)\*\* — forecast \& kalkulasi
 
-\- \*\*\[Budget Plan](04-BUDGET-PLAN.md)\*\* — rincian biaya
 
-\- \*\*\[Architecture](05-ARCHITECTURE.md)\*\* — arsitektur sistem
+- **[Performance Report](02-PERFORMANCE-REPORT.md)** â€” hasil test lengkap
 
-\- \*\*\[Deployment Requirements](06-DEPLOYMENT-REQUIREMENTS.md)\*\* — requirement deployment
+- **[Capacity Model](03-CAPACITY-MODEL.md)** â€” forecast \& kalkulasi
 
-\- \*\*\[Technical Decisions](07-TECHNICAL-DECISIONS.md)\*\* — keputusan teknis
+- **[Budget Plan](04-BUDGET-PLAN.md)** â€” rincian biaya
+
+- **[Architecture](05-ARCHITECTURE.md)** â€” arsitektur sistem
+
+- **[Deployment Requirements](06-DEPLOYMENT-REQUIREMENTS.md)** â€” requirement deployment
+
+- **[Technical Decisions](07-TECHNICAL-DECISIONS.md)** â€” keputusan teknis
 

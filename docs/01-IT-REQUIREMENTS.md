@@ -1,100 +1,100 @@
-\# IT Requirements — Cimory Sales Academy
+# IT Requirements â€” Cimory Sales Academy
 
 
 
-\*\*Versi:\*\* 1.0
+**Versi:** 1.0
 
-\*\*Tanggal:\*\* September 2026
+**Tanggal:** September 2026
 
-\*\*Status:\*\* Draft untuk review IT
-
-
-
-\---
+**Status:** Draft untuk review IT
 
 
 
-\## 1. Ringkasan Proyek
+---
+
+
+
+## 1. Ringkasan Proyek
 
 
 
 Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimory Group \& Kanzler. Platform ini menyediakan:
 
-\- Modul pembelajaran video per chapter
+- Modul pembelajaran video per chapter
 
-\- Kuis chapter \& kuis bulanan
+- Kuis chapter \& kuis bulanan
 
-\- Sistem XP, streak, dan badge
+- Sistem XP, streak, dan badge
 
-\- Papan peringkat (leaderboard) dengan hadiah bulanan
+- Papan peringkat (leaderboard) dengan hadiah bulanan
 
-\- Laporan Power BI terintegrasi
+- Laporan Power BI terintegrasi
 
-\- Fun fact (flashcards) interaktif
-
-
-
-\*\*Target pengguna:\*\* 500-2.000 sales di seluruh Indonesia (jangka panjang: 5.000+).
+- Fun fact (flashcards) interaktif
 
 
 
-\---
+**Target pengguna:** 500-2.000 sales di seluruh Indonesia (jangka panjang: 5.000+).
 
 
 
-\## 2. Stack Teknologi
+---
 
 
 
-\### Backend
-
-\- \*\*Runtime:\*\* Node.js 20+
-
-\- \*\*Framework:\*\* NestJS 10 (migrasi bertahap dari Express)
-
-\- \*\*ORM:\*\* Prisma 6
-
-\- \*\*Database:\*\* PostgreSQL 15+
-
-\- \*\*Auth:\*\* JWT (JSON Web Token)
+## 2. Stack Teknologi
 
 
 
-\### Frontend
+### Backend
 
-\- \*\*Bahasa:\*\* Vanilla JavaScript (ES Modules)
+- **Runtime:** Node.js 20+
 
-\- \*\*Styling:\*\* CSS murni (custom design system)
+- **Framework:** NestJS 10 (migrasi bertahap dari Express)
 
-\- \*\*Font:\*\* Google Fonts (Fredoka, Plus Jakarta Sans)
+- **ORM:** Prisma 6
 
+- **Database:** PostgreSQL 15+
 
-
-\### Infrastruktur (Rekomendasi)
-
-\- \*\*App Server:\*\* VPS (DigitalOcean / Vultr / Hetzner)
-
-\- \*\*Database:\*\* Supabase Pro (managed PostgreSQL)
-
-\- \*\*Object Storage:\*\* Cloudflare R2
-
-\- \*\*CDN:\*\* Cloudflare Free
-
-\- \*\*Email:\*\* Resend / SendGrid
-
-\- \*\*Monitoring:\*\* Sentry + UptimeRobot
+- **Auth:** JWT (JSON Web Token)
 
 
 
-\---
+### Frontend
+
+- **Bahasa:** Vanilla JavaScript (ES Modules)
+
+- **Styling:** CSS murni (custom design system)
+
+- **Font:** Google Fonts (Fredoka, Plus Jakarta Sans)
 
 
 
-\## 3. Kebutuhan Infrastruktur
+### Infrastruktur (Rekomendasi)
+
+- **App Server:** VPS (DigitalOcean / Vultr / Hetzner)
+
+- **Database:** Supabase Pro (managed PostgreSQL)
+
+- **Object Storage:** Cloudflare R2
+
+- **CDN:** Cloudflare Free
+
+- **Email:** Resend / SendGrid
+
+- **Monitoring:** Sentry + UptimeRobot
 
 
 
-\### 3.1 App Server
+---
+
+
+
+## 3. Kebutuhan Infrastruktur
+
+
+
+### 3.1 App Server
 
 | Spesifikasi | Minimum | Rekomendasi |
 
@@ -110,11 +110,11 @@ Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimor
 
 
 
-\*\*Fungsi:\*\* Menjalankan Node.js API server + frontend static files.
+**Fungsi:** Menjalankan Node.js API server + frontend static files.
 
 
 
-\### 3.2 Database
+### 3.2 Database
 
 | Spesifikasi | Minimum | Rekomendasi |
 
@@ -130,11 +130,11 @@ Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimor
 
 
 
-\*\*Estimasi pertumbuhan data:\*\* 35-40 MB/tahun untuk 1.000 user aktif. Untuk 5.000 user, \~200 MB/tahun.
+**Estimasi pertumbuhan data:** 35-40 MB/tahun untuk 1.000 user aktif. Untuk 5.000 user, \~200 MB/tahun.
 
 
 
-\### 3.3 Object Storage
+### 3.3 Object Storage
 
 | Spesifikasi | Nilai |
 
@@ -150,11 +150,11 @@ Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimor
 
 
 
-\*\*Fungsi:\*\* Menyimpan video modul, gambar announcement, file upload.
+**Fungsi:** Menyimpan video modul, gambar announcement, file upload.
 
 
 
-\### 3.4 CDN
+### 3.4 CDN
 
 | Spesifikasi | Nilai |
 
@@ -170,7 +170,7 @@ Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimor
 
 
 
-\### 3.5 Email
+### 3.5 Email
 
 | Spesifikasi | Nilai |
 
@@ -184,153 +184,153 @@ Cimory Sales Academy adalah platform pembelajaran internal untuk tim sales Cimor
 
 
 
-\---
+---
 
 
 
-\## 4. Kebutuhan Non-Fungsional
+## 4. Kebutuhan Non-Fungsional
 
 
 
-\### 4.1 Performa
+### 4.1 Performa
 
-\- Waktu load halaman: < 3 detik (koneksi 4G)
+- Waktu load halaman: < 3 detik (koneksi 4G)
 
-\- API response time: < 500 ms (p95)
+- API response time: < 500 ms (p95)
 
-\- Video streaming: tanpa buffering (via CDN)
+- Video streaming: tanpa buffering (via CDN)
 
 
 
-\### 4.2 Skalabilitas
+### 4.2 Skalabilitas
 
-\- Support 1.000 concurrent user
+- Support 1.000 concurrent user
 
-\- Auto-scaling (opsional, fase lanjut)
+- Auto-scaling (opsional, fase lanjut)
 
-\- Horizontal scaling untuk app server
+- Horizontal scaling untuk app server
 
 
 
-\### 4.3 Keamanan
+### 4.3 Keamanan
 
-\- HTTPS wajib (SSL/TLS 1.2+)
+- HTTPS wajib (SSL/TLS 1.2+)
 
-\- Rate limiting di endpoint login (20 req / 15 menit)
+- Rate limiting di endpoint login (20 req / 15 menit)
 
-\- JWT expiration: 8 jam
+- JWT expiration: 8 jam
 
-\- Password hashing: bcrypt (10 rounds)
+- Password hashing: bcrypt (10 rounds)
 
-\- SQL injection protection: Prisma (parameterized queries)
+- SQL injection protection: Prisma (parameterized queries)
 
-\- WAF: Cloudflare (DDoS + bot protection)
+- WAF: Cloudflare (DDoS + bot protection)
 
-\- Screenshot guard di halaman pembelajaran (anti-piracy)
+- Screenshot guard di halaman pembelajaran (anti-piracy)
 
 
 
-\### 4.4 Backup \& Recovery
+### 4.4 Backup \& Recovery
 
-\- Database: daily snapshot, retention 30 hari
+- Database: daily snapshot, retention 30 hari
 
-\- Object storage: versioning enabled
+- Object storage: versioning enabled
 
-\- Recovery time objective (RTO): 4 jam
+- Recovery time objective (RTO): 4 jam
 
-\- Recovery point objective (RPO): 24 jam
+- Recovery point objective (RPO): 24 jam
 
 
 
-\### 4.5 Monitoring
+### 4.5 Monitoring
 
-\- Uptime monitoring: UptimeRobot (5 menit interval)
+- Uptime monitoring: UptimeRobot (5 menit interval)
 
-\- Error tracking: Sentry (real-time alert)
+- Error tracking: Sentry (real-time alert)
 
-\- Log aggregation: Cloudflare Logs / Papertrail
+- Log aggregation: Cloudflare Logs / Papertrail
 
-\- Database metrics: Supabase dashboard
+- Database metrics: Supabase dashboard
 
 
 
-\---
+---
 
 
 
-\## 5. Checklist untuk IT
+## 5. Checklist untuk IT
 
 
 
-\### Infrastruktur
+### Infrastruktur
 
-\- \[ ] VPS/Cloud server (2 vCPU, 4 GB RAM minimum)
+- [ ] VPS/Cloud server (2 vCPU, 4 GB RAM minimum)
 
-\- \[ ] PostgreSQL database (Supabase Pro atau self-host)
+- [ ] PostgreSQL database (Supabase Pro atau self-host)
 
-\- \[ ] Cloudflare R2 bucket (`cimory-media`)
+- [ ] Cloudflare R2 bucket (`cimory-media`)
 
-\- \[ ] Cloudflare CDN (domain + SSL)
+- [ ] Cloudflare CDN (domain + SSL)
 
-\- \[ ] SMTP service (Resend/SendGrid)
+- [ ] SMTP service (Resend/SendGrid)
 
-\- \[ ] Domain (subdomain existing atau baru)
+- [ ] Domain (subdomain existing atau baru)
 
-\- \[ ] DNS management
+- [ ] DNS management
 
 
 
-\### Keamanan
+### Keamanan
 
-\- \[ ] WAF (Cloudflare)
+- [ ] WAF (Cloudflare)
 
-\- \[ ] Rate limiting (Cloudflare + app-level)
+- [ ] Rate limiting (Cloudflare + app-level)
 
-\- \[ ] Secrets management (environment variables)
+- [ ] Secrets management (environment variables)
 
-\- \[ ] Backup strategy (daily DB snapshot)
+- [ ] Backup strategy (daily DB snapshot)
 
-\- \[ ] Monitoring (UptimeRobot, Sentry)
+- [ ] Monitoring (UptimeRobot, Sentry)
 
-\- \[ ] SSL certificate (Let's Encrypt / Cloudflare)
+- [ ] SSL certificate (Let's Encrypt / Cloudflare)
 
 
 
-\### Deployment
+### Deployment
 
-\- \[ ] CI/CD pipeline (GitLab CI)
+- [ ] CI/CD pipeline (GitLab CI)
 
-\- \[ ] Auto-deploy dari GitLab ke server
+- [ ] Auto-deploy dari GitLab ke server
 
-\- \[ ] Rollback strategy
+- [ ] Rollback strategy
 
-\- \[ ] Health check endpoint (`/api/v2/health`)
+- [ ] Health check endpoint (`/api/v2/health`)
 
 
 
-\### Akses \& Kolaborasi
+### Akses \& Kolaborasi
 
-\- \[ ] GitLab repository (private)
+- [ ] GitLab repository (private)
 
-\- \[ ] Akses developer ke GitLab (Developer role)
+- [ ] Akses developer ke GitLab (Developer role)
 
-\- \[ ] Akses server (SSH key-based)
+- [ ] Akses server (SSH key-based)
 
-\- \[ ] Akses database (read-only untuk auditor)
+- [ ] Akses database (read-only untuk auditor)
 
 
 
-\---
+---
 
 
 
-\## 6. Kontak
+## 6. Kontak
 
 
 
-\*\*Project Owner:\*\* \[Nama Lo]
+**Project Owner:** [Nama Lo]
 
-\*\*Email:\*\* \[Email Lo]
+**Email:** [Email Lo]
 
-\*\*Repository:\*\* \[Link GitLab]
+**Repository:** [Link GitLab]
 

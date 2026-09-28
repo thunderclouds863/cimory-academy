@@ -1,38 +1,38 @@
-\# Deployment Guide — Cimory Sales Academy
+# Deployment Guide â€” Cimory Sales Academy
 
 
 
-\---
+---
 
 
 
-\## 1. Prasyarat Server
+## 1. Prasyarat Server
 
 
 
-\- \*\*OS:\*\* Ubuntu 22.04 LTS
+- **OS:** Ubuntu 22.04 LTS
 
-\- \*\*Node.js:\*\* 20.x
+- **Node.js:** 20.x
 
-\- \*\*PostgreSQL:\*\* 15+
+- **PostgreSQL:** 15+
 
-\- \*\*Nginx:\*\* reverse proxy
+- **Nginx:** reverse proxy
 
-\- \*\*PM2:\*\* process manager
+- **PM2:** process manager
 
-\- \*\*Git:\*\* terinstall
-
-
-
-\---
+- **Git:** terinstall
 
 
 
-\## 2. Setup Server Pertama Kali
+---
 
 
 
-\### 2.1 Update System
+## 2. Setup Server Pertama Kali
+
+
+
+### 2.1 Update System
 
 
 
@@ -44,13 +44,13 @@ sudo apt update \&\& sudo apt upgrade -y
 
 
 
-\### 2.2 Install Node.js 20
+### 2.2 Install Node.js 20
 
 
 
 ```bash
 
-curl -fsSL https://deb.nodesource.com/setup\_20.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 sudo apt install -y nodejs
 
@@ -60,7 +60,7 @@ node -v  # harus v20.x
 
 
 
-\### 2.3 Install PM2
+### 2.3 Install PM2
 
 
 
@@ -72,7 +72,7 @@ sudo npm install -g pm2
 
 
 
-\### 2.4 Install Nginx
+### 2.4 Install Nginx
 
 
 
@@ -86,7 +86,7 @@ sudo systemctl enable nginx
 
 
 
-\### 2.5 Install PostgreSQL Client (jika DB external)
+### 2.5 Install PostgreSQL Client (jika DB external)
 
 
 
@@ -98,15 +98,15 @@ sudo apt install -y postgresql-client
 
 
 
-\---
+---
 
 
 
-\## 3. Deploy Aplikasi
+## 3. Deploy Aplikasi
 
 
 
-\### 3.1 Clone Repository
+### 3.1 Clone Repository
 
 
 
@@ -124,7 +124,7 @@ cd sales-academy
 
 
 
-\### 3.2 Setup Backend (NestJS)
+### 3.2 Setup Backend (NestJS)
 
 
 
@@ -146,7 +146,7 @@ npx prisma migrate deploy  # kalau pakai migration
 
 
 
-\### 3.3 Setup Backend (Express Legacy)
+### 3.3 Setup Backend (Express Legacy)
 
 
 
@@ -164,7 +164,7 @@ nano .env  # isi config
 
 
 
-\### 3.4 Build Frontend (kalau pakai bundler)
+### 3.4 Build Frontend (kalau pakai bundler)
 
 
 
@@ -172,7 +172,7 @@ nano .env  # isi config
 
 cd ../../frontend
 
-\# kalau pakai Vite:
+# kalau pakai Vite:
 
 npm install
 
@@ -182,15 +182,15 @@ npm run build
 
 
 
-\---
+---
 
 
 
-\## 4. Setup PM2
+## 4. Setup PM2
 
 
 
-\### 4.1 Start Aplikasi
+### 4.1 Start Aplikasi
 
 
 
@@ -204,7 +204,7 @@ pm2 start npm --name "cimory-academy" -- run start:prod
 
 
 
-\### 4.2 Save PM2 Config
+### 4.2 Save PM2 Config
 
 
 
@@ -218,7 +218,7 @@ pm2 startup  # ikutin instruksi yang muncul
 
 
 
-\### 4.3 Cek Status
+### 4.3 Cek Status
 
 
 
@@ -232,15 +232,15 @@ pm2 logs cimory-academy
 
 
 
-\---
+---
 
 
 
-\## 5. Setup Nginx Reverse Proxy
+## 5. Setup Nginx Reverse Proxy
 
 
 
-\### 5.1 Bikin Config
+### 5.1 Bikin Config
 
 
 
@@ -252,7 +252,7 @@ sudo nano /etc/nginx/sites-available/cimory-academy
 
 
 
-\*\*Isi:\*\*
+**Isi:**
 
 
 
@@ -262,13 +262,13 @@ server {
 
 &#x20;   listen 80;
 
-&#x20;   server\_name academy.cimory.com;
+&#x20;   server_name academy.cimory.com;
 
 
 
 &#x20;   # Redirect ke HTTPS
 
-&#x20;   return 301 https://$host$request\_uri;
+&#x20;   return 301 https://$host$request_uri;
 
 }
 
@@ -278,31 +278,31 @@ server {
 
 &#x20;   listen 443 ssl http2;
 
-&#x20;   server\_name academy.cimory.com;
+&#x20;   server_name academy.cimory.com;
 
 
 
 &#x20;   # SSL (dari Certbot / Cloudflare)
 
-&#x20;   ssl\_certificate /etc/letsencrypt/live/academy.cimory.com/fullchain.pem;
+&#x20;   ssl_certificate /etc/letsencrypt/live/academy.cimory.com/fullchain.pem;
 
-&#x20;   ssl\_certificate\_key /etc/letsencrypt/live/academy.cimory.com/privkey.pem;
+&#x20;   ssl_certificate_key /etc/letsencrypt/live/academy.cimory.com/privkey.pem;
 
 
 
 &#x20;   # Security headers
 
-&#x20;   add\_header X-Frame-Options "SAMEORIGIN" always;
+&#x20;   add_header X-Frame-Options "SAMEORIGIN" always;
 
-&#x20;   add\_header X-Content-Type-Options "nosniff" always;
+&#x20;   add_header X-Content-Type-Options "nosniff" always;
 
-&#x20;   add\_header X-XSS-Protection "1; mode=block" always;
+&#x20;   add_header X-XSS-Protection "1; mode=block" always;
 
 
 
 &#x20;   # Max upload size
 
-&#x20;   client\_max\_body\_size 500M;
+&#x20;   client_max_body_size 500M;
 
 
 
@@ -310,25 +310,25 @@ server {
 
 &#x20;   location / {
 
-&#x20;       proxy\_pass http://localhost:4000;
+&#x20;       proxy_pass http://localhost:4000;
 
-&#x20;       proxy\_http\_version 1.1;
+&#x20;       proxy_http_version 1.1;
 
-&#x20;       proxy\_set\_header Upgrade $http\_upgrade;
+&#x20;       proxy_set_header Upgrade $http_upgrade;
 
-&#x20;       proxy\_set\_header Connection 'upgrade';
+&#x20;       proxy_set_header Connection 'upgrade';
 
-&#x20;       proxy\_set\_header Host $host;
+&#x20;       proxy_set_header Host $host;
 
-&#x20;       proxy\_set\_header X-Real-IP $remote\_addr;
+&#x20;       proxy_set_header X-Real-IP $remote_addr;
 
-&#x20;       proxy\_set\_header X-Forwarded-For $proxy\_add\_x\_forwarded\_for;
+&#x20;       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
-&#x20;       proxy\_set\_header X-Forwarded-Proto $scheme;
+&#x20;       proxy_set_header X-Forwarded-Proto $scheme;
 
-&#x20;       proxy\_cache\_bypass $http\_upgrade;
+&#x20;       proxy_cache_bypass $http_upgrade;
 
-&#x20;       proxy\_read\_timeout 300s;
+&#x20;       proxy_read_timeout 300s;
 
 &#x20;   }
 
@@ -338,7 +338,7 @@ server {
 
 
 
-\### 5.2 Enable Site
+### 5.2 Enable Site
 
 
 
@@ -354,7 +354,7 @@ sudo systemctl reload nginx
 
 
 
-\### 5.3 SSL dengan Certbot
+### 5.3 SSL dengan Certbot
 
 
 
@@ -368,15 +368,15 @@ sudo certbot --nginx -d academy.cimory.com
 
 
 
-\---
+---
 
 
 
-\## 6. Setup CI/CD (GitLab CI)
+## 6. Setup CI/CD (GitLab CI)
 
 
 
-\### 6.1 Bikin `.gitlab-ci.yml` di Root Repo
+### 6.1 Bikin `.gitlab-ci.yml` di Root Repo
 
 
 
@@ -416,25 +416,25 @@ deploy:
 
 &#x20; image: alpine:latest
 
-&#x20; before\_script:
+&#x20; before_script:
 
 &#x20;   - apk add --no-cache openssh-client rsync
 
 &#x20;   - eval $(ssh-agent -s)
 
-&#x20;   - echo "$SSH\_PRIVATE\_KEY" | tr -d '\\r' | ssh-add -
+&#x20;   - echo "$SSH_PRIVATE_KEY" | tr -d '\\r' | ssh-add -
 
 &#x20;   - mkdir -p \~/.ssh
 
 &#x20;   - chmod 700 \~/.ssh
 
-&#x20;   - ssh-keyscan $SERVER\_HOST >> \~/.ssh/known\_hosts
+&#x20;   - ssh-keyscan $SERVER_HOST >> \~/.ssh/known_hosts
 
 &#x20; script:
 
-&#x20;   - rsync -avz --delete backend/ $SERVER\_USER@$SERVER\_HOST:/var/www/sales-academy/backend/
+&#x20;   - rsync -avz --delete backend/ $SERVER_USER@$SERVER_HOST:/var/www/sales-academy/backend/
 
-&#x20;   - ssh $SERVER\_USER@$SERVER\_HOST "cd /var/www/sales-academy/backend/nestjs \&\& npm install --production \&\& npx prisma generate \&\& pm2 restart cimory-academy"
+&#x20;   - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/sales-academy/backend/nestjs \&\& npm install --production \&\& npx prisma generate \&\& pm2 restart cimory-academy"
 
 &#x20; only:
 
@@ -444,31 +444,31 @@ deploy:
 
 
 
-\### 6.2 Setup Variables di GitLab
+### 6.2 Setup Variables di GitLab
 
 
 
-GitLab → \*\*Settings\*\* → \*\*CI/CD\*\* → \*\*Variables\*\*:
+GitLab â†’ **Settings** â†’ **CI/CD** â†’ **Variables**:
 
 
 
-\- `SSH\_PRIVATE\_KEY` — private key SSH server
+- `SSH_PRIVATE_KEY` â€” private key SSH server
 
-\- `SERVER\_HOST` — IP/hostname server
+- `SERVER_HOST` â€” IP/hostname server
 
-\- `SERVER\_USER` — username SSH
-
-
-
-\---
+- `SERVER_USER` â€” username SSH
 
 
 
-\## 7. Monitoring \& Logging
+---
 
 
 
-\### 7.1 PM2 Monitoring
+## 7. Monitoring \& Logging
+
+
+
+### 7.1 PM2 Monitoring
 
 
 
@@ -482,7 +482,7 @@ pm2 logs cimory-academy --lines 100
 
 
 
-\### 7.2 Log Rotate
+### 7.2 Log Rotate
 
 
 
@@ -490,7 +490,7 @@ pm2 logs cimory-academy --lines 100
 
 pm2 install pm2-logrotate
 
-pm2 set pm2-logrotate:max\_size 10M
+pm2 set pm2-logrotate:max_size 10M
 
 pm2 set pm2-logrotate:retain 7
 
@@ -498,13 +498,13 @@ pm2 set pm2-logrotate:retain 7
 
 
 
-\### 7.3 UptimeRobot
+### 7.3 UptimeRobot
 
 
 
-1\. Daftar di \[uptimerobot.com](https://uptimerobot.com)
+1\. Daftar di [uptimerobot.com](https://uptimerobot.com)
 
-2\. Add Monitor → HTTP(s)
+2\. Add Monitor â†’ HTTP(s)
 
 3\. URL: `https://academy.cimory.com/api/v2/health`
 
@@ -514,11 +514,11 @@ pm2 set pm2-logrotate:retain 7
 
 
 
-\### 7.4 Sentry
+### 7.4 Sentry
 
 
 
-1\. Daftar di \[sentry.io](https://sentry.io)
+1\. Daftar di [sentry.io](https://sentry.io)
 
 2\. Install SDK: `npm install @sentry/node`
 
@@ -526,15 +526,15 @@ pm2 set pm2-logrotate:retain 7
 
 
 
-\---
+---
 
 
 
-\## 8. Backup
+## 8. Backup
 
 
 
-\### 8.1 Database Backup (Daily)
+### 8.1 Database Backup (Daily)
 
 
 
@@ -546,29 +546,29 @@ sudo nano /usr/local/bin/backup-db.sh
 
 
 
-\*\*Isi:\*\*
+**Isi:**
 
 
 
 ```bash
 
-\#!/bin/bash
+#!/bin/bash
 
-DATE=$(date +%Y%m%d\_%H%M%S)
+DATE=$(date +%Y%m%d_%H%M%S)
 
-BACKUP\_DIR="/var/backups/cimory"
+BACKUP_DIR="/var/backups/cimory"
 
-mkdir -p $BACKUP\_DIR
+mkdir -p $BACKUP_DIR
 
-pg\_dump $DATABASE\_URL | gzip > $BACKUP\_DIR/db\_$DATE.sql.gz
+pg_dump $DATABASE_URL | gzip > $BACKUP_DIR/db_$DATE.sql.gz
 
-find $BACKUP\_DIR -name "db\_\*.sql.gz" -mtime +30 -delete
+find $BACKUP_DIR -name "db_*.sql.gz" -mtime +30 -delete
 
 ```
 
 
 
-\*\*Setup cron:\*\*
+**Setup cron:**
 
 
 
@@ -578,13 +578,13 @@ chmod +x /usr/local/bin/backup-db.sh
 
 sudo crontab -e
 
-\# Tambah: 0 2 \* \* \* /usr/local/bin/backup-db.sh
+# Tambah: 0 2 * * * /usr/local/bin/backup-db.sh
 
 ```
 
 
 
-\### 8.2 Object Storage Backup
+### 8.2 Object Storage Backup
 
 
 
@@ -592,15 +592,15 @@ Cloudflare R2 otomatis punya versioning. Enable di dashboard.
 
 
 
-\---
+---
 
 
 
-\## 9. Update / Rollback
+## 9. Update / Rollback
 
 
 
-\### 9.1 Update
+### 9.1 Update
 
 
 
@@ -622,7 +622,7 @@ pm2 restart cimory-academy
 
 
 
-\### 9.2 Rollback
+### 9.2 Rollback
 
 
 
@@ -640,15 +640,15 @@ pm2 restart cimory-academy
 
 
 
-\---
+---
 
 
 
-\## 10. Troubleshooting
+## 10. Troubleshooting
 
 
 
-\### Server gak jalan
+### Server gak jalan
 
 
 
@@ -662,19 +662,19 @@ pm2 status
 
 
 
-\### Database gak connect
+### Database gak connect
 
 
 
 ```bash
 
-psql $DATABASE\_URL -c "SELECT 1"
+psql $DATABASE_URL -c "SELECT 1"
 
 ```
 
 
 
-\### Port bentrok
+### Port bentrok
 
 
 
@@ -688,7 +688,7 @@ sudo kill -9 <PID>
 
 
 
-\### SSL expired
+### SSL expired
 
 
 
