@@ -8,16 +8,16 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
 
 Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen berbentuk **laporan & requirement**, bukan tutorial.
 
-| # | Dokumen |
+| # | Dokumen | Isi |
 |---|---|---|
-| 1 | **[Index](docs/00-INDEX.md)** | 
-| 2 | **[Executive Summary](docs/01-EXECUTIVE-SUMMARY.md)** |
-| 3 | **[System Status](docs/02-SYSTEM-STATUS.md)** |
-| 4 | **[Infrastructure Requirements](docs/03-INFRASTRUCTURE-REQUIREMENTS.md)** |
-| 5 | **[Performance Report](docs/04-PERFORMANCE-REPORT.md)** |
-| 6 | **[Capacity Planning](docs/05-CAPACITY-PLANNING.md)** |
-| 7 | **[Budget Estimation](docs/06-BUDGET-ESTIMATION.md)** |
-| 8 | **[Technical Specification](docs/07-TECHNICAL-SPECIFICATION.md)** |
+| 1 | **[Index](docs/00-INDEX.md)** | Daftar isi & status sistem |
+| 2 | **[Executive Summary](docs/01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman |
+| 3 | **[System Status](docs/02-SYSTEM-STATUS.md)** | Status fitur & progress development |
+| 4 | **[Infrastructure Requirements](docs/03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail |
+| 5 | **[Performance Report](docs/04-PERFORMANCE-REPORT.md)** | Hasil 7 test performance |
+| 6 | **[Capacity Planning](docs/05-CAPACITY-PLANNING.md)** | Forecast kebutuhan |
+| 7 | **[Budget Estimation](docs/06-BUDGET-ESTIMATION.md)** | Budget infrastruktur |
+| 8 | **[Technical Specification](docs/07-TECHNICAL-SPECIFICATION.md)** | Spesifikasi teknis |
 
 ---
 

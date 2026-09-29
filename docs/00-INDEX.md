@@ -20,15 +20,15 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 
 ## 📋 Daftar Dokumen
 
-| # | Dokumen | Isi | Untuk |
+| # | Dokumen | Isi |
 |---|---|---|---|
-| 1 | **[Executive Summary](01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman | Manajemen IT |
-| 2 | **[System Status](02-SYSTEM-STATUS.md)** | Status fitur & progress development | Tim IT & PM |
-| 3 | **[Infrastructure Requirements](03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail (server, DB, storage) | Tim Infra |
-| 4 | **[Performance Report](04-PERFORMANCE-REPORT.md)** | Hasil 7 test performance | Tim IT (verifikasi) |
-| 5 | **[Capacity Planning](05-CAPACITY-PLANNING.md)** | Forecast & proyeksi kebutuhan | Tim Capacity Planning |
-| 6 | **[Budget Estimation](06-BUDGET-ESTIMATION.md)** | Budget infrastruktur (development internal) | Finance + IT |
-| 7 | **[Technical Specification](07-TECHNICAL-SPECIFICATION.md)** | Spesifikasi teknis lengkap | Tim DevOps |
+| 1 | **[Executive Summary](01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman |
+| 2 | **[System Status](02-SYSTEM-STATUS.md)** | Status fitur & progress development | 
+| 3 | **[Infrastructure Requirements](03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail (server, DB, storage) |
+| 4 | **[Performance Report](04-PERFORMANCE-REPORT.md)** | Hasil 7 test performance |
+| 5 | **[Capacity Planning](05-CAPACITY-PLANNING.md)** | Forecast & proyeksi kebutuhan |
+| 6 | **[Budget Estimation](06-BUDGET-ESTIMATION.md)** | Budget infrastruktur (development internal) |
+| 7 | **[Technical Specification](07-TECHNICAL-SPECIFICATION.md)** | Spesifikasi teknis lengkap |
 
 ---
 
