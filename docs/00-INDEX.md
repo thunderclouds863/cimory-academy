@@ -21,7 +21,7 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 ## 📋 Daftar Dokumen
 
 | # | Dokumen | Isi |
-|---|---|---|---|
+|---|---|---|
 | 1 | **[Executive Summary](01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman |
 | 2 | **[System Status](02-SYSTEM-STATUS.md)** | Status fitur & progress development | 
 | 3 | **[Infrastructure Requirements](03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail (server, DB, storage) |
