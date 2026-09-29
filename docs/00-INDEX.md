@@ -83,8 +83,8 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 
 ## 📞 Kontak
 
-**Project Owner:** [Desi Armanda Sari]
-**Email:** [desi.armanda@cimory.com]
+**Project Owner:** [Desi Armanda Sari]  
+**Email:** [desi.armanda@cimory.com]  
 **Repository:** https://gitlab.com/decision-support-system-group/cimory-academy
 
 **Last Updated:** 29 September 2026

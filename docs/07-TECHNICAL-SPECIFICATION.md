@@ -417,8 +417,8 @@ UV_THREADPOOL_SIZE=8
 
 ## 13. Kontak
 
-**Project Owner:** [Nama]
-**Email:** [Email]
+**Project Owner:** [Desi Armanda Sari]  
+**Email:** [desi.armanda@cimory.com]  
 **Repository:** https://gitlab.com/decision-support-system-group/cimory-academy
 
 ---
