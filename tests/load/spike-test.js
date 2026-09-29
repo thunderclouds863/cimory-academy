@@ -16,7 +16,7 @@ export function setup() {
   if (res.status !== 200 && res.status !== 201) {
     throw new Error(`Login failed: ${res.status}`);
   }
-  console.log('[SETUP] ✅ Login OK');
+  console.log('[SETUP] Login OK');
   return { token: res.json('token') };
 }
 
@@ -26,18 +26,18 @@ export const options = {
       executor: 'ramping-vus',
       startVUs: 0,
       stages: [
-        { duration: '10s', target: 10 },    // baseline
-        { duration: '30s', target: 500 },   // SPIKE! 10 → 500 dalam 30 detik
-        { duration: '1m', target: 500 },    // tahan 1 menit
-        { duration: '30s', target: 10 },    // turun
-        { duration: '1m', target: 10 },     // recovery
+        { duration: '10s', target: 10 },
+        { duration: '30s', target: 500 },
+        { duration: '1m', target: 500 },
+        { duration: '30s', target: 10 },
+        { duration: '1m', target: 10 },
       ],
       gracefulRampDown: '10s',
     },
   },
   thresholds: {
     http_req_duration: ['p(95)<3000'],
-    http_req_failed: ['rate<0.05'],  // toleransi 5%
+    http_req_failed: ['rate<0.05'],
   },
 };
 

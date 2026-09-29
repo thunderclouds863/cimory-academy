@@ -12,7 +12,7 @@ export function setup() {
   if (res.status !== 200 && res.status !== 201) {
     throw new Error(`Login failed: ${res.status}`);
   }
-  console.log('[SETUP] ✅ Login OK');
+  console.log('[SETUP] Login OK');
   return { token: res.json('token') };
 }
 

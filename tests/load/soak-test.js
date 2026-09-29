@@ -16,7 +16,7 @@ export function setup() {
   if (res.status !== 200 && res.status !== 201) {
     throw new Error(`Login failed: ${res.status}`);
   }
-  console.log(`[SETUP] ✅ Login OK`);
+  console.log('[SETUP] Login OK');
   return { token: res.json('token') };
 }
 
@@ -24,14 +24,14 @@ export const options = {
   scenarios: {
     soak: {
       executor: 'constant-vus',
-      vus: 500,           // 500 user konstan
-      duration: '1h',     // 1 jam
+      vus: 500,
+      duration: '1h',
       gracefulStop: '30s',
     },
   },
   thresholds: {
-    http_req_duration: ['p(95)<2000'],  // konsisten < 2s
-    http_req_failed: ['rate<0.01'],     // error < 1%
+    http_req_duration: ['p(95)<2000'],
+    http_req_failed: ['rate<0.01'],
   },
 };
 

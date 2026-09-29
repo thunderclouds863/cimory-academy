@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
+    "start:prod": "node cluster.js",
     "migrate": "node db/migrate.js",
     "seed": "node db/seed.js",
     "reset": "node db/migrate.js && node db/seed.js"

@@ -1,7 +1,8 @@
-# Budget Plan — Cimory Sales Academy
+# Budget Estimation — Cimory Sales Academy
 
 **Versi:** 1.0
-**Tanggal:** 28 September 2026
+**Tanggal:** 29 September 2026
+**Untuk:** Tim IT Cimory Group
 **Currency:** USD (kurs 15.500 IDR)
 
 ---
@@ -11,25 +12,24 @@
 | Fase | Tahun | Target User | Server Spec | Biaya/bulan | Biaya/tahun |
 |---|---|---|---|---|---|
 | **1** | **2026** | **5.146** | **2 vCPU, 4 GB** | **$51-95** | **$612-1.140** |
-| **2** | **2027** | **6.272** | **4 vCPU, 8 GB** | **$76-144** | **$912-1.728** |
-| **3** | **2028-2029** | **8.392** | **8 vCPU, 16 GB** | **$251-367** | **$3.012-4.404** |
-| **4** | **2030+** | **10.396+** | **Kubernetes** | **$439-489** | **$5.268-5.868** |
+| **2** | **2027-2028** | **7.347** | **2 vCPU, 4 GB + Redis** | **$62-106** | **$744-1.272** |
+| **3** | **2029-2030** | **10.396** | **4 vCPU, 8 GB + LB** | **$162-210** | **$1.944-2.520** |
+| **4** | **2031+** | **> 10.396** | **Kubernetes** | **$439-489** | **$5.268-5.868** |
 
 ---
 
 ## 2. Fase 1: Launch 2026 (Immediate)
 
 **Target:** 5.146 user, peak ~770 concurrent
-**Server:** 2 vCPU, 4 GB RAM (spesifikasi saat ini)
-**Buffer:** 1.3x dari kebutuhan
+**Server:** 2 vCPU, 4 GB RAM
 
 ### Rincian Biaya
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
-| **App Server** | DigitalOcean / Vultr / Hetzner | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
+| **App Server** | DigitalOcean / Vultr | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
 | **Database** | Supabase Pro | 8 GB PostgreSQL, daily backup | $25 |
-| **Object Storage** | Cloudflare R2 | 100 GB storage, no egress fee | $1.50 |
+| **Object Storage** | Cloudflare R2 | 100 GB, no egress fee | $1.50 |
 | **CDN** | Cloudflare Free | Unlimited bandwidth | $0 |
 | **Email** | Resend | 10.000 email/bulan | $0-20 |
 | **Domain** | Cloudflare | .com (tahunan) | ~$1 |
@@ -40,71 +40,58 @@
 **Dalam Rupiah:** Rp 800.000 - Rp 1.480.000/bulan
 **Tahunan:** Rp 9.600.000 - Rp 17.760.000
 
-### Perbandingan Provider App Server
-
-| Provider | 2 vCPU, 4 GB | 4 vCPU, 8 GB |
-|---|---|---|
-| DigitalOcean | $24 | $48 |
-| Vultr | $24 | $48 |
-| Hetzner | €5 (~$6) | €12 (~$14) |
-| Linode | $24 | $48 |
-| AWS Lightsail | $20 | $40 |
-
-**Rekomendasi:** DigitalOcean (server di Singapore, latency rendah untuk Indonesia).
-
 ---
 
-## 3. Fase 2: Growth 2027
+## 3. Fase 2: Growth 2027-2028
 
-**Target:** 6.272 user, peak ~940 concurrent
-**Upgrade ke:** 4 vCPU, 8 GB RAM + Nginx reverse proxy
+**Target:** 6.272-7.347 user, peak ~940-1.100 concurrent
+**Server:** 2 vCPU, 4 GB RAM (masih cukup)
+**Tambahan:** Redis cache
 
 ### Rincian Biaya
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
-| **App Server** | DigitalOcean | 4 vCPU, 8 GB RAM, 160 GB SSD | $48 |
+| **App Server** | DigitalOcean | 2 vCPU, 4 GB RAM | $24-48 |
 | **Database** | Supabase Pro | 8 GB PostgreSQL | $25 |
-| **Object Storage** | Cloudflare R2 | 200 GB storage | $3 |
+| **Object Storage** | Cloudflare R2 | 200 GB | $3 |
 | **CDN** | Cloudflare Free | Unlimited | $0 |
-| **Nginx** | Self-hosted | Reverse proxy | $0 |
+| **Redis** | Upstash | Cache layer | $10 |
 | **Email** | Resend | 10.000 email | $0-20 |
-| **Monitoring** | Sentry + UptimeRobot | Free tier | $0 |
-| **TOTAL** | | | **$76 - $96** |
+| **TOTAL** | | | **$62 - $106** |
 
-**Dalam Rupiah:** Rp 1.180.000 - Rp 1.490.000/bulan
-**Tahunan:** Rp 14.160.000 - Rp 17.880.000
+**Dalam Rupiah:** Rp 960.000 - Rp 1.640.000/bulan
+**Tahunan:** Rp 11.520.000 - Rp 19.680.000
 
 ---
 
-## 4. Fase 3: Scale 2028-2029
+## 4. Fase 3: Scale 2029-2030
 
-**Target:** 8.392 user, peak ~1.260 concurrent
-**Upgrade ke:** 8 vCPU, 16 GB RAM + Load Balancer + Redis
+**Target:** 8.392-10.396 user, peak ~1.260-1.560 concurrent
+**Server:** 4 vCPU, 8 GB RAM + Load Balancer
 
 ### Rincian Biaya
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
-| **App Server** | 2× DigitalOcean | 4 vCPU, 8 GB RAM each | $96 |
+| **App Server** | 2× DigitalOcean | 2 vCPU, 4 GB RAM each | $48-96 |
 | **Load Balancer** | DigitalOcean | Managed LB | $12 |
-| **Database** | Supabase Medium | 100 GB PostgreSQL | $60 |
+| **Database** | Supabase Pro | 8 GB PostgreSQL | $25 |
 | **Object Storage** | Cloudflare R2 | 500 GB | $7.50 |
 | **CDN** | Cloudflare Pro | WAF + image optimization | $20 |
-| **Redis** | Upstash / Redis Cloud | Cache layer | $10-30 |
+| **Redis** | Redis Cloud | High availability | $30 |
 | **Email** | Resend Pro | 50.000 email | $20 |
-| **Monitoring** | Sentry Team | Advanced | $26 |
-| **TOTAL** | | | **$251 - $271** |
+| **TOTAL** | | | **$162.50 - $210.50** |
 
-**Dalam Rupiah:** Rp 3.890.000 - Rp 4.200.000/bulan
-**Tahunan:** Rp 46.680.000 - Rp 50.400.000
+**Dalam Rupiah:** Rp 2.520.000 - Rp 3.260.000/bulan
+**Tahunan:** Rp 30.240.000 - Rp 39.120.000
 
 ---
 
-## 5. Fase 4: Enterprise 2030+
+## 5. Fase 4: Enterprise 2031+
 
-**Target:** 10.396+ user, peak ~1.560 concurrent
-**Upgrade ke:** Kubernetes + auto-scaling
+**Target:** > 10.396 user, peak > 1.560 concurrent
+**Server:** Kubernetes + auto-scaling
 
 ### Rincian Biaya
 
@@ -129,11 +116,11 @@
 | Tahun | Infrastruktur | Development | Total |
 |---|---|---|---|
 | 2026 | $612-1.140 | Rp 66.5 juta | ~Rp 76 juta |
-| 2027 | $912-1.728 | — | ~Rp 14-27 juta |
-| 2028 | $3.012-4.404 | — | ~Rp 47-68 juta |
-| 2029 | $3.012-4.404 | — | ~Rp 47-68 juta |
-| 2030 | $5.268-5.868 | — | ~Rp 82-91 juta |
-| **TOTAL** | **$12.816-17.544** | **Rp 66.5 juta** | **~Rp 266-330 juta** |
+| 2027 | $744-1.272 | — | ~Rp 11.5-19.7 juta |
+| 2028 | $744-1.272 | — | ~Rp 11.5-19.7 juta |
+| 2029 | $1.944-2.520 | — | ~Rp 30.1-39.1 juta |
+| 2030 | $1.944-2.520 | — | ~Rp 30.1-39.1 juta |
+| **TOTAL** | **$5.988-8.724** | **Rp 66.5 juta** | **~Rp 159-201 juta** |
 
 **Catatan:** Angka ini termasuk upgrade server, database, storage, dan monitoring.
 
@@ -148,9 +135,10 @@
 | Backblaze B2 | $0.50 | $5 | $5.50 |
 | Supabase Storage | $2.10 | $45 | $47.10 |
 
-**Rekomendasi:** Cloudflare R2 (no egress fee = hemat besar untuk video).
+**Rekomendasi:** Cloudflare R2 (no egress fee).
 
 **Hemat vs AWS S3:** $45.80/bulan = **$549.60/tahun**
+**Hemat 5 tahun:** ~$2.748 (~Rp 42.6 juta)
 
 ---
 
@@ -163,11 +151,25 @@
 | Railway | $5 credit | $5/bln + usage | Custom |
 | AWS RDS | 12 bulan free | $50+/bln | Custom |
 
-**Rekomendasi:** Supabase Pro (best value untuk startup).
+**Rekomendasi:** Supabase Pro (best value).
 
 ---
 
-## 9. Biaya Development (Estimasi)
+## 9. Perbandingan Provider App Server
+
+| Provider | 2 vCPU, 4 GB | 4 vCPU, 8 GB |
+|---|---|---|
+| DigitalOcean | $24 | $48 |
+| Vultr | $24 | $48 |
+| Hetzner | €5 (~$6) | €12 (~$14) |
+| Linode | $24 | $48 |
+| AWS Lightsail | $20 | $40 |
+
+**Rekomendasi:** DigitalOcean (server di Singapore, latency rendah untuk Indonesia).
+
+---
+
+## 10. Biaya Development (Estimasi)
 
 | Role | Estimasi Jam | Rate/jam | Total |
 |---|---|---|---|
@@ -181,7 +183,7 @@
 
 ---
 
-## 10. Rekomendasi Budget
+## 11. Rekomendasi Budget
 
 ### Minimal (Bootstrap)
 
@@ -211,7 +213,7 @@
 
 ---
 
-## 11. Action Items
+## 12. Action Items
 
 - [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
 - [ ] Setup payment method (kartu kredit perusahaan)

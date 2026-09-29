@@ -1,8 +1,9 @@
 # Executive Summary — Cimory Sales Academy
 
 **Versi:** 1.0
-**Tanggal:** 28 September 2026
-**Status:** Siap review IT
+**Tanggal:** 29 September 2026
+**Untuk:** Tim IT Cimory Group
+**Dari:** Tim Development Cimory Sales Academy
 
 ---
 
@@ -10,35 +11,57 @@
 
 Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory Group & Kanzler. Platform ini menyediakan modul video, kuis, leaderboard, dan reports Power BI.
 
-**Status teknis:** Aplikasi siap production. Telah melalui 8 jenis performance test dengan hasil **semua PASS**.
+**Status:** Aplikasi siap production. Telah melalui 7 jenis performance test dengan hasil **semua PASS**.
 
 ---
 
-## Hasil Test Performance
+## Requirement Utama
+
+Berdasarkan forecast headcount dan hasil performance test, berikut requirement infrastruktur:
+
+| Komponen | Requirement | Biaya/bulan |
+|---|---|---|
+| **App Server** | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
+| **Database** | PostgreSQL 15+ managed, 8 GB | $25 |
+| **Object Storage** | S3-compatible, 100 GB, no egress fee | $1.50 |
+| **CDN** | Global CDN, unlimited bandwidth | $0 |
+| **Email** | SMTP 10.000 email/bulan | $0-20 |
+| **Monitoring** | Uptime + error tracking | $0 |
+| **TOTAL** | | **$51-95/bulan** |
+
+**Dalam Rupiah:** Rp 800.000 - Rp 1.480.000/bulan
+
+---
+
+## Hasil Performance Test
 
 | # | Test | Concurrent User | Error Rate | p(95) | Status |
 |---|---|---|---|---|---|
-| 1 | Smoke | 1 | 0.00% | 33.75 ms | ✅ PASS |
-| 2 | Load | 50 | 0.00% | 5.67 ms | ✅ PASS |
-| 3 | Stress | 1.000 | 0.38% | 1.43 s | ✅ PASS |
-| 4 | Stress (optimized) | 1.000 | 0.00% | 4.00 s | ✅ PASS |
-| 5 | Spike | 500 | 0.00% | 1.56 s | ✅ PASS |
-| 6 | Soak (1 jam) | 500 | 0.08% | 90.38 ms | ✅ PASS |
-| 7 | R2 Benchmark | — | — | — | ✅ PASS |
-| 8 | Database Benchmark | 50 | 0.00% | 15.88 ms | ✅ PASS |
+| 1 | Smoke | 1 | 0.00% | 28.08 ms | ✅ PASS |
+| 2 | Load | 50 | 0.00% | 27.99 ms | ✅ PASS |
+| 3 | Stress | 1.000 | 0.17% | 1.49 s | ✅ PASS |
+| 4 | Spike | 500 | 0.00% | 1.3 s | ✅ PASS |
+| 5 | Soak (1 jam) | 500 | 0.01% | 1.29 s | ✅ PASS |
+| 6 | R2 Benchmark | — | — | 14.46 MB/s | ✅ PASS |
+| 7 | Database | 50 | 0.00% | 5.216 TPS | ✅ PASS |
 
-**Kesimpulan:** Server 2 vCPU, 4 GB RAM **cukup untuk launch 2026** (target 5.146 user, peak ~770 concurrent).
+**Kesimpulan:** Server 2 vCPU, 4 GB RAM **kuat sampai ~1.200 concurrent user**.
 
 ---
 
 ## Forecast Kebutuhan Infrastruktur
 
-| Tahun | Total Headcount | Peak Concurrent | Server Spec | Biaya/bulan |
+Berdasarkan forecast headcount HR (2026-2030):
+
+| Tahun | Total HC | Peak Concurrent | Server Requirement | Biaya/bulan |
 |---|---|---|---|---|
 | **2026** | **5.146** | **~770** | **2 vCPU, 4 GB** | **$51-95** |
-| **2027** | **6.272** | **~940** | **4 vCPU, 8 GB** | **$76-144** |
-| **2028-2029** | **8.392** | **~1.260** | **8 vCPU, 16 GB** | **$251-367** |
-| **2030+** | **10.396** | **~1.560** | **Kubernetes** | **$439-489** |
+| **2027** | **6.272** | **~940** | **2 vCPU, 4 GB** | **$62-106** |
+| **2028** | **7.347** | **~1.100** | **2 vCPU, 4 GB** | **$62-106** |
+| **2029** | **8.392** | **~1.260** | **4 vCPU, 8 GB** | **$162-210** |
+| **2030** | **10.396** | **~1.560** | **4 vCPU, 8 GB** | **$162-210** |
+
+**Total 5 tahun:** ~$4.500-6.000 (~Rp 70-93 juta)
 
 ---
 
@@ -46,43 +69,47 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 ### Fase 1: Launch 2026 (Immediate)
 
-**Server:** 2 vCPU, 4 GB RAM (spesifikasi saat ini)
+**Server:** 2 vCPU, 4 GB RAM
+**Provider:**
+- App Server: DigitalOcean / Vultr
+- Database: Supabase Pro
+- Object Storage: Cloudflare R2
+- CDN: Cloudflare Free
+- Email: Resend
+
 **Biaya:** ~$51-95/bulan (~Rp 800.000 - 1.480.000)
 
-| Komponen | Provider | Spesifikasi |
-|---|---|---|
-| App Server | DigitalOcean / Vultr | 2 vCPU, 4 GB RAM |
-| Database | Supabase Pro | 8 GB PostgreSQL |
-| Object Storage | Cloudflare R2 | 100 GB, no egress fee |
-| CDN | Cloudflare Free | Unlimited |
-| Email | Resend | 10.000 email/bulan |
+### Fase 2: Growth 2027-2028
 
-### Fase 2: Growth 2027
+**Server:** 2 vCPU, 4 GB RAM (masih cukup)
+**Tambahan:** Redis cache (opsional)
 
-**Upgrade ke:** 4 vCPU, 8 GB RAM + Nginx reverse proxy
-**Biaya:** ~$76-144/bulan
+**Biaya:** ~$62-106/bulan
 
-### Fase 3: Scale 2028-2029
+### Fase 3: Scale 2029-2030
 
-**Upgrade ke:** 8 vCPU, 16 GB RAM + Load Balancer + Redis
-**Biaya:** ~$251-367/bulan
+**Server:** 4 vCPU, 8 GB RAM + Load Balancer
+**Tambahan:** Redis, Cloudflare Pro
 
-### Fase 4: Enterprise 2030+
+**Biaya:** ~$162-210/bulan
 
-**Upgrade ke:** Kubernetes + auto-scaling
+### Fase 4: Enterprise 2031+
+
+**Server:** Kubernetes + auto-scaling
+
 **Biaya:** ~$439-489/bulan
 
 ---
 
 ## Keuntungan Cloudflare R2 vs AWS S3
 
-| Komponen | Cloudflare R2 | AWS S3 |
-|---|---|---|
-| Storage 100 GB | $1.50 | $2.30 |
-| Egress 500 GB | **$0** | **$45** |
-| **Total/bulan** | **$1.50** | **$47.30** |
+| Komponen | Cloudflare R2 | AWS S3 | Hemat |
+|---|---|---|---|
+| Storage 100 GB | $1.50 | $2.30 | $0.80 |
+| Egress 500 GB | **$0** | **$45** | **$45** |
+| **Total/bulan** | **$1.50** | **$47.30** | **$45.80** |
 
-**Hemat:** $45.80/bulan = **$549.60/tahun**
+**Hemat 5 tahun:** ~$2.748 (~Rp 42.6 juta)
 
 ---
 
@@ -100,9 +127,8 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 ## Dokumen Terkait
 
-- **[Performance Report](02-PERFORMANCE-REPORT.md)** — hasil test lengkap
-- **[Capacity Model](03-CAPACITY-MODEL.md)** — forecast & kalkulasi
-- **[Budget Plan](04-BUDGET-PLAN.md)** — rincian biaya
-- **[Architecture](05-ARCHITECTURE.md)** — arsitektur sistem
-- **[Deployment Requirements](06-DEPLOYMENT-REQUIREMENTS.md)** — requirement deployment
-- **[Technical Decisions](07-TECHNICAL-DECISIONS.md)** — keputusan teknis
+- **[Infrastructure Requirements](02-INFRASTRUCTURE-REQUIREMENTS.md)** — requirement detail
+- **[Performance Report](03-PERFORMANCE-REPORT.md)** — hasil test lengkap
+- **[Capacity Planning](04-CAPACITY-PLANNING.md)** — forecast & kalkulasi
+- **[Budget Estimation](05-BUDGET-ESTIMATION.md)** — rincian biaya
+- **[Technical Specification](06-TECHNICAL-SPECIFICATION.md)** — spesifikasi teknis
