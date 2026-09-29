@@ -1,6 +1,6 @@
 # Executive Summary — Cimory Sales Academy
 
-**Versi:** 1.1
+**Versi:** 2.0
 **Tanggal:** 29 September 2026
 **Untuk:** Tim IT Cimory Group
 **Dari:** Tim Development Cimory Sales Academy
@@ -11,24 +11,48 @@
 
 Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory Group & Kanzler. Platform ini menyediakan modul video, kuis, leaderboard, dan reports Power BI.
 
-**Status:** Aplikasi siap production. Telah melalui 7 jenis performance test dengan hasil **semua PASS**.
+**Status:** Production-ready. 7 performance test PASS.
 
-**Catatan:** Development dilakukan internal. Dokumen ini fokus ke **requirement infrastruktur** yang dibutuhkan.
+**Catatan:** Development dilakukan internal. Dokumen ini fokus ke **requirement infrastruktur**.
 
 ---
 
-## Requirement Infrastruktur
+## Status Sistem Saat Ini
 
-Berdasarkan forecast headcount dan hasil performance test, berikut requirement infrastruktur:
+### Fitur yang Sudah Jalan ✅
+
+| Fitur | Status |
+|---|---|
+| Login & Authentication (JWT) | ✅ Production-ready |
+| Dashboard user | ✅ Production-ready |
+| Belajar (modul video) | ✅ Production-ready |
+| Kuis chapter | ✅ Production-ready |
+| Quiz bulanan | ✅ Production-ready |
+| Fun fact (flashcards) | ✅ Production-ready |
+| Badges & XP | ✅ Production-ready |
+| Leaderboard | ✅ Production-ready |
+| Reports Power BI | ✅ Production-ready |
+| Admin panel | ✅ Production-ready |
+| Upload ke Cloudflare R2 | ✅ Production-ready |
+
+### Yang Sedang On Going 🚧
+
+| Item | Progress |
+|---|---|
+| Migrasi backend Express → NestJS | 40% (4/10 modul) |
+| Migrasi frontend ke Vite bundler | 0% (planned) |
+| Setup CI/CD | 0% (planned) |
+| Unit testing | 0% (planned) |
+
+### Requirement Infrastruktur
 
 | Komponen | Requirement | Biaya/bulan |
 |---|---|---|
-| **App Server** | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
-| **Database** | PostgreSQL 15+ managed, 8 GB | $25 |
-| **Object Storage** | S3-compatible, 100 GB, no egress fee | $1.50 |
-| **CDN** | Global CDN, unlimited bandwidth | $0 |
-| **Email** | SMTP 10.000 email/bulan | $0-20 |
-| **Monitoring** | Uptime + error tracking | $0 |
+| App Server | 2 vCPU, 4 GB RAM | $24-48 |
+| Database | 8 GB PostgreSQL managed | $25 |
+| Object Storage | 100 GB, no egress | $1.50 |
+| CDN | Global, unlimited | $0 |
+| Email | 10.000 email/bulan | $0-20 |
 | **TOTAL** | | **$51-95/bulan** |
 
 **Dalam Rupiah:** Rp 800.000 - Rp 1.480.000/bulan
@@ -37,7 +61,7 @@ Berdasarkan forecast headcount dan hasil performance test, berikut requirement i
 
 ## Hasil Performance Test
 
-| # | Test | Concurrent User | Error Rate | p(95) | Status |
+| # | Test | Concurrent | Error | p(95) | Status |
 |---|---|---|---|---|---|
 | 1 | Smoke | 1 | 0.00% | 28.08 ms | ✅ PASS |
 | 2 | Load | 50 | 0.00% | 27.99 ms | ✅ PASS |
@@ -51,11 +75,11 @@ Berdasarkan forecast headcount dan hasil performance test, berikut requirement i
 
 ---
 
-## Forecast Kebutuhan Infrastruktur
+## Forecast Kebutuhan
 
 Berdasarkan forecast headcount HR (2026-2030):
 
-| Tahun | Total HC | Peak Concurrent | Server Requirement | Biaya/bulan |
+| Tahun | Total User | Peak Concurrent | Server Requirement | Biaya/bulan |
 |---|---|---|---|---|
 | **2026** | **5.146** | **~770** | **2 vCPU, 4 GB** | **$51-95** |
 | **2027** | **6.272** | **~940** | **2 vCPU, 4 GB** | **$62-106** |
@@ -64,8 +88,6 @@ Berdasarkan forecast headcount HR (2026-2030):
 | **2030** | **10.396** | **~1.560** | **4 vCPU, 8 GB** | **$162-210** |
 
 **Total 5 tahun (infrastruktur):** ~$4.500-6.000 (~Rp 70-93 juta)
-
-**Catatan:** Budget ini **hanya infrastruktur cloud**. Development internal tidak masuk.
 
 ---
 
@@ -105,18 +127,6 @@ Berdasarkan forecast headcount HR (2026-2030):
 
 ---
 
-## Keuntungan Cloudflare R2 vs AWS S3
-
-| Komponen | Cloudflare R2 | AWS S3 | Hemat |
-|---|---|---|---|
-| Storage 100 GB | $1.50 | $2.30 | $0.80 |
-| Egress 500 GB | **$0** | **$45** | **$45** |
-| **Total/bulan** | **$1.50** | **$47.30** | **$45.80** |
-
-**Hemat 5 tahun:** ~$2.748 (~Rp 42.6 juta)
-
----
-
 ## Komponen Budget
 
 Budget ini **hanya infrastruktur cloud**:
@@ -125,7 +135,7 @@ Budget ini **hanya infrastruktur cloud**:
 |---|---|
 | App Server (VPS) | Development (backend, frontend) |
 | Database managed | Design (UI/UX) |
-| Object Storage | Content creation (video, materi) |
+| Object Storage | Content creation |
 | CDN | QA & Testing |
 | Email service | Deployment setup |
 | Monitoring | Maintenance code |
@@ -148,8 +158,10 @@ Budget ini **hanya infrastruktur cloud**:
 
 ## Dokumen Terkait
 
-- **[Infrastructure Requirements](02-INFRASTRUCTURE-REQUIREMENTS.md)** — requirement detail
-- **[Performance Report](03-PERFORMANCE-REPORT.md)** — hasil test lengkap
-- **[Capacity Planning](04-CAPACITY-PLANNING.md)** — forecast & kalkulasi
-- **[Budget Estimation](05-BUDGET-ESTIMATION.md)** — rincian biaya infrastruktur
-- **[Technical Specification](06-TECHNICAL-SPECIFICATION.md)** — spesifikasi teknis
+- **[Index](00-INDEX.md)** — daftar isi lengkap
+- **[System Status](02-SYSTEM-STATUS.md)** — status fitur & progress
+- **[Infrastructure Requirements](03-INFRASTRUCTURE-REQUIREMENTS.md)** — requirement detail
+- **[Performance Report](04-PERFORMANCE-REPORT.md)** — hasil test
+- **[Capacity Planning](05-CAPACITY-PLANNING.md)** — forecast
+- **[Budget Estimation](06-BUDGET-ESTIMATION.md)** — rincian biaya
+- **[Technical Specification](07-TECHNICAL-SPECIFICATION.md)** — spesifikasi teknis

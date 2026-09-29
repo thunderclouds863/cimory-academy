@@ -1,11 +1,73 @@
+# 🏢 Cimory Sales Academy
+
+Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
 
 ---
 
-## 🔗 Link Penting
+## 📚 Dokumentasi untuk Tim IT
 
-- **Repository:** https://gitlab.com/decision-support-system-group/cimory-academy
-- **API Health Check:** https://academy.cimory.com/api/v2/health (production)
-- **Dokumentasi IT:** Lihat folder `docs/`
+Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen berbentuk **laporan & requirement**, bukan tutorial.
+
+| # | Dokumen | Isi |
+|---|---|---|
+| 1 | **[Index](docs/00-INDEX.md)** | Daftar isi & status sistem |
+| 2 | **[Executive Summary](docs/01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman |
+| 3 | **[System Status](docs/02-SYSTEM-STATUS.md)** | Status fitur & progress development |
+| 4 | **[Infrastructure Requirements](docs/03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail |
+| 5 | **[Performance Report](docs/04-PERFORMANCE-REPORT.md)** | Hasil 7 test performance |
+| 6 | **[Capacity Planning](docs/05-CAPACITY-PLANNING.md)** | Forecast kebutuhan |
+| 7 | **[Budget Estimation](docs/06-BUDGET-ESTIMATION.md)** | Budget infrastruktur |
+| 8 | **[Technical Specification](docs/07-TECHNICAL-SPECIFICATION.md)** | Spesifikasi teknis |
+
+---
+
+## 🎯 Quick Summary
+
+### Status Sistem
+
+**Production-ready.** 7 performance test PASS. Error rate < 0.2%.
+
+| Layer | Status |
+|---|---|
+| Backend (Express) | ✅ Jalan (fitur lama) |
+| Backend (NestJS) | 🚧 Migrasi 40% (fitur baru) |
+| Database (PostgreSQL) | ✅ Jalan |
+| Object Storage (R2) | ✅ Jalan |
+| Frontend | ✅ Jalan |
+
+### Requirement Infrastruktur
+
+| Komponen | Requirement | Biaya/bulan |
+|---|---|---|
+| App Server | 2 vCPU, 4 GB RAM | $24-48 |
+| Database | 8 GB PostgreSQL managed | $25 |
+| Object Storage | 100 GB, no egress | $1.50 |
+| CDN | Global, unlimited | $0 |
+| Email | 10.000 email/bulan | $0-20 |
+| **TOTAL** | | **$51-95/bulan** |
+
+### Forecast Kebutuhan
+
+| Tahun | Total User | Peak Concurrent | Server Spec |
+|---|---|---|---|
+| 2026 | 5.146 | ~770 | 2 vCPU, 4 GB |
+| 2027 | 6.272 | ~940 | 2 vCPU, 4 GB |
+| 2028 | 7.347 | ~1.100 | 2 vCPU, 4 GB |
+| 2029 | 8.392 | ~1.260 | 4 vCPU, 8 GB |
+| 2030 | 10.396 | ~1.560 | 4 vCPU, 8 GB |
+
+---
+
+## 🏗️ Tech Stack
+
+| Layer | Teknologi |
+|---|---|
+| Backend | Node.js 20, NestJS 10, Express 4, Prisma 6 |
+| Database | PostgreSQL 15+ |
+| Frontend | Vanilla JavaScript (ES2022) |
+| Object Storage | Cloudflare R2 (S3-compatible) |
+| CDN | Cloudflare |
+| Auth | JWT |
 
 ---
 
@@ -44,12 +106,58 @@
 
 ---
 
+## 📁 Struktur Project
+
+```
+Sales-Academy/
+├── backend/                 # API server (hybrid)
+│   ├── nestjs/              # NestJS v2 (fitur baru)
+│   ├── routes/              # Express routes (legacy)
+│   ├── middleware/          # Auth, upload
+│   ├── services/            # Badge, email, excel
+│   ├── db/                  # PostgreSQL pool
+│   └── legacy-app.js        # Express app (di-mount)
+│
+├── frontend/                # Web app
+│   ├── index.html
+│   ├── js/                  # Vanilla JS modules
+│   ├── css/                 # Style & admin CSS
+│   └── assets/              # Logo, mascot
+│
+├── docs/                    # 📚 Dokumentasi IT
+│   ├── 00-INDEX.md
+│   ├── 01-EXECUTIVE-SUMMARY.md
+│   ├── 02-SYSTEM-STATUS.md
+│   ├── 03-INFRASTRUCTURE-REQUIREMENTS.md
+│   ├── 04-PERFORMANCE-REPORT.md
+│   ├── 05-CAPACITY-PLANNING.md
+│   ├── 06-BUDGET-ESTIMATION.md
+│   └── 07-TECHNICAL-SPECIFICATION.md
+│
+└── tests/                   # Test scripts (k6, benchmark)
+    └── load/
+```
+
+---
+
+## 🚀 Action Items untuk IT
+
+- [ ] Review semua dokumen
+- [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
+- [ ] Setup VPS (2 vCPU, 4 GB RAM)
+- [ ] Setup Supabase Pro account
+- [ ] Setup Cloudflare R2 bucket
+- [ ] Setup domain & DNS
+- [ ] Schedule deployment meeting
+
+---
+
 ## 📞 Kontak
 
 | Role | Kontak |
 |---|---|
 | **Project Owner** | [Desi Armanda Sari] — [desi.armanda@cimory.com] |
-| **Repository** | [https://gitlab.com/decision-support-system-group/cimory-academy] |
+| **Repository** | https://gitlab.com/decision-support-system-group/cimory-academy |
 
 ---
 
