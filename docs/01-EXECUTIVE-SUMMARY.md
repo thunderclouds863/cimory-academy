@@ -1,6 +1,6 @@
 # Executive Summary — Cimory Sales Academy
 
-**Versi:** 1.0
+**Versi:** 1.1
 **Tanggal:** 29 September 2026
 **Untuk:** Tim IT Cimory Group
 **Dari:** Tim Development Cimory Sales Academy
@@ -13,9 +13,11 @@ Cimory Sales Academy adalah platform pembelajaran digital untuk tim sales Cimory
 
 **Status:** Aplikasi siap production. Telah melalui 7 jenis performance test dengan hasil **semua PASS**.
 
+**Catatan:** Development dilakukan internal. Dokumen ini fokus ke **requirement infrastruktur** yang dibutuhkan.
+
 ---
 
-## Requirement Utama
+## Requirement Infrastruktur
 
 Berdasarkan forecast headcount dan hasil performance test, berikut requirement infrastruktur:
 
@@ -61,11 +63,13 @@ Berdasarkan forecast headcount HR (2026-2030):
 | **2029** | **8.392** | **~1.260** | **4 vCPU, 8 GB** | **$162-210** |
 | **2030** | **10.396** | **~1.560** | **4 vCPU, 8 GB** | **$162-210** |
 
-**Total 5 tahun:** ~$4.500-6.000 (~Rp 70-93 juta)
+**Total 5 tahun (infrastruktur):** ~$4.500-6.000 (~Rp 70-93 juta)
+
+**Catatan:** Budget ini **hanya infrastruktur cloud**. Development internal tidak masuk.
 
 ---
 
-## Rekomendasi
+## Rekomendasi Infrastruktur
 
 ### Fase 1: Launch 2026 (Immediate)
 
@@ -113,6 +117,23 @@ Berdasarkan forecast headcount HR (2026-2030):
 
 ---
 
+## Komponen Budget
+
+Budget ini **hanya infrastruktur cloud**:
+
+| ✅ Termasuk | ❌ Tidak Termasuk |
+|---|---|
+| App Server (VPS) | Development (backend, frontend) |
+| Database managed | Design (UI/UX) |
+| Object Storage | Content creation (video, materi) |
+| CDN | QA & Testing |
+| Email service | Deployment setup |
+| Monitoring | Maintenance code |
+
+**Alasan:** Development dilakukan internal oleh tim.
+
+---
+
 ## Action Items untuk IT
 
 - [ ] Review dokumen ini
@@ -130,5 +151,5 @@ Berdasarkan forecast headcount HR (2026-2030):
 - **[Infrastructure Requirements](02-INFRASTRUCTURE-REQUIREMENTS.md)** — requirement detail
 - **[Performance Report](03-PERFORMANCE-REPORT.md)** — hasil test lengkap
 - **[Capacity Planning](04-CAPACITY-PLANNING.md)** — forecast & kalkulasi
-- **[Budget Estimation](05-BUDGET-ESTIMATION.md)** — rincian biaya
+- **[Budget Estimation](05-BUDGET-ESTIMATION.md)** — rincian biaya infrastruktur
 - **[Technical Specification](06-TECHNICAL-SPECIFICATION.md)** — spesifikasi teknis

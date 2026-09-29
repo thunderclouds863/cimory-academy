@@ -3,11 +3,12 @@
 **Versi:** 1.0
 **Tanggal:** 29 September 2026
 **Untuk:** Tim IT Cimory Group
+**Scope:** Infrastruktur saja (development oleh internal)
 **Currency:** USD (kurs 15.500 IDR)
 
 ---
 
-## 1. Ringkasan Budget per Fase
+## 1. Ringkasan Budget
 
 | Fase | Tahun | Target User | Server Spec | Biaya/bulan | Biaya/tahun |
 |---|---|---|---|---|---|
@@ -16,6 +17,10 @@
 | **3** | **2029-2030** | **10.396** | **4 vCPU, 8 GB + LB** | **$162-210** | **$1.944-2.520** |
 | **4** | **2031+** | **> 10.396** | **Kubernetes** | **$439-489** | **$5.268-5.868** |
 
+**Total 5 tahun (2026-2030):** ~$4.500-6.000 (~Rp 70-93 juta)
+
+**Catatan:** Budget ini **hanya untuk infrastruktur**. Development dilakukan oleh tim internal.
+
 ---
 
 ## 2. Fase 1: Launch 2026 (Immediate)
@@ -23,11 +28,11 @@
 **Target:** 5.146 user, peak ~770 concurrent
 **Server:** 2 vCPU, 4 GB RAM
 
-### Rincian Biaya
+### Rincian Biaya Infrastruktur
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
-| **App Server** | DigitalOcean / Vultr | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
+| **App Server** | DigitalOcean / Vultr / Hetzner | 2 vCPU, 4 GB RAM, 80 GB SSD | $24-48 |
 | **Database** | Supabase Pro | 8 GB PostgreSQL, daily backup | $25 |
 | **Object Storage** | Cloudflare R2 | 100 GB, no egress fee | $1.50 |
 | **CDN** | Cloudflare Free | Unlimited bandwidth | $0 |
@@ -40,6 +45,12 @@
 **Dalam Rupiah:** Rp 800.000 - Rp 1.480.000/bulan
 **Tahunan:** Rp 9.600.000 - Rp 17.760.000
 
+### Catatan
+
+- **Domain:** Kalau pakai subdomain existing (academy.cimory.com), biaya domain bisa $0
+- **Email:** Free tier Resend cukup untuk launch (3.000 email/bulan)
+- **Monitoring:** Free tier UptimeRobot + Sentry cukup
+
 ---
 
 ## 3. Fase 2: Growth 2027-2028
@@ -48,7 +59,7 @@
 **Server:** 2 vCPU, 4 GB RAM (masih cukup)
 **Tambahan:** Redis cache
 
-### Rincian Biaya
+### Rincian Biaya Infrastruktur
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
@@ -70,7 +81,7 @@
 **Target:** 8.392-10.396 user, peak ~1.260-1.560 concurrent
 **Server:** 4 vCPU, 8 GB RAM + Load Balancer
 
-### Rincian Biaya
+### Rincian Biaya Infrastruktur
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
@@ -93,7 +104,7 @@
 **Target:** > 10.396 user, peak > 1.560 concurrent
 **Server:** Kubernetes + auto-scaling
 
-### Rincian Biaya
+### Rincian Biaya Infrastruktur
 
 | Komponen | Provider | Spesifikasi | Biaya/bulan |
 |---|---|---|---|
@@ -113,16 +124,16 @@
 
 ## 6. Total Cost of Ownership (5 Tahun)
 
-| Tahun | Infrastruktur | Development | Total |
+| Tahun | Fase | Biaya Infrastruktur | Total (Rp) |
 |---|---|---|---|
-| 2026 | $612-1.140 | Rp 66.5 juta | ~Rp 76 juta |
-| 2027 | $744-1.272 | — | ~Rp 11.5-19.7 juta |
-| 2028 | $744-1.272 | — | ~Rp 11.5-19.7 juta |
-| 2029 | $1.944-2.520 | — | ~Rp 30.1-39.1 juta |
-| 2030 | $1.944-2.520 | — | ~Rp 30.1-39.1 juta |
-| **TOTAL** | **$5.988-8.724** | **Rp 66.5 juta** | **~Rp 159-201 juta** |
+| 2026 | Launch | $612-1.140 | ~Rp 9.5-17.7 juta |
+| 2027 | Growth | $744-1.272 | ~Rp 11.5-19.7 juta |
+| 2028 | Growth | $744-1.272 | ~Rp 11.5-19.7 juta |
+| 2029 | Scale | $1.944-2.520 | ~Rp 30.1-39.1 juta |
+| 2030 | Scale | $1.944-2.520 | ~Rp 30.1-39.1 juta |
+| **TOTAL** | | **$5.988-8.724** | **~Rp 93-135 juta** |
 
-**Catatan:** Angka ini termasuk upgrade server, database, storage, dan monitoring.
+**Catatan:** Angka ini **hanya infrastruktur**. Development dilakukan internal (tidak masuk budget ini).
 
 ---
 
@@ -151,7 +162,7 @@
 | Railway | $5 credit | $5/bln + usage | Custom |
 | AWS RDS | 12 bulan free | $50+/bln | Custom |
 
-**Rekomendasi:** Supabase Pro (best value).
+**Rekomendasi:** Supabase Pro (best value, managed).
 
 ---
 
@@ -167,49 +178,65 @@
 
 **Rekomendasi:** DigitalOcean (server di Singapore, latency rendah untuk Indonesia).
 
----
-
-## 10. Biaya Development (Estimasi)
-
-| Role | Estimasi Jam | Rate/jam | Total |
-|---|---|---|---|
-| Backend Dev | 200 jam | Rp 150.000 | Rp 30.000.000 |
-| Frontend Dev | 150 jam | Rp 150.000 | Rp 22.500.000 |
-| DevOps / Setup | 50 jam | Rp 200.000 | Rp 10.000.000 |
-| QA / Testing | 40 jam | Rp 100.000 | Rp 4.000.000 |
-| **TOTAL** | 440 jam | | **Rp 66.500.000** |
-
-**Catatan:** Estimasi kasar. Kalau pakai vendor, bisa 2-3x lebih mahal.
+**Alternatif murah:** Hetzner (€5/bulan) — tapi server di Eropa, latency lebih tinggi.
 
 ---
 
-## 11. Rekomendasi Budget
+## 10. Rekomendasi Budget
 
-### Minimal (Bootstrap)
+### Opsi 1: Minimal (Bootstrap)
 
-- App Server: Hetzner CX22 (€5/bln)
-- Database: Supabase Free
-- Storage: Cloudflare R2 Free (10 GB)
-- CDN: Cloudflare Free
-- **Total: ~$6/bulan** (~Rp 93.000)
+| Komponen | Provider | Biaya/bulan |
+|---|---|---|
+| App Server | Hetzner CX22 | €5 (~$6) |
+| Database | Supabase Free | $0 |
+| Object Storage | Cloudflare R2 Free (10 GB) | $0 |
+| CDN | Cloudflare Free | $0 |
+| Email | Resend Free | $0 |
+| **TOTAL** | | **~$6/bulan** (~Rp 93.000) |
 
-### Standard (Recommended)
+**Cocok untuk:** Testing/development, < 100 user.
 
-- App Server: DigitalOcean 2 vCPU ($24/bln)
-- Database: Supabase Pro ($25/bln)
-- Storage: Cloudflare R2 ($1.50/bln)
-- CDN: Cloudflare Free
-- Email: Resend Free
-- **Total: ~$50/bulan** (~Rp 775.000)
+### Opsi 2: Standard (Recommended)
 
-### Scale (2.000+ user)
+| Komponen | Provider | Biaya/bulan |
+|---|---|---|
+| App Server | DigitalOcean 2 vCPU | $24 |
+| Database | Supabase Pro | $25 |
+| Object Storage | Cloudflare R2 | $1.50 |
+| CDN | Cloudflare Free | $0 |
+| Email | Resend Free | $0 |
+| **TOTAL** | | **~$50/bulan** (~Rp 775.000) |
 
-- App Server: 2× DigitalOcean 4 vCPU ($96/bln)
-- Database: Supabase Medium ($60/bln)
-- Storage: Cloudflare R2 500 GB ($7.50/bln)
-- CDN: Cloudflare Free
-- Email: Resend Pro ($20/bln)
-- **Total: ~$184/bulan** (~Rp 2.850.000)
+**Cocok untuk:** Launch 2026, 5.000+ user.
+
+### Opsi 3: Scale (2.000+ concurrent)
+
+| Komponen | Provider | Biaya/bulan |
+|---|---|---|
+| App Server | 2× DigitalOcean 4 vCPU | $96 |
+| Database | Supabase Medium | $60 |
+| Object Storage | Cloudflare R2 500 GB | $7.50 |
+| CDN | Cloudflare Free | $0 |
+| Email | Resend Pro | $20 |
+| **TOTAL** | ~$184/bulan (~Rp 2.850.000) |
+
+**Cocok untuk:** 2029-2030, 10.000+ user.
+
+---
+
+## 11. Komponen yang TIDAK Masuk Budget
+
+| Komponen | Alasan |
+|---|---|
+| Development (backend, frontend) | Dilakukan internal oleh tim |
+| Design (UI/UX) | Dilakukan internal |
+| Content creation (video, materi) | Dilakukan tim konten |
+| QA & Testing | Dilakukan internal |
+| Deployment setup | Dilakukan internal |
+| Maintenance code | Dilakukan internal |
+
+**Budget ini murni untuk infrastruktur cloud.**
 
 ---
 
@@ -218,4 +245,14 @@
 - [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
 - [ ] Setup payment method (kartu kredit perusahaan)
 - [ ] Setup akun provider: DigitalOcean, Supabase, Cloudflare
-- [ ] Schedule review budget tiap 6 bulan
+- [ ] Schedule review budget tiap 6 bulan (atau saat user > 2.000)
+
+---
+
+## 13. Referensi
+
+1. DigitalOcean Pricing. https://www.digitalocean.com/pricing
+2. Supabase Pricing. https://supabase.com/pricing
+3. Cloudflare R2 Pricing. https://developers.cloudflare.com/r2/pricing/
+4. Resend Pricing. https://resend.com/pricing
+5. Cimory Group HR Data (internal).
