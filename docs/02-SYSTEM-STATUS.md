@@ -134,22 +134,24 @@
 
 ### 4.1 Backend Hybrid
 
+```
 backend/
-├── nestjs/ # NestJS v2 (fitur baru)
-│ ├── src/
-│ │ ├── modules/
-│ │ │ ├── auth/ # ✅ Login, JWT
-│ │ │ ├── chapters/ # ✅ Chapter & modul
-│ │ │ └── storage/ # ✅ Upload ke R2
-│ │ ├── prisma/ # ✅ Prisma service
-│ │ └── main.ts # ✅ Hybrid mount
-│ └── prisma/
+├── nestjs/                 # NestJS v2 (fitur baru)
+│   ├── src/
+│   │   ├── modules/
+│   │   │   ├── auth/       # ✅ Login, JWT
+│   │   │   ├── chapters/   # ✅ Chapter & modul
+│   │   │   └── storage/    # ✅ Upload ke R2
+│   │   ├── prisma/         # ✅ Prisma service
+│   │   └── main.ts         # ✅ Hybrid mount
+│   └── prisma/
 │
-├── legacy-app.js # ✅ Express app
-├── routes/ # ✅ Express routes (fitur lama)
-├── middleware/ # ✅ Auth, upload
-├── services/ # ✅ Badge, email, excel
-└── db/ # ✅ PostgreSQL pool
+├── legacy-app.js           # ✅ Express app
+├── routes/                 # ✅ Express routes (fitur lama)
+├── middleware/             # ✅ Auth, upload
+├── services/               # ✅ Badge, email, excel
+└── db/                     # ✅ PostgreSQL pool
+```
 
 
 ### 4.2 Endpoint Mapping
