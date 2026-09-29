@@ -18,7 +18,7 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 
 ---
 
-## 📋 Daftar Dokumen
+## Daftar Dokumen
 
 | # | Dokumen | Isi |
 |---|---|---|
@@ -32,7 +32,7 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 
 ---
 
-## 🎯 Quick Summary
+## Quick Summary
 
 ### Status Sistem
 
@@ -67,19 +67,6 @@ Dokumentasi ini adalah **pegangan untuk tim IT** tentang sistem Cimory Sales Aca
 | 2029 | 8.392 | ~1.260 | 4 vCPU, 8 GB |
 | 2030 | 10.396 | ~1.560 | 4 vCPU, 8 GB |
 
----
-
-## 🚀 Action Items untuk IT
-
-- [ ] Review semua dokumen
-- [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
-- [ ] Setup VPS (2 vCPU, 4 GB RAM)
-- [ ] Setup Supabase Pro account
-- [ ] Setup Cloudflare R2 bucket
-- [ ] Setup domain & DNS
-- [ ] Schedule deployment meeting
-
----
 
 ## 📞 Kontak
 

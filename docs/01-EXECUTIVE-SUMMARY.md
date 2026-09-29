@@ -142,20 +142,6 @@ Budget ini **hanya infrastruktur cloud**:
 
 **Alasan:** Development dilakukan internal oleh tim.
 
----
-
-## Action Items untuk IT
-
-- [ ] Review dokumen ini
-- [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
-- [ ] Setup VPS (2 vCPU, 4 GB RAM)
-- [ ] Setup Supabase Pro account
-- [ ] Setup Cloudflare R2 bucket
-- [ ] Setup domain & DNS
-- [ ] Schedule deployment meeting
-
----
-
 ## Dokumen Terkait
 
 - **[Index](00-INDEX.md)** — daftar isi lengkap

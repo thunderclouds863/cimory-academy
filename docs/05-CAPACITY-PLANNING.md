@@ -229,10 +229,3 @@
 | 6 | Linode Pricing | 1vps.com/pricing |
 
 ---
-
-## 13. Action Items
-
-- [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
-- [ ] Setup payment method (kartu kredit perusahaan)
-- [ ] Setup akun provider: Vultr, Supabase, Cloudflare
-- [ ] Schedule review budget tiap 6 bulan

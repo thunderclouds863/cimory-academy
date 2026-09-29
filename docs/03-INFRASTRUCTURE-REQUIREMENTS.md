@@ -193,40 +193,7 @@ Berdasarkan R2 benchmark:
 
 **Perhitungan:** 15% diambil dari tengah range. Untuk sistem internal, rasio bisa lebih tinggi.
 
----
-
-## 8. Checklist IT
-
-### Infrastruktur
-- [ ] VPS (2 vCPU, 4 GB RAM minimum)
-- [ ] PostgreSQL database (Supabase Pro)
-- [ ] Cloudflare R2 bucket (cimory-media)
-- [ ] Cloudflare CDN (domain + SSL)
-- [ ] SMTP service (Resend)
-- [ ] Domain (subdomain existing atau baru)
-- [ ] DNS management
-
-### Keamanan
-- [ ] WAF (Cloudflare)
-- [ ] Rate limiting
-- [ ] Secrets management
-- [ ] Backup strategy
-- [ ] Monitoring (UptimeRobot, Sentry)
-- [ ] SSL certificate
-
-### Deployment
-- [ ] CI/CD pipeline (GitLab CI)
-- [ ] Health check endpoint
-- [ ] Rollback strategy
-
-### Akses
-- [ ] GitLab repository (private)
-- [ ] Akses server (SSH key-based)
-- [ ] Akses database (read-only untuk auditor)
-
----
-
-## 9. Referensi Lengkap
+## 8. Referensi Lengkap
 
 | # | Referensi | URL | Digunakan Untuk |
 |---|---|---|---|

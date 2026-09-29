@@ -207,20 +207,8 @@ backend/
 | Q2 2027 | Deploy production + training user | 2 minggu |
 | Q2 2027 | Full launch | — |
 
----
 
-## 8. Action Items untuk IT
-
-- [ ] Review status sistem
-- [ ] Approve budget infrastruktur
-- [ ] Setup environment production
-- [ ] Kolaborasi dengan development untuk deployment
-- [ ] Setup monitoring & backup
-- [ ] Review ulang tiap 3 bulan
-
----
-
-## 9. Referensi
+## 8. Referensi
 
 - **[Infrastructure Requirements](03-INFRASTRUCTURE-REQUIREMENTS.md)**
 - **[Performance Report](04-PERFORMANCE-REPORT.md)**

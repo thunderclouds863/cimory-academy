@@ -1,12 +1,10 @@
-# 🏢 Cimory Sales Academy
+# Cimory Sales Academy
 
 Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
 
 ---
 
-## 📚 Dokumentasi untuk Tim IT
-
-Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen berbentuk **laporan & requirement**, bukan tutorial.
+## Dokumentasi untuk Tim IT
 
 | # | Dokumen | Isi |
 |---|---|---|
@@ -21,7 +19,7 @@ Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen be
 
 ---
 
-## 🎯 Quick Summary
+## Quick Summary
 
 ### Status Sistem
 
@@ -58,7 +56,7 @@ Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen be
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 | Layer | Teknologi |
 |---|---|
@@ -71,7 +69,7 @@ Dokumentasi lengkap sebagai **pegangan IT** tentang sistem ini. Semua dokumen be
 
 ---
 
-## 📊 Fitur Utama
+## Fitur Utama
 
 ### Untuk User (Sales)
 
@@ -137,20 +135,6 @@ Sales-Academy/
 └── tests/                   # Test scripts (k6, benchmark)
     └── load/
 ```
-
----
-
-## 🚀 Action Items untuk IT
-
-- [ ] Review semua dokumen
-- [ ] Approve budget Fase 1 (2026): ~$51-95/bulan
-- [ ] Setup VPS (2 vCPU, 4 GB RAM)
-- [ ] Setup Supabase Pro account
-- [ ] Setup Cloudflare R2 bucket
-- [ ] Setup domain & DNS
-- [ ] Schedule deployment meeting
-
----
 
 ## 📞 Kontak
 
