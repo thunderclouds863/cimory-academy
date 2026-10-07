@@ -1,29 +1,26 @@
-# Cimory Sales Academy
+# 🏢 Cimory Sales Academy
 
-Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
+Platform pembelajaran digital (LMS) untuk tim sales **Cimory Group** & **Kanzler**.
+
+**Status:** Production-ready. 7 performance test PASS.
 
 ---
 
-## Dokumentasi untuk Tim IT
+## 📚 Dokumentasi Handover
+
+Dokumentasi lengkap untuk **handover source code** ke tim IT.
 
 | # | Dokumen | Isi |
 |---|---|---|
-| 1 | **[Index](docs/00-INDEX.md)** | Daftar isi & status sistem |
-| 2 | **[Executive Summary](docs/01-EXECUTIVE-SUMMARY.md)** | Ringkasan 1 halaman |
-| 3 | **[System Status](docs/02-SYSTEM-STATUS.md)** | Status fitur & progress development |
-| 4 | **[Infrastructure Requirements](docs/03-INFRASTRUCTURE-REQUIREMENTS.md)** | Requirement detail |
-| 5 | **[Performance Report](docs/04-PERFORMANCE-REPORT.md)** | Hasil 7 test performance |
-| 6 | **[Capacity Planning](docs/05-CAPACITY-PLANNING.md)** | Forecast kebutuhan |
-| 7 | **[Budget Estimation](docs/06-BUDGET-ESTIMATION.md)** | Budget infrastruktur |
-| 8 | **[Technical Specification](docs/07-TECHNICAL-SPECIFICATION.md)** | Spesifikasi teknis |
+| 1 | **[📌 Handover](docs/HANDOVER.md)** | **Dokumen utama** — handover lengkap |
+| 2 | **[Index](docs/00-INDEX.md)** | Daftar isi |
+| 3 | **[System Status](docs/02-SYSTEM-STATUS.md)** | Status fitur & progress |
+| 4 | **[Performance Report](docs/04-PERFORMANCE-REPORT.md)** | Hasil 7 test |
+| 5 | **[Features Documentation](docs/08-FEATURES-DOCUMENTATION.md)** | Dokumentasi fitur lengkap |
 
 ---
 
-## Quick Summary
-
-### Status Sistem
-
-**Production-ready.** 7 performance test PASS. Error rate < 0.2%.
+## 🎯 Status Sistem
 
 | Layer | Status |
 |---|---|
@@ -33,30 +30,17 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
 | Object Storage (R2) | ✅ Jalan |
 | Frontend | ✅ Jalan |
 
-### Requirement Infrastruktur
+### Done / On Going / Planning
 
-| Komponen | Requirement | Biaya/bulan |
-|---|---|---|
-| App Server | 2 vCPU, 4 GB RAM | $24-48 |
-| Database | 8 GB PostgreSQL managed | $25 |
-| Object Storage | 100 GB, no egress | $1.50 |
-| CDN | Global, unlimited | $0 |
-| Email | 10.000 email/bulan | $0-20 |
-| **TOTAL** | | **$51-95/bulan** |
-
-### Forecast Kebutuhan
-
-| Tahun | Total User | Peak Concurrent | Server Spec |
-|---|---|---|---|
-| 2026 | 5.146 | ~770 | 2 vCPU, 4 GB |
-| 2027 | 6.272 | ~940 | 2 vCPU, 4 GB |
-| 2028 | 7.347 | ~1.100 | 2 vCPU, 4 GB |
-| 2029 | 8.392 | ~1.260 | 4 vCPU, 8 GB |
-| 2030 | 10.396 | ~1.560 | 4 vCPU, 8 GB |
+| Kategori | Item |
+|---|---|
+| **✅ Done** | Auth, chapters, quizzes, flashcards, badges, leaderboard, reports, admin panel, security |
+| **🚧 On Going** | Migrasi backend Express → NestJS (40%), setup CI/CD, monitoring |
+| **📋 Planning** | Unit testing, migrasi frontend, multi-department, HLS streaming |
 
 ---
 
-## Tech Stack
+## 🏗️ Tech Stack
 
 | Layer | Teknologi |
 |---|---|
@@ -66,41 +50,6 @@ Platform pembelajaran digital untuk tim sales **Cimory Group** & **Kanzler**.
 | Object Storage | Cloudflare R2 (S3-compatible) |
 | CDN | Cloudflare |
 | Auth | JWT |
-
----
-
-## Fitur Utama
-
-### Untuk User (Sales)
-
-- **Dashboard** — Progress ring, stats (XP/streak/badge), preview leaderboard
-- **Belajar** — Chapter → modul linear dengan video player anti-skip
-- **Kuis Chapter** — 1 kuis per chapter, terkunci sampai semua modul selesai
-- **Quiz Bulanan** — Event bulanan, hanya bisa dikerjakan 1×
-- **Fun Fact** — Kartu flip 3D dengan fakta menarik
-- **Badges** — 6 tipe kondisi (modules, streak, chapter, perfectQuiz, flashcards, allModules)
-- **Leaderboard** — Top Trainee & Quiz Bulanan dengan hadiah
-- **Reports** — Embed Power BI dengan access control
-
-### Untuk Admin
-
-- **Dashboard** — Statistik user, top 5 trainee, banner quiz aktif
-- **Chapter & Modul** — CRUD lengkap, upload video
-- **Kuis Chapter** — Import Excel, view soal
-- **Quiz Bulanan** — CRUD, import Excel, toggle active
-- **Fun Fact** — CRUD + import Excel
-- **Badges** — CRUD, lihat owners
-- **Users** — CRUD, reset password, import Excel
-- **Leaderboard** — Set hadiah, announcement, generate winners
-- **Reports** — CRUD, access control, analytics
-
-### Fitur Keamanan
-
-- **Screenshot Guard** — Deteksi PrintScreen, Ctrl+P/S, Cmd+Shift+3/4/5
-- **Video Guard** — Pause otomatis saat blur/tab switch
-- **Anti-skip** — Seeking ke depan di-reset
-- **Rate Limiting** — Di endpoint login
-- **JWT** — Token-based auth dengan expiry 8 jam
 
 ---
 
@@ -122,25 +71,41 @@ Sales-Academy/
 │   ├── css/                 # Style & admin CSS
 │   └── assets/              # Logo, mascot
 │
-├── docs/                    # 📚 Dokumentasi IT
+├── docs/                    # 📚 Dokumentasi handover
+│   ├── HANDOVER.md
 │   ├── 00-INDEX.md
-│   ├── 01-EXECUTIVE-SUMMARY.md
 │   ├── 02-SYSTEM-STATUS.md
-│   ├── 03-INFRASTRUCTURE-REQUIREMENTS.md
 │   ├── 04-PERFORMANCE-REPORT.md
-│   ├── 05-CAPACITY-PLANNING.md
-│   ├── 06-BUDGET-ESTIMATION.md
-│   └── 07-TECHNICAL-SPECIFICATION.md
+│   └── 08-FEATURES-DOCUMENTATION.md
 │
 └── tests/                   # Test scripts (k6, benchmark)
     └── load/
 ```
 
+---
+
+## 🔮 Future Roadmap
+
+**Current:** LMS khusus tim sales
+**Future:** LMS untuk semua divisi Cimory Group
+
+**Perubahan yang dibutuhkan:**
+- Multi-tenant (support multiple department)
+- Custom branding per department
+- Role per department
+- Learning path custom per role
+
+**Estimasi:** ~3 bulan development.
+
+Detail lengkap: lihat **[Handover](docs/HANDOVER.md)** section 8.
+
+---
+
 ## 📞 Kontak
 
 | Role | Kontak |
 |---|---|
-| **Project Owner** | [Desi Armanda Sari] — [desi.armanda@cimory.com] |
+| **Project Owner** | Desi Armanda Sari — desi.armanda@cimory.com |
 | **Repository** | https://gitlab.com/decision-support-system-group/cimory-academy |
 
 ---
@@ -153,4 +118,4 @@ Konten, video, dan materi pembelajaran adalah properti Cimory Group & Kanzler. D
 
 ---
 
-**Last Updated:** 29 September 2026
+**Last Updated:** 6 Oktober 2026
