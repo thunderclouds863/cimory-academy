@@ -95,8 +95,6 @@ Sales-Academy/
 - Role per department
 - Learning path custom per role
 
-**Estimasi:** ~3 bulan development.
-
 Detail lengkap: lihat **[Handover](docs/HANDOVER.md)** section 8.
 
 ---
