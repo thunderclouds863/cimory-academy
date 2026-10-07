@@ -180,8 +180,6 @@ backend/
 | CDN | Global, unlimited bandwidth | Akses dari seluruh Indonesia |
 | Email | 10.000 email/bulan | Reset password, notifikasi |
 
-**Biaya:** ~$51-95/bulan
-
 ---
 
 ## 6. Risk & Mitigation

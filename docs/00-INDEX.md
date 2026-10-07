@@ -59,7 +59,6 @@ Dokumentasi ini adalah **pegangan handover untuk tim IT** tentang sistem Cimory 
 **Future:** LMS untuk semua divisi Cimory Group
 
 **Perubahan:** Multi-tenant, custom branding, role per department, learning path.
-**Estimasi:** ~3 bulan development.
 
 ---
 
