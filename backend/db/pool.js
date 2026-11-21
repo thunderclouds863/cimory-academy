@@ -13,7 +13,16 @@ dotenv.config({ path: path.join(__dirname, "..", ".env") });
 console.log("[pool.js] PGUSER:", process.env.PGUSER);
 console.log("[pool.js] PGDATABASE:", process.env.PGDATABASE);
 
+// DATABASE_URL (mis. Neon/Render) diprioritaskan; kalau tidak ada pakai PG* vars
+const connection = process.env.DATABASE_URL
+  ? {
+      connectionString: process.env.DATABASE_URL,
+      ssl: process.env.PGSSL === "disable" ? false : { rejectUnauthorized: false }
+    }
+  : {};
+
 export const pool = new pg.Pool({
+  ...connection,
   host: process.env.PGHOST,
   port: Number(process.env.PGPORT || 5432),
   user: process.env.PGUSER,

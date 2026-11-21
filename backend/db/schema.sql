@@ -241,3 +241,38 @@ ALTER TABLE leaderboard_config
 
 ALTER TABLE leaderboard_config
   ADD COLUMN IF NOT EXISTS winners_popup_end TIMESTAMPTZ;
+-- ===== Power BI reports (sinkron dengan nestjs/prisma/schema.prisma) =====
+CREATE TABLE IF NOT EXISTS reports (
+  id          SERIAL PRIMARY KEY,
+  slug        VARCHAR(80) UNIQUE NOT NULL,
+  title       TEXT NOT NULL,
+  description TEXT,
+  embed_url   TEXT NOT NULL,
+  icon        VARCHAR(10) DEFAULT '📊',
+  sort_order  INT NOT NULL DEFAULT 0,
+  is_active   BOOLEAN NOT NULL DEFAULT TRUE,
+  created_by  INT REFERENCES users(id),
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_reports_active ON reports(is_active);
+CREATE INDEX IF NOT EXISTS idx_reports_slug ON reports(slug);
+
+CREATE TABLE IF NOT EXISTS report_access (
+  report_id  INT NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+  user_id    INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  granted_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  granted_by INT REFERENCES users(id),
+  PRIMARY KEY (report_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_report_access_user ON report_access(user_id);
+
+CREATE TABLE IF NOT EXISTS report_views (
+  id        SERIAL PRIMARY KEY,
+  report_id INT NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+  user_id   INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  viewed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_report_views_report ON report_views(report_id);
+CREATE INDEX IF NOT EXISTS idx_report_views_user ON report_views(user_id);
+CREATE INDEX IF NOT EXISTS idx_report_views_time ON report_views(viewed_at DESC);
