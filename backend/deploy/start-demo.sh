@@ -11,6 +11,7 @@ su postgres -c "$PGBIN/pg_ctl -D $PGDATA -o '-c listen_addresses=127.0.0.1 -p $P
 export DATABASE_URL="postgres://postgres@127.0.0.1:$PGPORT/academy"
 export JWT_SECRET="${JWT_SECRET:-$(head -c 32 /dev/urandom | base64)}"
 cd "$(dirname "$0")/.."
+cp deploy/demo-banner.js ../frontend/demo-banner.js
 node db/migrate.js
 node db/seed.js
 exec node server.js
