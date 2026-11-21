@@ -1,0 +1,12 @@
+# Render Blueprint untuk instance DEMO portfolio
+services:
+  - type: web
+    name: cimory-academy-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
