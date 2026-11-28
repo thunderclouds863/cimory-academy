@@ -62,7 +62,7 @@ app.use(
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: "5mb" }));
-app.use("/uploads", express.static(path.join(__dirname, process.env.UPLOAD_DIR || "uploads")));
+app.use("/uploads", express.static(path.resolve(__dirname, process.env.UPLOAD_DIR || "uploads")));
 
 app.use("/", express.static(path.join(__dirname, "../frontend")));
 

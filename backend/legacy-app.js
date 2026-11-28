@@ -64,7 +64,7 @@ export function createLegacyApp() {
   );
 
   app.use(cors({ origin: true, credentials: true }));
-  app.use("/uploads", express.static(path.join(__dirname, process.env.UPLOAD_DIR || "uploads")));
+  app.use("/uploads", express.static(path.resolve(__dirname, process.env.UPLOAD_DIR || "uploads")));
 
   // Rate limit khusus login
   app.use("/api/auth/login", rateLimit({ windowMs: 15 * 60 * 1000, max: 20 }));
