@@ -6,6 +6,5 @@ cd "$(dirname "$0")/.."
 : "${JWT_SECRET:?JWT_SECRET belum di-set}"
 # Upload sampel ikut ke /tmp (filesystem container read-only di luar /tmp, dan ephemeral)
 mkdir -p "$UPLOAD_DIR" && cp -rn uploads/. "$UPLOAD_DIR"/ 2>/dev/null || true
-node db/migrate.js
-node db/seed.js
+node deploy/migrate-locked.js
 exec node server.js
