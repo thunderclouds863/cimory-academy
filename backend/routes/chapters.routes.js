@@ -23,7 +23,9 @@ r.get("/", async (_req, res) => {
         id: m.id, no: m.no, title: m.title,
         duration: m.duration_sec ? fmtDuration(m.duration_sec) : (m.duration || ""),
         durationSec: m.duration_sec || null,
-        video: m.video_path ? `/${m.video_path}` : "",
+        video: m.video_path
+          ? (/^https?:\/\//i.test(m.video_path) ? m.video_path : `/${m.video_path.replace(/^\/+/, "")}`)
+          : "",
         summary: m.summary
       }))
   }));

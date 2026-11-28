@@ -2175,7 +2175,7 @@
             <h2 class="popup-title">${UI.esc(p.title || "Pengumuman")}</h2>
 
             ${p.image ? `
-              <img class="popup-announce-img" src="/${p.image.replace(/^\/?/, "")}"
+              <img class="popup-announce-img" src="${/^https?:\/\//i.test(p.image) ? p.image : "/" + p.image.replace(/^\/?/, "")}"
                   alt="announcement" onerror="this.style.display='none'">
             ` : ""}
 

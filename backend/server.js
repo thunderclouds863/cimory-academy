@@ -4,7 +4,12 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import path from "node:path";
+import crypto from "node:crypto";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
+
+const execFileAsync = promisify(execFile);
 
 import authRoutes from "./routes/auth.routes.js";
 import chapterRoutes from "./routes/chapters.routes.js";
@@ -78,6 +83,29 @@ app.use("/api/rewards", rewardsRoutes);
 app.use("/api/monthly-quiz", monthlyQuizRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/upload", uploadRoutes);
+
+app.post("/api/demo/reset", async (req, res) => {
+  const expected = process.env.DEMO_RESET_SECRET || "";
+  if (!expected) return res.status(503).json({ ok: false, error: "DEMO_RESET_SECRET not configured" });
+  const auth = String(req.headers.authorization || "");
+  const provided = auth.startsWith("Bearer ") ? auth.slice(7).trim() : String(req.headers["x-demo-reset-secret"] || "");
+  const a = Buffer.from(expected);
+  const b = Buffer.from(provided);
+  if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {
+    return res.status(401).json({ ok: false, error: "Unauthorized" });
+  }
+  try {
+    await execFileAsync(process.execPath, [path.join(__dirname, "deploy/migrate-locked.js"), "--force"], {
+      cwd: __dirname,
+      env: process.env,
+      timeout: 120000,
+    });
+    return res.json({ ok: true, app: "cimory-academy-demo", reset_at: new Date().toISOString() });
+  } catch (err) {
+    console.error("Demo reset failed:", err);
+    return res.status(500).json({ ok: false, error: err.message });
+  }
+});
 
 app.get(/^(?!\/api|\/uploads).*/, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));

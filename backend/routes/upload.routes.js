@@ -13,9 +13,43 @@ import { query } from "../db/pool.js";
 const r = Router();
 r.use(requireAuth, requireAdmin);
 
-r.post("/video", uploadVideo.single("video"), (req, res) => {
-  if (!req.file) return res.status(400).json({ error: "Tidak ada file" });
-  res.json({ path: `uploads/videos/${req.file.filename}` });
+async function uploadToVercelBlob(filePath, pathname, contentType) {
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
+  if (!token) return null;
+  const buf = await fs.promises.readFile(filePath);
+  const cleanPath = pathname.replace(/^\/+/, "");
+  const encoded = cleanPath.split("/").map(encodeURIComponent).join("/");
+  const resp = await fetch(`https://blob.vercel-storage.com/${encoded}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "x-api-version": "7",
+      "x-add-random-suffix": "1",
+      "x-access": "public",
+      "x-content-type": contentType || "application/octet-stream",
+      "Content-Type": contentType || "application/octet-stream",
+    },
+    body: buf,
+  });
+  if (!resp.ok) {
+    const errText = await resp.text().catch(() => "");
+    throw new Error(`Vercel Blob upload failed (${resp.status}): ${errText}`);
+  }
+  const data = await resp.json();
+  await fs.promises.unlink(filePath).catch(() => {});
+  return data.url;
+}
+
+r.post("/video", uploadVideo.single("video"), async (req, res, next) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: "Tidak ada file" });
+    const blobUrl = await uploadToVercelBlob(
+      req.file.path,
+      `cimory/videos/${req.file.filename}`,
+      req.file.mimetype || "video/mp4"
+    );
+    res.json({ path: blobUrl || `uploads/videos/${req.file.filename}` });
+  } catch (e) { next(e); }
 });
 
 const IMG_ROOT = process.env.UPLOAD_DIR || "uploads";
@@ -38,9 +72,16 @@ const uploadImage = multer({
   }
 });
 
-r.post("/image", uploadImage.single("image"), (req, res) => {
-  if (!req.file) return res.status(400).json({ error: "Tidak ada file" });
-  res.json({ path: `uploads/images/${req.file.filename}` });
+r.post("/image", uploadImage.single("image"), async (req, res, next) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: "Tidak ada file" });
+    const blobUrl = await uploadToVercelBlob(
+      req.file.path,
+      `cimory/images/${req.file.filename}`,
+      req.file.mimetype || "image/jpeg"
+    );
+    res.json({ path: blobUrl || `uploads/images/${req.file.filename}` });
+  } catch (e) { next(e); }
 });
 
 r.post("/excel/quiz/preview", uploadExcel.single("file"), async (req, res, next) => {

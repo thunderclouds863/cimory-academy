@@ -788,7 +788,7 @@ async function modalAnnouncement(period) {
           <input id="imgFile" type="file" accept="image/*" hidden>
         </div>
         <div id="imgPreviewWrap" style="margin-top:10px; display:${config.image ? "block" : "none"}">
-          <img id="imgPreview" src="${config.image ? "/" + config.image.replace(/^\/?/, "") : ""}"
+          <img id="imgPreview" src="${config.image ? (/^https?:\/\//i.test(config.image) ? config.image : "/" + config.image.replace(/^\/?/, "")) : ""}"
                style="max-width:100%;border-radius:12px;border:1px solid var(--line-2);max-height:200px">
           <button class="btn btn-ghost btn-sm" id="removeImgBtn" style="margin-top:6px">🗑️ Hapus Gambar</button>
         </div>
@@ -855,7 +855,7 @@ async function modalAnnouncement(period) {
           const fd = new FormData();
           fd.append("image", file);
           const r = await API.call("/upload/image", { method: "POST", body: fd, raw: true });
-          preview.src = "/" + r.path.replace(/^\/?/, "");
+          preview.src = /^https?:\/\//i.test(r.path) ? r.path : "/" + r.path.replace(/^\/?/, "");
           preview.dataset.path = r.path;
           previewWrap.style.display = "block";
           status.textContent = "✅ Terupload";

@@ -14,7 +14,7 @@
       return '<tr><td>' + a[0] + '</td><td><code>' + a[1] + '</code></td><td><code>' + a[2] + '</code></td></tr>';
     }).join('');
     box.innerHTML = '<button aria-label="Tutup" style="float:right;border:0;background:none;font-size:16px;cursor:pointer;color:#888">&times;</button>' +
-      '<strong>Akun Demo</strong><span style="color:#777"> · data contoh, reset otomatis</span>' +
+      '<strong>Akun Demo</strong><span style="color:#777"> · data contoh, reset otomatis tiap minggu</span>' +
       '<table style="margin-top:6px;border-collapse:collapse;width:100%;font-size:12px">' +
       '<tr style="color:#777"><td>Role</td><td>User</td><td>Password</td></tr>' + rows + '</table>' +
       (note ? '<p style="margin:6px 0 0;font-size:12px;color:#555">' + note + '</p>' : '');
